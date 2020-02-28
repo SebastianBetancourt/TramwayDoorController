@@ -1,0 +1,12 @@
+*** Post-namespace Warning (WAR_508): Unused flow
+  at file C:\Users\SEBAST~1\AppData\Local\Temp\ScadeChecker\4452\checker_file.scade, line 176, character 0
+  at path Button/Button:notPressed:_L3/
+ The local variable _L3 is never used
+*** Post-namespace Warning (WAR_508): Unused flow
+  at file C:\Users\SEBAST~1\AppData\Local\Temp\ScadeChecker\4452\checker_file.scade, line 210, character 0
+  at path Button/Button:pressed:_L2/
+ The local variable _L2 is never used
+*** Post-namespace Warning (WAR_508): Unused flow
+  at file C:\Users\SEBAST~1\AppData\Local\Temp\ScadeChecker\4452\checker_file.scade, line 138, character 0
+  at path Button/pressed/
+ The input variable pressed is never used
