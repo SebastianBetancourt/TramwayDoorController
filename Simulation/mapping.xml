@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/config.txt
+** Generation date: 2020-02-29T16:05:35
+*************************************************************$-->
+<mapping>
+  <config>
+    <option name="use_types" value="#off#"/>
+    <option name="imported_root_package" value="#off#"/>
+    <option name="root_package" value="#off#"/>
+    <option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <option name="state_vector" value="#off#"/>
+    <option name="static" value="#off#"/>
+    <option name="separate_io_all" value="#off#"/>
+    <option name="no_separate_io" value="#off#"/>
+    <option name="separate_io" value="#off#"/>
+    <option name="warn_error" value="#off#"/>
+    <option name="short_circuit" value="#off#"/>
+    <option name="wrap_c_ops" value="#off#"/>
+    <option name="input_file"
+        value="C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/scade_model_without_unused.scade"/>
+    <option name="probes" value="#on#"/>
+    <option name="no_observe" value="#off#"/>
+    <option name="observe" value="#off#"/>
+    <option name="debug" value="#on#"/>
+    <option name="user_config" value="./user_macros.h"/>
+    <option name="input_threshold" value="#off#"/>
+    <option name="header" value="#off#"/>
+    <option name="significance_length" value="31"/>
+    <option name="name_length" value="200"/>
+    <option name="globals_prefix" value="#off#"/>
+    <option name="keep_asserts" value="#off#"/>
+    <option name="global_root_context" value="#off#"/>
+    <option name="expall" value="#off#"/>
+    <option name="noexp" value="#off#"/>
+    <option name="exp" value="#off#"/>
+    <option name="target_dir" value="C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation"/>
+    <option name="target" value="C"/>
+    <option name="root" value="Button"/>
+    <option name="auth" value="#off#"/>
+  </config>
+  <model>
+    <predefType id="1" name="bool"/>
+    <predefType id="2" name="char"/>
+    <predefType id="3" name="int8"/>
+    <predefType id="4" name="int16"/>
+    <predefType id="5" name="int32"/>
+    <predefType id="6" name="int64"/>
+    <predefType id="7" name="uint8"/>
+    <predefType id="8" name="uint16"/>
+    <predefType id="9" name="uint32"/>
+    <predefType id="10" name="uint64"/>
+    <predefType id="11" name="float32"/>
+    <predefType id="12" name="float64"/>
+    <predefType id="13" name="size"/>
+    <operator id="14" name="Button" imported="false" root="true" expanded="false">
+      <input id="15" name="clicked" clock="false" type="1"/>
+      <input id="16" name="deactivate" clock="false" type="1"/>
+      <output id="17" name="activated" clock="false" type="1"/>
+      <automaton id="18" name="Button">
+        <state id="19" name="notPressed" initial="true" final="false" default="false">
+          <local id="20" name="_L2" clock="false" type="1"/>
+          <local id="21" name="_L3" clock="false" type="1"/>
+          <fork id="22" name="1" kind="strong">
+            <transition id="23" dest="24"/>
+          </fork>
+        </state>
+        <state id="24" name="pressed" initial="false" final="false" default="false">
+          <local id="25" name="_L1" clock="false" type="1"/>
+          <local id="26" name="_L2" clock="false" type="1"/>
+          <fork id="27" name="1" kind="strong">
+            <transition id="28" dest="19"/>
+          </fork>
+        </state>
+      </automaton>
+    </operator>
+  </model>
+  <generated>
+    <c>
+      <file id="29" name="Button.h">
+        <function id="30" name="Button_init">
+          <parameter id="31" name="outC" type="37" pointer="true"/>
+        </function>
+        <function id="32" name="Button_reset">
+          <parameter id="33" name="outC" type="37" pointer="true"/>
+        </function>
+        <function id="34" name="Button">
+          <parameter id="35" name="inC" type="50" pointer="true"/>
+          <parameter id="36" name="outC" type="37" pointer="true"/>
+        </function>
+        <struct id="37" name="outC_Button">
+          <field id="38" name="activated" type="95" pointer="false"/>
+          <field id="39" name="Button_state_nxt" type="54" pointer="false"/>
+          <field id="40" name="Button_reset_act" type="95" pointer="false"/>
+          <field id="41" name="Button_reset_nxt" type="95" pointer="false"/>
+          <field id="42" name="Button_state_act" type="54" pointer="false"/>
+          <field id="43" name="_L3_notPressed_Button" type="95" pointer="false"/>
+          <field id="44" name="_L2_notPressed_Button" type="95" pointer="false"/>
+          <field id="45" name="_L2_pressed_Button" type="95" pointer="false"/>
+          <field id="46" name="_L1_pressed_Button" type="95" pointer="false"/>
+          <field id="47" name="Button_state_sel" type="54" pointer="false"/>
+          <field id="48" name="Button_fired_strong" type="57" pointer="false"/>
+          <field id="49" name="Button_fired" type="57" pointer="false"/>
+        </struct>
+        <struct id="50" name="inC_Button">
+          <field id="51" name="clicked" type="95" pointer="false"/>
+          <field id="52" name="deactivate" type="95" pointer="false"/>
+        </struct>
+      </file>
+      <file id="53" name="kcg_types.h">
+        <enum id="54" name="SSM_ST_Button" tagName="kcg_tag_SSM_ST_Button">
+          <value id="55" name="SSM_st_notPressed_Button"/>
+          <value id="56" name="SSM_st_pressed_Button"/>
+        </enum>
+        <enum id="57" name="SSM_TR_Button" tagName="kcg_tag_SSM_TR_Button">
+          <value id="58" name="SSM_TR_no_trans_Button"/>
+          <value id="59" name="SSM_TR_notPressed_pressed_1_notPressed_Button"/>
+          <value id="60" name="SSM_TR_pressed_notPressed_1_pressed_Button"/>
+        </enum>
+        <macro id="61" name="kcg_assign_array"/>
+        <macro id="62" name="kcg_assign_struct"/>
+        <macro id="63" name="kcg_lnot_uint8"/>
+        <macro id="64" name="kcg_lnot_uint16"/>
+        <macro id="65" name="kcg_lnot_uint32"/>
+        <macro id="66" name="kcg_lnot_uint64"/>
+        <macro id="67" name="kcg_lsl_uint8"/>
+        <macro id="68" name="kcg_lsl_uint16"/>
+        <macro id="69" name="kcg_lsl_uint32"/>
+        <macro id="70" name="kcg_lsl_uint64"/>
+        <macro id="71" name="kcg_true"/>
+        <macro id="72" name="kcg_false"/>
+        <macro id="73" name="kcg_lit_int8"/>
+        <macro id="74" name="kcg_lit_int16"/>
+        <macro id="75" name="kcg_lit_int32"/>
+        <macro id="76" name="kcg_lit_int64"/>
+        <macro id="77" name="kcg_lit_uint8"/>
+        <macro id="78" name="kcg_lit_uint16"/>
+        <macro id="79" name="kcg_lit_uint32"/>
+        <macro id="80" name="kcg_lit_uint64"/>
+        <macro id="81" name="kcg_lit_size"/>
+        <macro id="82" name="kcg_lit_float64"/>
+        <macro id="83" name="kcg_lit_float32"/>
+        <predefType id="84" name="kcg_int8"/>
+        <predefType id="85" name="kcg_int16"/>
+        <predefType id="86" name="kcg_int32"/>
+        <predefType id="87" name="kcg_int64"/>
+        <predefType id="88" name="kcg_uint8"/>
+        <predefType id="89" name="kcg_uint16"/>
+        <predefType id="90" name="kcg_uint32"/>
+        <predefType id="91" name="kcg_uint64"/>
+        <predefType id="92" name="kcg_size"/>
+        <predefType id="93" name="kcg_float64"/>
+        <predefType id="94" name="kcg_float32"/>
+        <predefType id="95" name="kcg_bool"/>
+        <predefType id="96" name="kcg_char"/>
+        <macro id="97" name="KCG_MAPW_CPY"/>
+      </file>
+      <file id="98" name="kcg_consts.h"/>
+      <file id="99" name="kcg_sensors.h"/>
+    </c>
+    <map srcId="93" dstId="82" role="wrapped-lit"/>
+    <map srcId="94" dstId="83" role="wrapped-lit"/>
+    <map srcId="92" dstId="81" role="wrapped-lit"/>
+    <map srcId="91" dstId="80" role="wrapped-lit"/>
+    <map srcId="91" dstId="66" role="wrapped-lnot"/>
+    <map srcId="91" dstId="70" role="wrapped-lsl"/>
+    <map srcId="90" dstId="79" role="wrapped-lit"/>
+    <map srcId="90" dstId="65" role="wrapped-lnot"/>
+    <map srcId="90" dstId="69" role="wrapped-lsl"/>
+    <map srcId="89" dstId="78" role="wrapped-lit"/>
+    <map srcId="89" dstId="64" role="wrapped-lnot"/>
+    <map srcId="89" dstId="68" role="wrapped-lsl"/>
+    <map srcId="88" dstId="77" role="wrapped-lit"/>
+    <map srcId="88" dstId="63" role="wrapped-lnot"/>
+    <map srcId="88" dstId="67" role="wrapped-lsl"/>
+    <map srcId="87" dstId="76" role="wrapped-lit"/>
+    <map srcId="86" dstId="75" role="wrapped-lit"/>
+    <map srcId="85" dstId="74" role="wrapped-lit"/>
+    <map srcId="84" dstId="73" role="wrapped-lit"/>
+    <map srcId="46" dstId="42" role="clock"/>
+    <map srcId="46" dstId="56" role="clock-value"/>
+    <map srcId="45" dstId="42" role="clock"/>
+    <map srcId="45" dstId="56" role="clock-value"/>
+    <map srcId="44" dstId="42" role="clock"/>
+    <map srcId="44" dstId="55" role="clock-value"/>
+    <map srcId="43" dstId="42" role="clock"/>
+    <map srcId="43" dstId="55" role="clock-value"/>
+  </generated>
+  <map modelId="23" generatedId="59"/>
+  <map modelId="18" generatedId="58" role="autom-no-trans-enum"/>
+  <map modelId="28" generatedId="60"/>
+  <map modelId="24" generatedId="56"/>
+  <map modelId="19" generatedId="55"/>
+  <map modelId="14" generatedId="31" role="context-parameter"/>
+  <map modelId="14" generatedId="30" role="init-method"/>
+  <map modelId="14" generatedId="33" role="context-parameter"/>
+  <map modelId="14" generatedId="32" role="reset-method"/>
+  <map modelId="14" generatedId="35" role="input-struct-parameter"/>
+  <map modelId="16" generatedId="52"/>
+  <map modelId="15" generatedId="51"/>
+  <map modelId="14" generatedId="50" role="input-struct-type"/>
+  <map modelId="14" generatedId="36" role="context-parameter"/>
+  <map modelId="18" generatedId="49" role="autom-weak-transition"/>
+  <map modelId="18" generatedId="48" role="autom-strong-transition"/>
+  <map modelId="18" generatedId="47" role="autom-selected-state"/>
+  <map modelId="25" generatedId="46"/>
+  <map modelId="26" generatedId="45"/>
+  <map modelId="20" generatedId="44"/>
+  <map modelId="21" generatedId="43"/>
+  <map modelId="18" generatedId="42" role="autom-active-state"/>
+  <map modelId="18" generatedId="41" role="autom-next-reset"/>
+  <map modelId="18" generatedId="40" role="autom-active-reset"/>
+  <map modelId="18" generatedId="39" role="autom-next-state"/>
+  <map modelId="17" generatedId="38"/>
+  <map modelId="14" generatedId="37" role="context-type"/>
+  <map modelId="14" generatedId="29" role="interface-file"/>
+  <map modelId="14" generatedId="34" role="cycle-method"/>
+  <map modelId="18" generatedId="57" role="autom-transitions-type"/>
+  <map modelId="18" generatedId="54" role="autom-states-type"/>
+  <map modelId="2" generatedId="96"/>
+  <map modelId="1" generatedId="95"/>
+  <map modelId="12" generatedId="93"/>
+  <map modelId="11" generatedId="94"/>
+  <map modelId="13" generatedId="92"/>
+  <map modelId="10" generatedId="91"/>
+  <map modelId="9" generatedId="90"/>
+  <map modelId="8" generatedId="89"/>
+  <map modelId="7" generatedId="88"/>
+  <map modelId="6" generatedId="87"/>
+  <map modelId="5" generatedId="86"/>
+  <map modelId="4" generatedId="85"/>
+  <map modelId="3" generatedId="84"/>
+</mapping>
+<!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** mapping.xml
+** Generation date: 2020-02-29T16:05:35
+*************************************************************$-->

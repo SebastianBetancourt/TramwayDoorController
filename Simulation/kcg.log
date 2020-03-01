@@ -1,0 +1,19 @@
+$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/config.txt
+** Generation date: 2020-02-29T16:05:32
+*************************************************************$
+*** Post-namespace Warning (WAR_508): Unused flow
+  at file C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/scade_model_without_unused.scade, line 172, character 0
+  at path Button/Button:notPressed:_L3/
+ The local variable _L3 is never used
+*** Post-namespace Warning (WAR_508): Unused flow
+  at file C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/scade_model_without_unused.scade, line 206, character 0
+  at path Button/Button:pressed:_L2/
+ The local variable _L2 is never used
+2 warnings were found
+No error was found
+No failure occurred
+$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** kcg.log
+** Generation date: 2020-02-29T16:05:35
+*************************************************************$

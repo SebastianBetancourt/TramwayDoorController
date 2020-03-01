@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+  <Model commandLine="" date="">
+    <Option name="use_types" value="#off#"/>
+    <Option name="imported_root_package" value="#off#"/>
+    <Option name="root_package" value="#off#"/>
+    <Option name="xml_basename" value="kcg_xml_filter_out.scade"/>
+    <Option name="state_vector" value="#off#"/>
+    <Option name="static" value="#off#"/>
+    <Option name="separate_io_all" value="#off#"/>
+    <Option name="no_separate_io" value="#off#"/>
+    <Option name="separate_io" value="#off#"/>
+    <Option name="warn_error" value="#off#"/>
+    <Option name="short_circuit" value="#off#"/>
+    <Option name="wrap_c_ops" value="#off#"/>
+    <Option name="input_file" value="C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/scade_model_without_unused.scade"/>
+    <Option name="probes" value="#on#"/>
+    <Option name="no_observe" value="#off#"/>
+    <Option name="observe" value="#off#"/>
+    <Option name="debug" value="#on#"/>
+    <Option name="user_config" value="./user_macros.h"/>
+    <Option name="input_threshold" value="#off#"/>
+    <Option name="header" value="#off#"/>
+    <Option name="significance_length" value="31"/>
+    <Option name="name_length" value="200"/>
+    <Option name="globals_prefix" value="#off#"/>
+    <Option name="keep_asserts" value="#off#"/>
+    <Option name="global_root_context" value="#off#"/>
+    <Option name="expall" value="#off#"/>
+    <Option name="noexp" value="#off#"/>
+    <Option name="exp" value="#off#"/>
+    <Option name="target_dir" value="C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation"/>
+    <Option name="target" value="C"/>
+    <Option name="root" value="Button"/>
+    <Option name="auth" value="#off#"/>
+    <RootNode headerFile="Button.h" scadeName="Button" targetCycleFct="Button" targetInitFct="Button_reset" targetInitializationFct="Button_init">
+      <Input inCtx="true" scadeName="clicked" scadeType="bool" targetName="clicked" targetType="kcg_bool"/>
+      <Input inCtx="true" scadeName="deactivate" scadeType="bool" targetName="deactivate" targetType="kcg_bool"/>
+      <Output inCtx="true" scadeName="activated" scadeType="bool" targetName="activated" targetType="kcg_bool"/>
+      <Automaton scadeName="Button" targetStatesType="SSM_ST_Button" targetTransitionsType="SSM_TR_Button">
+        <State scadeName="notPressed" targetName="SSM_st_notPressed_Button">
+          <Local clockVal="SSM_st_notPressed_Button" clockVar="Button_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_notPressed_Button" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_notPressed_Button" clockVar="Button_state_act" inCtx="true" scadeName="_L3" scadeType="bool" targetName="_L3_notPressed_Button" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="pressed" targetName="SSM_TR_notPressed_pressed_1_notPressed_Button"/>
+          </Fork>
+        </State>
+        <State scadeName="pressed" targetName="SSM_st_pressed_Button">
+          <Local clockVal="SSM_st_pressed_Button" clockVar="Button_state_act" inCtx="true" scadeName="_L1" scadeType="bool" targetName="_L1_pressed_Button" targetType="kcg_bool"/>
+          <Local clockVal="SSM_st_pressed_Button" clockVar="Button_state_act" inCtx="true" scadeName="_L2" scadeType="bool" targetName="_L2_pressed_Button" targetType="kcg_bool"/>
+          <Fork priority="1">
+            <Condition/>
+            <Transition kind="strong" scadeDest="notPressed" targetName="SSM_TR_pressed_notPressed_1_pressed_Button"/>
+          </Fork>
+        </State>
+        <ActiveState inCtx="true" targetName="Button_state_act"/>
+        <SelectedState inCtx="true" targetName="Button_state_sel"/>
+        <NextState inCtx="true" mem="true" targetName="Button_state_nxt"/>
+        <ResetActiveState inCtx="true" mem="true" targetName="Button_reset_act"/>
+        <ResetNextState inCtx="true" mem="true" targetName="Button_reset_nxt"/>
+        <StrongTransition inCtx="true" targetName="Button_fired_strong"/>
+        <WeakTransition inCtx="true" targetName="Button_fired"/>
+      </Automaton>
+      <Memory inCtx="true" targetName="Button_state_nxt" targetType="SSM_ST_Button"/>
+      <Clock inCtx="true" targetName="Button_state_act" targetType="SSM_ST_Button"/>
+      <OutCtxType targetName="outC_Button"/>
+      <InCtxType targetName="inC_Button"/>
+    </RootNode>
+    <PredefType scadeName="int8" targetName="kcg_int8"/>
+    <PredefType scadeName="int16" targetName="kcg_int16"/>
+    <PredefType scadeName="int32" targetName="kcg_int32"/>
+    <PredefType scadeName="int64" targetName="kcg_int64"/>
+    <PredefType scadeName="uint8" targetName="kcg_uint8"/>
+    <PredefType scadeName="uint16" targetName="kcg_uint16"/>
+    <PredefType scadeName="uint32" targetName="kcg_uint32"/>
+    <PredefType scadeName="uint64" targetName="kcg_uint64"/>
+    <PredefType scadeName="size" targetName="kcg_size"/>
+    <PredefType scadeName="float32" targetName="kcg_float32"/>
+    <PredefType scadeName="float64" targetName="kcg_float64"/>
+    <PredefType scadeName="bool" targetName="kcg_bool"/>
+    <PredefType scadeName="char" targetName="kcg_char"/>
+  </Model>

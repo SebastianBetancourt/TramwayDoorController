@@ -1,0 +1,43 @@
+[scade_version: 2019 R3]
+[scade_project: C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/TramwayDoorController.etp]
+[Code Generator]
+fe46ea49e06d5ac7568bb99b1a47bf83 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/Button.c
+366cc6415bfe43b7c039901c96278a8e C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/Button.h
+7257fa9fd12250d00e5116e04f3c686e C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/scade_model_without_unused.scade
+105eddc3c25bc08f6cbd58043c3a2de3 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/cmd_cg.log
+4a5297b78dea4d544de57dd0597e17a1 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/config.txt
+5336171ef69e3b4ad00e4ea4d5f4fbb4 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/kcg_consts.c
+08b61b98fdef616e36f097c85cb4cd0d C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/kcg_consts.h
+50cc4919c35341ccb30bae3568c19834 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/kcg_files.txt
+c570e85441febaa6f6d5e23e14e58b55 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/kcg_imported_types.h
+aaa1231917c02b48f300fc64e2c2798c C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/kcg_metrics.txt
+8f2d1ddf0110b430533b0b17ff661f15 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/kcg_sensors.h
+c72aecebb2fcc54941b314fe5eca711a C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/kcg_types.c
+0302399810f9bcf722be55c418b77697 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/kcg_types.h
+79110a34038972ec4032c08ab4fd1971 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/mapping.xml
+ae3eb7ab76cdc5ab7228e39b505e73d6 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/user_macros.h
+[Mapping Utils]
+79110a34038972ec4032c08ab4fd1971 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/mapping.xml
+c73facea18d05cfaead87ac32716a1eb C:/Program Files/ANSYS Inc/v195/SCADE/SCADE/lib/C/SmuConfig.c
+63ca1258f2bc557f4914a90547c1afad C:/Program Files/ANSYS Inc/v195/SCADE/SCADE/lib/C/SmuLib.c
+7770fc261a6c916323af4a1e84af7a90 C:/Program Files/ANSYS Inc/v195/SCADE/SCADE/lib/C/SmuTypes.c
+fdc236851fcc107ead222892aa7071b4 C:/Program Files/ANSYS Inc/v195/SCADE/SCADE/lib/C/SmuVTable.c
+846f580b9aea2c35ca1510046dd6abc0 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/TramwayDoorController.etp
+a776d832e55f5a338e7670b3238b9866 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/TramwayDoorController_mapping.c
+175fdaf8df1b0494a1455a84c4da7364 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/TramwayDoorController_mapping.h
+[Simulator Wrapper]
+79110a34038972ec4032c08ab4fd1971 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/mapping.xml
+846f580b9aea2c35ca1510046dd6abc0 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/TramwayDoorController.etp
+14aacc41969ec07a1eebfc1c6c0abde4 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/TramwayDoorController_dll.c
+11a251e09c69ef03c9dd40284d07f633 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/TramwayDoorController_interface.c
+6685b8af16548d2b8d9d32d7b3384b52 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/TramwayDoorController_interface.h
+[Type Utils]
+79110a34038972ec4032c08ab4fd1971 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/mapping.xml
+c73facea18d05cfaead87ac32716a1eb C:/Program Files/ANSYS Inc/v195/SCADE/SCADE/lib/C/SmuConfig.c
+63ca1258f2bc557f4914a90547c1afad C:/Program Files/ANSYS Inc/v195/SCADE/SCADE/lib/C/SmuLib.c
+ba954bceb09c977a857f6e4a0833dff7 C:/Program Files/ANSYS Inc/v195/SCADE/SCADE/lib/C/SmuPredefConv.c
+7770fc261a6c916323af4a1e84af7a90 C:/Program Files/ANSYS Inc/v195/SCADE/SCADE/lib/C/SmuTypes.c
+fdc236851fcc107ead222892aa7071b4 C:/Program Files/ANSYS Inc/v195/SCADE/SCADE/lib/C/SmuVTable.c
+846f580b9aea2c35ca1510046dd6abc0 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/TramwayDoorController.etp
+afcb9518e833d716e5e7351d6db7e110 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/TramwayDoorController_type.c
+6eb839adb862cc00b22cb55f46967911 C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/TramwayDoorController_type.h
