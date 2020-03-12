@@ -1,6 +1,6 @@
 /* $********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** Command: kcg66.exe -config C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/config.txt
-** Generation date: 2020-02-29T16:05:35
+** Generation date: 2020-03-12T16:20:07
 *************************************************************$ */
 #ifndef _KCG_TYPES_H_
 #define _KCG_TYPES_H_
@@ -176,20 +176,25 @@ typedef signed char kcg_int8;
 #define kcg_assign_array kcg_assign
 #endif /* kcg_assign_array */
 
-/* Button/Button: */
-typedef enum kcg_tag_SSM_TR_Button {
-  SSM_TR_no_trans_Button,
-  SSM_TR_notPressed_pressed_1_notPressed_Button,
-  SSM_TR_pressed_notPressed_1_pressed_Button
-} SSM_TR_Button;
-/* Button/Button: */
-typedef enum kcg_tag_SSM_ST_Button {
-  SSM_st_notPressed_Button,
-  SSM_st_pressed_Button
-} SSM_ST_Button;
+/* Door/SM1: */
+typedef enum kcg_tag_SSM_TR_SM1 {
+  SSM_TR_no_trans_SM1,
+  SSM_TR_FullyClose_Opening_1_FullyClose_SM1,
+  SSM_TR_FullyOpen_Closing_1_FullyOpen_SM1,
+  SSM_TR_Opening_FullyOpen_1_Opening_SM1,
+  SSM_TR_Closing_Opening_1_Closing_SM1,
+  SSM_TR_Closing_FullyClose_2_Closing_SM1
+} SSM_TR_SM1;
+/* Door/SM1: */
+typedef enum kcg_tag_SSM_ST_SM1 {
+  SSM_st_FullyClose_SM1,
+  SSM_st_FullyOpen_SM1,
+  SSM_st_Opening_SM1,
+  SSM_st_Closing_SM1
+} SSM_ST_SM1;
 #endif /* _KCG_TYPES_H_ */
 /* $********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** kcg_types.h
-** Generation date: 2020-02-29T16:05:35
+** Generation date: 2020-03-12T16:20:07
 *************************************************************$ */
 

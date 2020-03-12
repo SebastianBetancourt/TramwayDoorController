@@ -1859,304 +1859,314 @@ SimTypeUtils _Type_kcg_uint8_Utils = {
 };
 
 /****************************************************************
- ** SSM_ST_Button 
+ ** SSM_ST_SM1 
  ****************************************************************/
 
 #ifdef __cplusplus
-  #ifdef pSimSSM_ST_ButtonVTable_defined
-    extern struct SimTypeVTable *pSimSSM_ST_ButtonVTable;
+  #ifdef pSimSSM_ST_SM1VTable_defined
+    extern struct SimTypeVTable *pSimSSM_ST_SM1VTable;
   #else 
-    struct SimTypeVTable *pSimSSM_ST_ButtonVTable = NULL;
+    struct SimTypeVTable *pSimSSM_ST_SM1VTable = NULL;
   #endif
 #else
-  struct SimTypeVTable *pSimSSM_ST_ButtonVTable;
+  struct SimTypeVTable *pSimSSM_ST_SM1VTable;
 #endif
 
-static SimEnumValUtils SSM_ST_Button_values[] = {
-    { "notPressed", SSM_st_notPressed_Button},
-    { "notPressed", SSM_st_notPressed_Button},
-    { "pressed", SSM_st_pressed_Button},
-    { "pressed", SSM_st_pressed_Button},
+static SimEnumValUtils SSM_ST_SM1_values[] = {
+    { "FullyClose", SSM_st_FullyClose_SM1},
+    { "FullyClose", SSM_st_FullyClose_SM1},
+    { "FullyOpen", SSM_st_FullyOpen_SM1},
+    { "FullyOpen", SSM_st_FullyOpen_SM1},
+    { "Opening", SSM_st_Opening_SM1},
+    { "Opening", SSM_st_Opening_SM1},
+    { "Closing", SSM_st_Closing_SM1},
+    { "Closing", SSM_st_Closing_SM1},
 };
-const int SSM_ST_Button_nb_values = 4;
+const int SSM_ST_SM1_nb_values = 8;
 
-int SSM_ST_Button_to_string(const void *pValue, PFN_STR_APPEND pfnStrAppend, void *pStrObj)
+int SSM_ST_SM1_to_string(const void *pValue, PFN_STR_APPEND pfnStrAppend, void *pStrObj)
 {
-    if (pSimSSM_ST_ButtonVTable != NULL
-        && pSimSSM_ST_ButtonVTable->m_pfnGetConvInfo(SptString, SptNone) == 1) {
-       return pfnStrAppend(*(char**)pSimSSM_ST_ButtonVTable->m_pfnToType(SptString, pValue), pStrObj);
+    if (pSimSSM_ST_SM1VTable != NULL
+        && pSimSSM_ST_SM1VTable->m_pfnGetConvInfo(SptString, SptNone) == 1) {
+       return pfnStrAppend(*(char**)pSimSSM_ST_SM1VTable->m_pfnToType(SptString, pValue), pStrObj);
     }
-    return pConverter->m_pfnEnumToString(*(SSM_ST_Button*)pValue, SSM_ST_Button_values, SSM_ST_Button_nb_values, pfnStrAppend, pStrObj); 
+    return pConverter->m_pfnEnumToString(*(SSM_ST_SM1*)pValue, SSM_ST_SM1_values, SSM_ST_SM1_nb_values, pfnStrAppend, pStrObj); 
 }
 
-int check_SSM_ST_Button_string(const char *str, char **endptr)
+int check_SSM_ST_SM1_string(const char *str, char **endptr)
 {
-    static SSM_ST_Button rTemp;
-    return string_to_SSM_ST_Button(str, &rTemp, endptr);
+    static SSM_ST_SM1 rTemp;
+    return string_to_SSM_ST_SM1(str, &rTemp, endptr);
 }
 
-int string_to_SSM_ST_Button(const char *str, void *pValue, char **endptr)
+int string_to_SSM_ST_SM1(const char *str, void *pValue, char **endptr)
 {
     int nRet = 0;
     skip_whitespace(str);
-    if (pSimSSM_ST_ButtonVTable != NULL) {
-        nRet = string_to_VTable(str, pSimSSM_ST_ButtonVTable, pValue, endptr);
+    if (pSimSSM_ST_SM1VTable != NULL) {
+        nRet = string_to_VTable(str, pSimSSM_ST_SM1VTable, pValue, endptr);
     }
     if (nRet == 0) {
         int nTemp = 0;
-        nRet = pConverter->m_pfnStringToEnum(str, &nTemp, SSM_ST_Button_values, SSM_ST_Button_nb_values, endptr);
+        nRet = pConverter->m_pfnStringToEnum(str, &nTemp, SSM_ST_SM1_values, SSM_ST_SM1_nb_values, endptr);
         if (pValue != NULL && nRet != 0)
-            *(SSM_ST_Button*)pValue = (SSM_ST_Button)nTemp;
+            *(SSM_ST_SM1*)pValue = (SSM_ST_SM1)nTemp;
     }
     return nRet;
 }
 
-int is_SSM_ST_Button_double_conversion_allowed()
+int is_SSM_ST_SM1_double_conversion_allowed()
 {
-    if (pSimSSM_ST_ButtonVTable != NULL) {
-        return is_VTable_double_conversion_allowed(pSimSSM_ST_ButtonVTable);
+    if (pSimSSM_ST_SM1VTable != NULL) {
+        return is_VTable_double_conversion_allowed(pSimSSM_ST_SM1VTable);
     }
     return 1;
 }
 
-int SSM_ST_Button_to_double(const void *pValue, double *nValue)
+int SSM_ST_SM1_to_double(const void *pValue, double *nValue)
 {
-    if (pSimSSM_ST_ButtonVTable != NULL) {
-        return VTable_to_double(pValue, pSimSSM_ST_ButtonVTable, nValue);
+    if (pSimSSM_ST_SM1VTable != NULL) {
+        return VTable_to_double(pValue, pSimSSM_ST_SM1VTable, nValue);
     }
-    *nValue = (double)*((SSM_ST_Button*)pValue);
+    *nValue = (double)*((SSM_ST_SM1*)pValue);
     return 1;
 }
 
-int is_SSM_ST_Button_long_conversion_allowed()
+int is_SSM_ST_SM1_long_conversion_allowed()
 {
-    if (pSimSSM_ST_ButtonVTable != NULL) {
-        return is_VTable_long_conversion_allowed(pSimSSM_ST_ButtonVTable);
+    if (pSimSSM_ST_SM1VTable != NULL) {
+        return is_VTable_long_conversion_allowed(pSimSSM_ST_SM1VTable);
     }
     return 1;
 }
 
-int SSM_ST_Button_to_long(const void *pValue, long *nValue)
+int SSM_ST_SM1_to_long(const void *pValue, long *nValue)
 {
-    if (pSimSSM_ST_ButtonVTable != NULL) {
-        return VTable_to_long(pValue, pSimSSM_ST_ButtonVTable, nValue);
+    if (pSimSSM_ST_SM1VTable != NULL) {
+        return VTable_to_long(pValue, pSimSSM_ST_SM1VTable, nValue);
     }
-    *nValue = (long)*((SSM_ST_Button*)pValue);
+    *nValue = (long)*((SSM_ST_SM1*)pValue);
     return 1;
 }
 
-void compare_SSM_ST_Button(int *pResult, const void *pValue1, const void *pValue2, SimTolerance *pTol, const char *pszPath, PFN_STR_LIST_APPEND pfnStrListAppend, void *pListErrPaths)
+void compare_SSM_ST_SM1(int *pResult, const void *pValue1, const void *pValue2, SimTolerance *pTol, const char *pszPath, PFN_STR_LIST_APPEND pfnStrListAppend, void *pListErrPaths)
 {
     int unitResult = 0;
     /* Customized comparison */
-    if (pSimSSM_ST_ButtonVTable != NULL
-        && pSimSSM_ST_ButtonVTable->m_version >= Scv612
-        && pSimSSM_ST_ButtonVTable->m_pfnCompare != NULL) {
-        if (pSimSSM_ST_ButtonVTable->m_version >= Scv65) {
+    if (pSimSSM_ST_SM1VTable != NULL
+        && pSimSSM_ST_SM1VTable->m_version >= Scv612
+        && pSimSSM_ST_SM1VTable->m_pfnCompare != NULL) {
+        if (pSimSSM_ST_SM1VTable->m_version >= Scv65) {
             /* R15 and higher: VTable Compare function shall UPDATE *pResult global flag (*pResult |= SIM_CMP_RES_LT/...): */
-            unitResult = pSimSSM_ST_ButtonVTable->m_pfnCompare(pResult, pValue1, pValue2);
+            unitResult = pSimSSM_ST_SM1VTable->m_pfnCompare(pResult, pValue1, pValue2);
         } else {
             /* Before R15: VTable Compare function shall SET *pResult global flag (*pResult = -1/1/0): */
-            pSimSSM_ST_ButtonVTable->m_pfnCompare(&unitResult, pValue1, pValue2);
+            pSimSSM_ST_SM1VTable->m_pfnCompare(&unitResult, pValue1, pValue2);
             updateCompareResult(unitResult, pResult);
         }
     } else {
         /* Predefined comparison */
-        unitResult = predef_compare_enum(pResult, (int)(*(SSM_ST_Button*)pValue1), (int)(*(SSM_ST_Button*)pValue2));
+        unitResult = predef_compare_enum(pResult, (int)(*(SSM_ST_SM1*)pValue1), (int)(*(SSM_ST_SM1*)pValue2));
     }
     UNUSED(pTol);
     if (unitResult != 0 && pfnStrListAppend != NULL && pszPath != NULL && *pszPath != 0 && pListErrPaths != NULL)
         pfnStrListAppend(pszPath, pListErrPaths);
 }
 
-int get_SSM_ST_Button_signature(PFN_STR_APPEND pfnStrAppend, void *pStrObj)
+int get_SSM_ST_SM1_signature(PFN_STR_APPEND pfnStrAppend, void *pStrObj)
 {
-    return pConverter->m_pfnGetEnumSignature(SSM_ST_Button_values, SSM_ST_Button_nb_values, pfnStrAppend, pStrObj);
+    return pConverter->m_pfnGetEnumSignature(SSM_ST_SM1_values, SSM_ST_SM1_nb_values, pfnStrAppend, pStrObj);
 }
 
-int init_SSM_ST_Button(void *pValue)
+int init_SSM_ST_SM1(void *pValue)
 {
-    *(SSM_ST_Button*)pValue = SSM_st_notPressed_Button;
+    *(SSM_ST_SM1*)pValue = SSM_st_FullyClose_SM1;
     return 1;
 }
 
-int release_SSM_ST_Button(void *pValue)
+int release_SSM_ST_SM1(void *pValue)
 {
     UNUSED(pValue);
     return 1;
 }
 
-int copy_SSM_ST_Button(void *pToValue, const void *pFromValue)
+int copy_SSM_ST_SM1(void *pToValue, const void *pFromValue)
 {
-    *((SSM_ST_Button*)pToValue) = *((SSM_ST_Button*)pFromValue);
+    *((SSM_ST_SM1*)pToValue) = *((SSM_ST_SM1*)pFromValue);
     return 1;
 }
 
-SimTypeUtils _Type_SSM_ST_Button_Utils = {
-    SSM_ST_Button_to_string,
-    check_SSM_ST_Button_string,
-    string_to_SSM_ST_Button,
-    is_SSM_ST_Button_double_conversion_allowed,
-    SSM_ST_Button_to_double,
-    is_SSM_ST_Button_long_conversion_allowed,
-    SSM_ST_Button_to_long,
-    compare_SSM_ST_Button,
-    get_SSM_ST_Button_signature,
-    init_SSM_ST_Button,
-    release_SSM_ST_Button,
-    copy_SSM_ST_Button,
-    sizeof(SSM_ST_Button)
+SimTypeUtils _Type_SSM_ST_SM1_Utils = {
+    SSM_ST_SM1_to_string,
+    check_SSM_ST_SM1_string,
+    string_to_SSM_ST_SM1,
+    is_SSM_ST_SM1_double_conversion_allowed,
+    SSM_ST_SM1_to_double,
+    is_SSM_ST_SM1_long_conversion_allowed,
+    SSM_ST_SM1_to_long,
+    compare_SSM_ST_SM1,
+    get_SSM_ST_SM1_signature,
+    init_SSM_ST_SM1,
+    release_SSM_ST_SM1,
+    copy_SSM_ST_SM1,
+    sizeof(SSM_ST_SM1)
 };
 
 /****************************************************************
- ** SSM_TR_Button 
+ ** SSM_TR_SM1 
  ****************************************************************/
 
 #ifdef __cplusplus
-  #ifdef pSimSSM_TR_ButtonVTable_defined
-    extern struct SimTypeVTable *pSimSSM_TR_ButtonVTable;
+  #ifdef pSimSSM_TR_SM1VTable_defined
+    extern struct SimTypeVTable *pSimSSM_TR_SM1VTable;
   #else 
-    struct SimTypeVTable *pSimSSM_TR_ButtonVTable = NULL;
+    struct SimTypeVTable *pSimSSM_TR_SM1VTable = NULL;
   #endif
 #else
-  struct SimTypeVTable *pSimSSM_TR_ButtonVTable;
+  struct SimTypeVTable *pSimSSM_TR_SM1VTable;
 #endif
 
-static SimEnumValUtils SSM_TR_Button_values[] = {
-    { "SSM_TR_no_trans_Button", SSM_TR_no_trans_Button},
-    { "SSM_TR_no_trans_Button", SSM_TR_no_trans_Button},
-    { "SSM_TR_notPressed_pressed_1_notPressed_Button", SSM_TR_notPressed_pressed_1_notPressed_Button},
-    { "SSM_TR_notPressed_pressed_1_notPressed_Button", SSM_TR_notPressed_pressed_1_notPressed_Button},
-    { "SSM_TR_pressed_notPressed_1_pressed_Button", SSM_TR_pressed_notPressed_1_pressed_Button},
-    { "SSM_TR_pressed_notPressed_1_pressed_Button", SSM_TR_pressed_notPressed_1_pressed_Button},
+static SimEnumValUtils SSM_TR_SM1_values[] = {
+    { "SSM_TR_no_trans_SM1", SSM_TR_no_trans_SM1},
+    { "SSM_TR_no_trans_SM1", SSM_TR_no_trans_SM1},
+    { "SSM_TR_FullyClose_Opening_1_FullyClose_SM1", SSM_TR_FullyClose_Opening_1_FullyClose_SM1},
+    { "SSM_TR_FullyClose_Opening_1_FullyClose_SM1", SSM_TR_FullyClose_Opening_1_FullyClose_SM1},
+    { "SSM_TR_FullyOpen_Closing_1_FullyOpen_SM1", SSM_TR_FullyOpen_Closing_1_FullyOpen_SM1},
+    { "SSM_TR_FullyOpen_Closing_1_FullyOpen_SM1", SSM_TR_FullyOpen_Closing_1_FullyOpen_SM1},
+    { "SSM_TR_Opening_FullyOpen_1_Opening_SM1", SSM_TR_Opening_FullyOpen_1_Opening_SM1},
+    { "SSM_TR_Opening_FullyOpen_1_Opening_SM1", SSM_TR_Opening_FullyOpen_1_Opening_SM1},
+    { "SSM_TR_Closing_Opening_1_Closing_SM1", SSM_TR_Closing_Opening_1_Closing_SM1},
+    { "SSM_TR_Closing_Opening_1_Closing_SM1", SSM_TR_Closing_Opening_1_Closing_SM1},
+    { "SSM_TR_Closing_FullyClose_2_Closing_SM1", SSM_TR_Closing_FullyClose_2_Closing_SM1},
+    { "SSM_TR_Closing_FullyClose_2_Closing_SM1", SSM_TR_Closing_FullyClose_2_Closing_SM1},
 };
-const int SSM_TR_Button_nb_values = 6;
+const int SSM_TR_SM1_nb_values = 12;
 
-int SSM_TR_Button_to_string(const void *pValue, PFN_STR_APPEND pfnStrAppend, void *pStrObj)
+int SSM_TR_SM1_to_string(const void *pValue, PFN_STR_APPEND pfnStrAppend, void *pStrObj)
 {
-    if (pSimSSM_TR_ButtonVTable != NULL
-        && pSimSSM_TR_ButtonVTable->m_pfnGetConvInfo(SptString, SptNone) == 1) {
-       return pfnStrAppend(*(char**)pSimSSM_TR_ButtonVTable->m_pfnToType(SptString, pValue), pStrObj);
+    if (pSimSSM_TR_SM1VTable != NULL
+        && pSimSSM_TR_SM1VTable->m_pfnGetConvInfo(SptString, SptNone) == 1) {
+       return pfnStrAppend(*(char**)pSimSSM_TR_SM1VTable->m_pfnToType(SptString, pValue), pStrObj);
     }
-    return pConverter->m_pfnEnumToString(*(SSM_TR_Button*)pValue, SSM_TR_Button_values, SSM_TR_Button_nb_values, pfnStrAppend, pStrObj); 
+    return pConverter->m_pfnEnumToString(*(SSM_TR_SM1*)pValue, SSM_TR_SM1_values, SSM_TR_SM1_nb_values, pfnStrAppend, pStrObj); 
 }
 
-int check_SSM_TR_Button_string(const char *str, char **endptr)
+int check_SSM_TR_SM1_string(const char *str, char **endptr)
 {
-    static SSM_TR_Button rTemp;
-    return string_to_SSM_TR_Button(str, &rTemp, endptr);
+    static SSM_TR_SM1 rTemp;
+    return string_to_SSM_TR_SM1(str, &rTemp, endptr);
 }
 
-int string_to_SSM_TR_Button(const char *str, void *pValue, char **endptr)
+int string_to_SSM_TR_SM1(const char *str, void *pValue, char **endptr)
 {
     int nRet = 0;
     skip_whitespace(str);
-    if (pSimSSM_TR_ButtonVTable != NULL) {
-        nRet = string_to_VTable(str, pSimSSM_TR_ButtonVTable, pValue, endptr);
+    if (pSimSSM_TR_SM1VTable != NULL) {
+        nRet = string_to_VTable(str, pSimSSM_TR_SM1VTable, pValue, endptr);
     }
     if (nRet == 0) {
         int nTemp = 0;
-        nRet = pConverter->m_pfnStringToEnum(str, &nTemp, SSM_TR_Button_values, SSM_TR_Button_nb_values, endptr);
+        nRet = pConverter->m_pfnStringToEnum(str, &nTemp, SSM_TR_SM1_values, SSM_TR_SM1_nb_values, endptr);
         if (pValue != NULL && nRet != 0)
-            *(SSM_TR_Button*)pValue = (SSM_TR_Button)nTemp;
+            *(SSM_TR_SM1*)pValue = (SSM_TR_SM1)nTemp;
     }
     return nRet;
 }
 
-int is_SSM_TR_Button_double_conversion_allowed()
+int is_SSM_TR_SM1_double_conversion_allowed()
 {
-    if (pSimSSM_TR_ButtonVTable != NULL) {
-        return is_VTable_double_conversion_allowed(pSimSSM_TR_ButtonVTable);
+    if (pSimSSM_TR_SM1VTable != NULL) {
+        return is_VTable_double_conversion_allowed(pSimSSM_TR_SM1VTable);
     }
     return 1;
 }
 
-int SSM_TR_Button_to_double(const void *pValue, double *nValue)
+int SSM_TR_SM1_to_double(const void *pValue, double *nValue)
 {
-    if (pSimSSM_TR_ButtonVTable != NULL) {
-        return VTable_to_double(pValue, pSimSSM_TR_ButtonVTable, nValue);
+    if (pSimSSM_TR_SM1VTable != NULL) {
+        return VTable_to_double(pValue, pSimSSM_TR_SM1VTable, nValue);
     }
-    *nValue = (double)*((SSM_TR_Button*)pValue);
+    *nValue = (double)*((SSM_TR_SM1*)pValue);
     return 1;
 }
 
-int is_SSM_TR_Button_long_conversion_allowed()
+int is_SSM_TR_SM1_long_conversion_allowed()
 {
-    if (pSimSSM_TR_ButtonVTable != NULL) {
-        return is_VTable_long_conversion_allowed(pSimSSM_TR_ButtonVTable);
+    if (pSimSSM_TR_SM1VTable != NULL) {
+        return is_VTable_long_conversion_allowed(pSimSSM_TR_SM1VTable);
     }
     return 1;
 }
 
-int SSM_TR_Button_to_long(const void *pValue, long *nValue)
+int SSM_TR_SM1_to_long(const void *pValue, long *nValue)
 {
-    if (pSimSSM_TR_ButtonVTable != NULL) {
-        return VTable_to_long(pValue, pSimSSM_TR_ButtonVTable, nValue);
+    if (pSimSSM_TR_SM1VTable != NULL) {
+        return VTable_to_long(pValue, pSimSSM_TR_SM1VTable, nValue);
     }
-    *nValue = (long)*((SSM_TR_Button*)pValue);
+    *nValue = (long)*((SSM_TR_SM1*)pValue);
     return 1;
 }
 
-void compare_SSM_TR_Button(int *pResult, const void *pValue1, const void *pValue2, SimTolerance *pTol, const char *pszPath, PFN_STR_LIST_APPEND pfnStrListAppend, void *pListErrPaths)
+void compare_SSM_TR_SM1(int *pResult, const void *pValue1, const void *pValue2, SimTolerance *pTol, const char *pszPath, PFN_STR_LIST_APPEND pfnStrListAppend, void *pListErrPaths)
 {
     int unitResult = 0;
     /* Customized comparison */
-    if (pSimSSM_TR_ButtonVTable != NULL
-        && pSimSSM_TR_ButtonVTable->m_version >= Scv612
-        && pSimSSM_TR_ButtonVTable->m_pfnCompare != NULL) {
-        if (pSimSSM_TR_ButtonVTable->m_version >= Scv65) {
+    if (pSimSSM_TR_SM1VTable != NULL
+        && pSimSSM_TR_SM1VTable->m_version >= Scv612
+        && pSimSSM_TR_SM1VTable->m_pfnCompare != NULL) {
+        if (pSimSSM_TR_SM1VTable->m_version >= Scv65) {
             /* R15 and higher: VTable Compare function shall UPDATE *pResult global flag (*pResult |= SIM_CMP_RES_LT/...): */
-            unitResult = pSimSSM_TR_ButtonVTable->m_pfnCompare(pResult, pValue1, pValue2);
+            unitResult = pSimSSM_TR_SM1VTable->m_pfnCompare(pResult, pValue1, pValue2);
         } else {
             /* Before R15: VTable Compare function shall SET *pResult global flag (*pResult = -1/1/0): */
-            pSimSSM_TR_ButtonVTable->m_pfnCompare(&unitResult, pValue1, pValue2);
+            pSimSSM_TR_SM1VTable->m_pfnCompare(&unitResult, pValue1, pValue2);
             updateCompareResult(unitResult, pResult);
         }
     } else {
         /* Predefined comparison */
-        unitResult = predef_compare_enum(pResult, (int)(*(SSM_TR_Button*)pValue1), (int)(*(SSM_TR_Button*)pValue2));
+        unitResult = predef_compare_enum(pResult, (int)(*(SSM_TR_SM1*)pValue1), (int)(*(SSM_TR_SM1*)pValue2));
     }
     UNUSED(pTol);
     if (unitResult != 0 && pfnStrListAppend != NULL && pszPath != NULL && *pszPath != 0 && pListErrPaths != NULL)
         pfnStrListAppend(pszPath, pListErrPaths);
 }
 
-int get_SSM_TR_Button_signature(PFN_STR_APPEND pfnStrAppend, void *pStrObj)
+int get_SSM_TR_SM1_signature(PFN_STR_APPEND pfnStrAppend, void *pStrObj)
 {
-    return pConverter->m_pfnGetEnumSignature(SSM_TR_Button_values, SSM_TR_Button_nb_values, pfnStrAppend, pStrObj);
+    return pConverter->m_pfnGetEnumSignature(SSM_TR_SM1_values, SSM_TR_SM1_nb_values, pfnStrAppend, pStrObj);
 }
 
-int init_SSM_TR_Button(void *pValue)
+int init_SSM_TR_SM1(void *pValue)
 {
-    *(SSM_TR_Button*)pValue = SSM_TR_no_trans_Button;
+    *(SSM_TR_SM1*)pValue = SSM_TR_no_trans_SM1;
     return 1;
 }
 
-int release_SSM_TR_Button(void *pValue)
+int release_SSM_TR_SM1(void *pValue)
 {
     UNUSED(pValue);
     return 1;
 }
 
-int copy_SSM_TR_Button(void *pToValue, const void *pFromValue)
+int copy_SSM_TR_SM1(void *pToValue, const void *pFromValue)
 {
-    *((SSM_TR_Button*)pToValue) = *((SSM_TR_Button*)pFromValue);
+    *((SSM_TR_SM1*)pToValue) = *((SSM_TR_SM1*)pFromValue);
     return 1;
 }
 
-SimTypeUtils _Type_SSM_TR_Button_Utils = {
-    SSM_TR_Button_to_string,
-    check_SSM_TR_Button_string,
-    string_to_SSM_TR_Button,
-    is_SSM_TR_Button_double_conversion_allowed,
-    SSM_TR_Button_to_double,
-    is_SSM_TR_Button_long_conversion_allowed,
-    SSM_TR_Button_to_long,
-    compare_SSM_TR_Button,
-    get_SSM_TR_Button_signature,
-    init_SSM_TR_Button,
-    release_SSM_TR_Button,
-    copy_SSM_TR_Button,
-    sizeof(SSM_TR_Button)
+SimTypeUtils _Type_SSM_TR_SM1_Utils = {
+    SSM_TR_SM1_to_string,
+    check_SSM_TR_SM1_string,
+    string_to_SSM_TR_SM1,
+    is_SSM_TR_SM1_double_conversion_allowed,
+    SSM_TR_SM1_to_double,
+    is_SSM_TR_SM1_long_conversion_allowed,
+    SSM_TR_SM1_to_long,
+    compare_SSM_TR_SM1,
+    get_SSM_TR_SM1_signature,
+    init_SSM_TR_SM1,
+    release_SSM_TR_SM1,
+    copy_SSM_TR_SM1,
+    sizeof(SSM_TR_SM1)
 };
 

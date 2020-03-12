@@ -7,22 +7,22 @@
 #define UNUSED(x) (void)(x)
 /* context */
 
-inC_Button inputs_ctx;
-static inC_Button inputs_ctx_execute;
-outC_Button outputs_ctx;
+inC_Door inputs_ctx;
+static inC_Door inputs_ctx_execute;
+outC_Door outputs_ctx;
 
 static void _SCSIM_RestoreInterface(void) {
-    init_kcg_bool(&inputs_ctx.clicked);
-    init_kcg_bool(&inputs_ctx_execute.clicked);
-    init_kcg_bool(&inputs_ctx.deactivate);
-    init_kcg_bool(&inputs_ctx_execute.deactivate);
+    init_kcg_bool(&inputs_ctx.openRequest);
+    init_kcg_bool(&inputs_ctx_execute.openRequest);
+    init_kcg_bool(&inputs_ctx.closeRequest);
+    init_kcg_bool(&inputs_ctx_execute.closeRequest);
     memset((void*)&outputs_ctx, 0, sizeof(outputs_ctx));
 }
 
 static void _SCSIM_ExecuteInterface(void) {
     pSimulator->m_pfnAcquireValueMutex(pSimulator);
-    inputs_ctx_execute.clicked = inputs_ctx.clicked;
-    inputs_ctx_execute.deactivate = inputs_ctx.deactivate;
+    inputs_ctx_execute.openRequest = inputs_ctx.openRequest;
+    inputs_ctx_execute.closeRequest = inputs_ctx.closeRequest;
     pSimulator->m_pfnReleaseValueMutex(pSimulator);
 }
 
@@ -32,7 +32,7 @@ extern "C" {
 
 const int  rt_version = Srtv62;
 
-const char* _SCSIM_CheckSum = "4d8bbf77d767db7fa7120677116f08b3";
+const char* _SCSIM_CheckSum = "925193f032affc7612011080ddcefd58";
 const char* _SCSIM_SmuTypesCheckSum = "f59a7f532a7d2323bdffcdce912b7ce3";
 
 /* simulation */
@@ -44,7 +44,7 @@ int SimInit(void) {
     BeforeSimInit();
 #endif
 #ifndef KCG_USER_DEFINED_INIT
-    Button_init(&outputs_ctx);
+    Door_init(&outputs_ctx);
     nRet = 1;
 #else
     nRet = 0;
@@ -62,7 +62,7 @@ int SimReset(void) {
     BeforeSimInit();
 #endif
 #ifndef KCG_NO_EXTERN_CALL_TO_RESET
-    Button_reset(&outputs_ctx);
+    Door_reset(&outputs_ctx);
     nRet = 1;
 #else
     nRet = 0;
@@ -74,21 +74,21 @@ int SimReset(void) {
 }
 
 #ifdef __cplusplus
-    #ifdef pSimoutC_ButtonCIVTable_defined
-        extern struct SimCustomInitVTable *pSimoutC_ButtonCIVTable;
+    #ifdef pSimoutC_DoorCIVTable_defined
+        extern struct SimCustomInitVTable *pSimoutC_DoorCIVTable;
     #else 
-        struct SimCustomInitVTable *pSimoutC_ButtonCIVTable = NULL;
+        struct SimCustomInitVTable *pSimoutC_DoorCIVTable = NULL;
     #endif
 #else
-    struct SimCustomInitVTable *pSimoutC_ButtonCIVTable;
+    struct SimCustomInitVTable *pSimoutC_DoorCIVTable;
 #endif
 
 int SimCustomInit(void) {
     int nRet = 0;
-    if (pSimoutC_ButtonCIVTable != NULL && 
-        pSimoutC_ButtonCIVTable->m_pfnCustomInit != NULL) {
+    if (pSimoutC_DoorCIVTable != NULL && 
+        pSimoutC_DoorCIVTable->m_pfnCustomInit != NULL) {
         /* VTable function provided => call it */
-        nRet = pSimoutC_ButtonCIVTable->m_pfnCustomInit ((void*)&outputs_ctx);
+        nRet = pSimoutC_DoorCIVTable->m_pfnCustomInit ((void*)&outputs_ctx);
     }
     else {
         /* VTable misssing => error */
@@ -107,7 +107,7 @@ int SimStep(void) {
         BeforeSimStep();
 #endif
     _SCSIM_ExecuteInterface();
-    Button(&inputs_ctx_execute, &outputs_ctx);
+    Door(&inputs_ctx_execute, &outputs_ctx);
 #ifdef EXTENDED_SIM
     AfterSimStep();
 #endif
@@ -139,8 +139,8 @@ void SsmConnectExternalInputs(int bConnect) {
 
 int SsmGetDumpSize(void) {
     int nSize = 0;
-    nSize += sizeof(inC_Button);
-    nSize += sizeof(outC_Button);
+    nSize += sizeof(inC_Door);
+    nSize += sizeof(outC_Door);
 #ifdef EXTENDED_SIM
     nSize += ExtendedGetDumpSize();
 #endif
@@ -149,10 +149,10 @@ int SsmGetDumpSize(void) {
 
 void SsmGatherDumpData(char * pData) {
     char* pCurrent = pData;
-    memcpy(pCurrent, &inputs_ctx, sizeof(inC_Button));
-    pCurrent += sizeof(inC_Button);
-    memcpy(pCurrent, &outputs_ctx, sizeof(outC_Button));
-    pCurrent += sizeof(outC_Button);
+    memcpy(pCurrent, &inputs_ctx, sizeof(inC_Door));
+    pCurrent += sizeof(inC_Door);
+    memcpy(pCurrent, &outputs_ctx, sizeof(outC_Door));
+    pCurrent += sizeof(outC_Door);
 #ifdef EXTENDED_SIM
     ExtendedGatherDumpData(pCurrent);
 #endif
@@ -160,10 +160,10 @@ void SsmGatherDumpData(char * pData) {
 
 void SsmRestoreDumpData(const char * pData) {
     const char* pCurrent = pData;
-    memcpy(&inputs_ctx, pCurrent, sizeof(inC_Button));
-    pCurrent += sizeof(inC_Button);
-    memcpy(&outputs_ctx, pCurrent, sizeof(outC_Button));
-    pCurrent += sizeof(outC_Button);
+    memcpy(&inputs_ctx, pCurrent, sizeof(inC_Door));
+    pCurrent += sizeof(inC_Door);
+    memcpy(&outputs_ctx, pCurrent, sizeof(outC_Door));
+    pCurrent += sizeof(outC_Door);
 #ifdef EXTENDED_SIM
     ExtendedRestoreDumpData(pCurrent);
 #endif

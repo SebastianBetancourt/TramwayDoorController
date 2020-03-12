@@ -1,7 +1,7 @@
 *****************************
 *** Generated KCG H/Ads files ***
 *****************************
-Button.h
+Door.h
 kcg_types.h
 kcg_consts.h
 kcg_sensors.h
@@ -9,7 +9,7 @@ kcg_sensors.h
 *****************************
 *** Generated KCG C/Adb files ***
 *****************************
-Button.c
+Door.c
 kcg_types.c
 kcg_consts.c
 

@@ -225,38 +225,38 @@ extern int copy_kcg_uint8(void *pToValue, const void *pFromValue);
 extern SimTypeUtils _Type_kcg_uint8_Utils;
 
 /****************************************************************
- ** SSM_ST_Button 
+ ** SSM_ST_SM1 
  ****************************************************************/
-extern int SSM_ST_Button_to_string(const void *pValue, PFN_STR_APPEND pfnStrAppend, void *pStrObj);
-extern int check_SSM_ST_Button_string(const char *str, char **endptr);
-extern int string_to_SSM_ST_Button(const char *str, void *pValue, char **endptr);
-extern int is_SSM_ST_Button_double_conversion_allowed();
-extern int SSM_ST_Button_to_double(const void *pValue, double *nValue);
-extern int is_SSM_ST_Button_long_conversion_allowed();
-extern int SSM_ST_Button_to_long(const void *pValue, long *nValue);
-extern void compare_SSM_ST_Button(int *nStatus, const void *pValue1, const void *pValue2, SimTolerance *pTol, const char *pszPath, PFN_STR_LIST_APPEND pfnStrListAppend, void *pListErrPaths);
-extern int get_SSM_ST_Button_signature(PFN_STR_APPEND pfnStrAppend, void *pStrObj);
-extern int init_SSM_ST_Button(void *pValue);
-extern int release_SSM_ST_Button(void *pValue);
-extern int copy_SSM_ST_Button(void *pToValue, const void *pFromValue);
-extern SimTypeUtils _Type_SSM_ST_Button_Utils;
+extern int SSM_ST_SM1_to_string(const void *pValue, PFN_STR_APPEND pfnStrAppend, void *pStrObj);
+extern int check_SSM_ST_SM1_string(const char *str, char **endptr);
+extern int string_to_SSM_ST_SM1(const char *str, void *pValue, char **endptr);
+extern int is_SSM_ST_SM1_double_conversion_allowed();
+extern int SSM_ST_SM1_to_double(const void *pValue, double *nValue);
+extern int is_SSM_ST_SM1_long_conversion_allowed();
+extern int SSM_ST_SM1_to_long(const void *pValue, long *nValue);
+extern void compare_SSM_ST_SM1(int *nStatus, const void *pValue1, const void *pValue2, SimTolerance *pTol, const char *pszPath, PFN_STR_LIST_APPEND pfnStrListAppend, void *pListErrPaths);
+extern int get_SSM_ST_SM1_signature(PFN_STR_APPEND pfnStrAppend, void *pStrObj);
+extern int init_SSM_ST_SM1(void *pValue);
+extern int release_SSM_ST_SM1(void *pValue);
+extern int copy_SSM_ST_SM1(void *pToValue, const void *pFromValue);
+extern SimTypeUtils _Type_SSM_ST_SM1_Utils;
 
 /****************************************************************
- ** SSM_TR_Button 
+ ** SSM_TR_SM1 
  ****************************************************************/
-extern int SSM_TR_Button_to_string(const void *pValue, PFN_STR_APPEND pfnStrAppend, void *pStrObj);
-extern int check_SSM_TR_Button_string(const char *str, char **endptr);
-extern int string_to_SSM_TR_Button(const char *str, void *pValue, char **endptr);
-extern int is_SSM_TR_Button_double_conversion_allowed();
-extern int SSM_TR_Button_to_double(const void *pValue, double *nValue);
-extern int is_SSM_TR_Button_long_conversion_allowed();
-extern int SSM_TR_Button_to_long(const void *pValue, long *nValue);
-extern void compare_SSM_TR_Button(int *nStatus, const void *pValue1, const void *pValue2, SimTolerance *pTol, const char *pszPath, PFN_STR_LIST_APPEND pfnStrListAppend, void *pListErrPaths);
-extern int get_SSM_TR_Button_signature(PFN_STR_APPEND pfnStrAppend, void *pStrObj);
-extern int init_SSM_TR_Button(void *pValue);
-extern int release_SSM_TR_Button(void *pValue);
-extern int copy_SSM_TR_Button(void *pToValue, const void *pFromValue);
-extern SimTypeUtils _Type_SSM_TR_Button_Utils;
+extern int SSM_TR_SM1_to_string(const void *pValue, PFN_STR_APPEND pfnStrAppend, void *pStrObj);
+extern int check_SSM_TR_SM1_string(const char *str, char **endptr);
+extern int string_to_SSM_TR_SM1(const char *str, void *pValue, char **endptr);
+extern int is_SSM_TR_SM1_double_conversion_allowed();
+extern int SSM_TR_SM1_to_double(const void *pValue, double *nValue);
+extern int is_SSM_TR_SM1_long_conversion_allowed();
+extern int SSM_TR_SM1_to_long(const void *pValue, long *nValue);
+extern void compare_SSM_TR_SM1(int *nStatus, const void *pValue1, const void *pValue2, SimTolerance *pTol, const char *pszPath, PFN_STR_LIST_APPEND pfnStrListAppend, void *pListErrPaths);
+extern int get_SSM_TR_SM1_signature(PFN_STR_APPEND pfnStrAppend, void *pStrObj);
+extern int init_SSM_TR_SM1(void *pValue);
+extern int release_SSM_TR_SM1(void *pValue);
+extern int copy_SSM_TR_SM1(void *pToValue, const void *pFromValue);
+extern SimTypeUtils _Type_SSM_TR_SM1_Utils;
 
 
 #endif /*TRAMWAYDOORCONTROLLER_TYPES_CONVERSION */

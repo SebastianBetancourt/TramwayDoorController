@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Project id="1" oid_count="100" defaultConfiguration="24">
+<Project id="1" oid_count="101" defaultConfiguration="24">
 	<props>
 		<Prop id="10" name="@STUDIO:PRODUCT">
 			<value>SC</value>
@@ -385,6 +385,7 @@
 				<Folder id="13" extensions="xscade;scade" name="Separate Files"/>
 				<FileRef id="95" persistAs="Operator1.xscade"/>
 				<FileRef id="100" persistAs="Operator5.xscade"/>
+				<FileRef id="101" persistAs="Operator31.xscade"/>
 			</elements>
 		</Folder>
 	</roots>

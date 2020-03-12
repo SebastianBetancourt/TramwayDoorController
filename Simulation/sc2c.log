@@ -1,16 +1,16 @@
 $**************  SCADETOC Version 2019 R3 (build 20190802) **************
-** Generation date: 2020-02-29T16:05:29
-** Command: scade -code "C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\TramwayDoorController.etp" -root Button -conf Simulation -sim -all
+** Generation date: 2020-03-12T16:20:04
+** Command: scade -code "C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\TramwayDoorController.etp" -root Door -conf Simulation -sim -all
 *************************************************************$
 *** Generated Files Information (GENFIL): KCG- Generated files
   at file C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\Simulation\mapping.xml, line 0, character 0
  ~mapping.xml
   at file C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\Simulation\kcg_metrics.txt, line 0, character 0
  ~kcg_metrics.txt
-  at file C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\Simulation\Button.c, line 0, character 0
- ~Button.c
-  at file C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\Simulation\Button.h, line 0, character 0
- ~Button.h
+  at file C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\Simulation\Door.c, line 0, character 0
+ ~Door.c
+  at file C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\Simulation\Door.h, line 0, character 0
+ ~Door.h
   at file C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\Simulation\kcg_types.h, line 0, character 0
  ~kcg_types.h
   at file C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\Simulation\kcg_consts.h, line 0, character 0
@@ -52,11 +52,11 @@ $**************  SCADETOC Version 2019 R3 (build 20190802) **************
 *** Generated Files Information (GENFIL): Build Generated files
   at file C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\Simulation\Makefile_win64, line 0, character 0
  ~Makefile_win64
-  at file C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\Simulation\Button.dll, line 0, character 0
- ~Button.dll
-  at file C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\Simulation\Button.exe, line 0, character 0
- ~Button.exe
+  at file C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\Simulation\Door.dll, line 0, character 0
+ ~Door.dll
+  at file C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\Simulation\Door.exe, line 0, character 0
+ ~Door.exe
 $**************  SCADETOC Version 2019 R3 (build 20190802) **************
-** Generation date: 2020-02-29T16:05:47
+** Generation date: 2020-03-12T16:20:09
 ** sc2c.log
 *************************************************************$
