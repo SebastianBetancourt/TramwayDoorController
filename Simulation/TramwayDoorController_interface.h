@@ -4,12 +4,12 @@
 #include "kcg_types.h"
 #include "kcg_sensors.h"
 #include "SmuProxy.h"
-#include "Door.h"
+#include "Controller.h"
 
 /* context */
 
-extern inC_Door inputs_ctx;
-extern outC_Door outputs_ctx;
+extern inC_Controller inputs_ctx;
+extern outC_Controller outputs_ctx;
 
 #ifdef __cplusplus
 extern "C" {

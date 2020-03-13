@@ -18,10 +18,18 @@
 
 [SCADE\Simulator\Watch]
 
-"Watch1"="Button/clicked/" 
-"Watch2"="Button/deactivate/" 
-"Watch3"="Button/activated/" 
-"Count"="3" 
+"Watch1"="Controller/requireDoor/" 
+"Watch2"="Controller/requireBridge/" 
+"Watch3"="Controller/immDeparture/" 
+"Count"="11" 
+"Watch4"="Controller/inStation/" 
+"Watch5"="Controller/doorStatus/" 
+"Watch6"="Controller/bridgeStatus/" 
+"Watch7"="Controller/openDoor/" 
+"Watch8"="Controller/closeDoor/" 
+"Watch9"="Controller/deployBridge/" 
+"Watch10"="Controller/retractBridge/" 
+"Watch11"="Controller/secured/" 
 
 [SCADE\Simulator\Graph]
 
@@ -76,4 +84,4 @@
 
 [SCADE\Generator\Tool]
 
-"PragmaTarget"="" 
+"PragmaTarget"="C" 

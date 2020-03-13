@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** Command: kcg66.exe -config C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/config.txt
-** Generation date: 2020-03-12T16:20:07
+** Generation date: 2020-03-13T00:03:44
 *************************************************************$-->
 <mapping>
   <config>
@@ -36,84 +36,235 @@
     <option name="exp" value="#off#"/>
     <option name="target_dir" value="C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation"/>
     <option name="target" value="C"/>
-    <option name="root" value="Door"/>
+    <option name="root" value="Controller"/>
     <option name="auth" value="#off#"/>
   </config>
   <model>
-    <predefType id="1" name="bool"/>
-    <predefType id="2" name="char"/>
-    <predefType id="3" name="int8"/>
-    <predefType id="4" name="int16"/>
-    <predefType id="5" name="int32"/>
-    <predefType id="6" name="int64"/>
-    <predefType id="7" name="uint8"/>
-    <predefType id="8" name="uint16"/>
-    <predefType id="9" name="uint32"/>
-    <predefType id="10" name="uint64"/>
-    <predefType id="11" name="float32"/>
-    <predefType id="12" name="float64"/>
-    <predefType id="13" name="size"/>
-    <operator id="14" name="Door" imported="false" root="true" expanded="false">
-      <input id="15" name="openRequest" clock="false" type="1"/>
-      <input id="16" name="closeRequest" clock="false" type="1"/>
-      <output id="17" name="opening" clock="false" type="1"/>
-      <output id="18" name="closing" clock="false" type="1"/>
-      <output id="19" name="opened" clock="false" type="1"/>
-      <output id="20" name="closed" clock="false" type="1"/>
-      <automaton id="21" name="SM1">
-        <state id="22" name="FullyClose" initial="true" final="false" default="false">
-          <local id="23" name="_L4" clock="false" type="1"/>
-          <local id="24" name="_L3" clock="false" type="1"/>
-          <local id="25" name="_L2" clock="false" type="1"/>
-          <local id="26" name="_L5" clock="false" type="1"/>
-          <fork id="27" name="1" kind="strong">
-            <transition id="28" dest="36"/>
+    <struct id="1">
+      <field id="2" name="opening" type="6"/>
+      <field id="3" name="opened" type="6"/>
+      <field id="4" name="closing" type="6"/>
+      <field id="5" name="closed" type="6"/>
+    </struct>
+    <predefType id="6" name="bool"/>
+    <predefType id="7" name="char"/>
+    <predefType id="8" name="int8"/>
+    <predefType id="9" name="int16"/>
+    <predefType id="10" name="int32"/>
+    <predefType id="11" name="int64"/>
+    <predefType id="12" name="uint8"/>
+    <predefType id="13" name="uint16"/>
+    <predefType id="14" name="uint32"/>
+    <predefType id="15" name="uint64"/>
+    <predefType id="16" name="float32"/>
+    <predefType id="17" name="float64"/>
+    <predefType id="18" name="size"/>
+    <type id="19" name="status" imported="false" type="1"/>
+    <operator id="20" name="Controller" imported="false" root="true" expanded="false">
+      <input id="21" name="requireDoor" clock="false" type="6"/>
+      <input id="22" name="requireBridge" clock="false" type="6"/>
+      <input id="23" name="immDeparture" clock="false" type="6"/>
+      <input id="24" name="inStation" clock="false" type="6"/>
+      <output id="25" name="doorStatus" clock="false" type="19"/>
+      <output id="26" name="bridgeStatus" clock="false" type="6"/>
+      <output id="27" name="openDoor" clock="false" type="6"/>
+      <output id="28" name="closeDoor" clock="false" type="6"/>
+      <output id="29" name="deployBridge" clock="false" type="6"/>
+      <output id="30" name="retractBridge" clock="false" type="6"/>
+      <output id="31" name="secured" clock="false" type="6"/>
+      <automaton id="32" name="SM1">
+        <state id="33" name="Door" initial="false" final="false" default="false">
+          <local id="34" name="_L13" clock="false" type="6"/>
+          <local id="35" name="_L14" clock="false" type="6"/>
+          <local id="36" name="_L15" clock="false" type="19"/>
+          <instance id="37" name="3" op="90" expanded="false"/>
+          <fork id="38" name="1" kind="weak">
+            <transition id="39" dest="82"/>
+          </fork>
+          <fork id="40" name="2" kind="weak">
+            <transition id="41" dest="65"/>
+          </fork>
+          <fork id="42" name="3" kind="weak">
+            <transition id="43" dest="70"/>
           </fork>
         </state>
-        <state id="29" name="FullyOpen" initial="false" final="false" default="false">
-          <local id="30" name="_L4" clock="false" type="1"/>
-          <local id="31" name="_L3" clock="false" type="1"/>
-          <local id="32" name="_L2" clock="false" type="1"/>
-          <local id="33" name="_L1" clock="false" type="1"/>
-          <fork id="34" name="1" kind="strong">
-            <transition id="35" dest="51"/>
+        <state id="44" name="DoorButton" initial="false" final="false" default="false">
+          <local id="45" name="_L4" clock="false" type="6"/>
+          <local id="46" name="_L5" clock="false" type="6"/>
+          <local id="47" name="_L6" clock="false" type="6"/>
+          <local id="48" name="_L10" clock="false" type="6"/>
+          <instance id="49" name="1" op="151" expanded="false"/>
+          <fork id="50" name="1" kind="weak">
+            <transition id="51" dest="33"/>
           </fork>
         </state>
-        <state id="36" name="Opening" initial="false" final="false" default="false">
-          <local id="37" name="_L4" clock="false" type="5"/>
-          <local id="38" name="_L5" clock="false" type="5"/>
-          <local id="39" name="_L6" clock="false" type="5"/>
-          <local id="40" name="_L7" clock="false" type="1"/>
-          <local id="41" name="_L9" clock="false" type="5"/>
-          <local id="42" name="_L11" clock="false" type="5"/>
-          <local id="43" name="_L12" clock="false" type="5"/>
-          <local id="44" name="_L13" clock="false" type="1"/>
-          <local id="45" name="_L14" clock="false" type="1"/>
-          <local id="46" name="_L15" clock="false" type="1"/>
-          <pre id="47" name="1"/>
-          <arrow id="48" name="1"/>
-          <fork id="49" name="1" kind="weak">
-            <transition id="50" dest="29"/>
+        <state id="52" name="ToPressButton" initial="true" final="false" default="false">
+          <local id="53" name="_L1" clock="false" type="1"/>
+          <local id="54" name="_L2" clock="false" type="6"/>
+          <local id="55" name="_L3" clock="false" type="6"/>
+          <local id="56" name="_L4" clock="false" type="6"/>
+          <local id="57" name="_L5" clock="false" type="6"/>
+          <local id="58" name="_L6" clock="false" type="6"/>
+          <local id="59" name="_L8" clock="false" type="6"/>
+          <local id="60" name="_L11" clock="false" type="6"/>
+          <fork id="61" name="1" kind="weak">
+            <transition id="62" dest="74"/>
+          </fork>
+          <fork id="63" name="2" kind="weak">
+            <transition id="64" dest="44"/>
           </fork>
         </state>
-        <state id="51" name="Closing" initial="false" final="false" default="false">
-          <local id="52" name="_L6" clock="false" type="5"/>
-          <local id="53" name="_L5" clock="false" type="1"/>
-          <local id="54" name="_L4" clock="false" type="5"/>
-          <local id="55" name="_L3" clock="false" type="5"/>
-          <local id="56" name="_L2" clock="false" type="5"/>
-          <local id="57" name="_L1" clock="false" type="5"/>
-          <local id="58" name="_L9" clock="false" type="1"/>
-          <local id="59" name="_L8" clock="false" type="1"/>
-          <local id="60" name="_L7" clock="false" type="1"/>
-          <local id="61" name="_L10" clock="false" type="5"/>
-          <pre id="62" name="2"/>
-          <arrow id="63" name="2"/>
-          <fork id="64" name="2" kind="weak">
-            <transition id="65" dest="22"/>
+        <state id="65" name="Open" initial="false" final="false" default="false">
+          <local id="66" name="_L1" clock="false" type="6"/>
+          <local id="67" name="_L3" clock="false" type="6"/>
+          <fork id="68" name="1" kind="weak">
+            <transition id="69" dest="33"/>
           </fork>
-          <fork id="66" name="1" kind="strong">
-            <transition id="67" dest="36"/>
+        </state>
+        <state id="70" name="ToLeaveStation" initial="false" final="false" default="false">
+          <local id="71" name="_L1" clock="false" type="6"/>
+          <fork id="72" name="1" kind="weak">
+            <transition id="73" dest="52"/>
+          </fork>
+        </state>
+        <state id="74" name="BridgeButton" initial="false" final="false" default="false">
+          <local id="75" name="_L1" clock="false" type="6"/>
+          <local id="76" name="_L2" clock="false" type="6"/>
+          <local id="77" name="_L3" clock="false" type="6"/>
+          <local id="78" name="_L4" clock="false" type="6"/>
+          <instance id="79" name="7" op="151" expanded="false"/>
+          <fork id="80" name="1" kind="weak">
+            <transition id="81" dest="33"/>
+          </fork>
+        </state>
+        <state id="82" name="Bridge" initial="false" final="false" default="false">
+          <local id="83" name="_L1" clock="false" type="6"/>
+          <local id="84" name="_L3" clock="false" type="6"/>
+          <local id="85" name="_L4" clock="false" type="6"/>
+          <local id="86" name="_L6" clock="false" type="6"/>
+          <instance id="87" name="5" op="164" expanded="false"/>
+          <fork id="88" name="1" kind="weak">
+            <transition id="89" dest="33"/>
+          </fork>
+        </state>
+      </automaton>
+    </operator>
+    <operator id="90" name="Door" imported="false" root="false" expanded="false">
+      <input id="91" name="openRequest" clock="false" type="6"/>
+      <input id="92" name="closeRequest" clock="false" type="6"/>
+      <output id="93" name="doorStatus" clock="false" type="19"/>
+      <automaton id="94" name="SM1">
+        <state id="95" name="ToMove" initial="true" final="false" default="false">
+          <local id="96" name="_L6" clock="false" type="1"/>
+          <local id="97" name="_L7" clock="false" type="6"/>
+          <local id="98" name="_L11" clock="false" type="6"/>
+          <local id="99" name="_L12" clock="false" type="6"/>
+          <local id="100" name="_L13" clock="false" type="6"/>
+          <fork id="101" name="1" kind="strong">
+            <transition id="102" dest="111"/>
+          </fork>
+          <fork id="103" name="2" kind="strong">
+            <transition id="104" dest="127"/>
+          </fork>
+        </state>
+        <state id="105" name="FullyOpen" initial="false" final="false" default="false">
+          <local id="106" name="_L14" clock="false" type="1"/>
+          <local id="107" name="_L13" clock="false" type="6"/>
+          <local id="108" name="_L12" clock="false" type="6"/>
+          <local id="109" name="_L11" clock="false" type="6"/>
+          <local id="110" name="_L10" clock="false" type="6"/>
+        </state>
+        <state id="111" name="Opening" initial="false" final="false" default="false">
+          <local id="112" name="_L4" clock="false" type="10"/>
+          <local id="113" name="_L5" clock="false" type="10"/>
+          <local id="114" name="_L6" clock="false" type="10"/>
+          <local id="115" name="_L7" clock="false" type="6"/>
+          <local id="116" name="_L9" clock="false" type="10"/>
+          <local id="117" name="_L11" clock="false" type="10"/>
+          <local id="118" name="_L12" clock="false" type="10"/>
+          <local id="119" name="_L25" clock="false" type="6"/>
+          <local id="120" name="_L24" clock="false" type="6"/>
+          <local id="121" name="_L23" clock="false" type="1"/>
+          <local id="122" name="_L22" clock="false" type="6"/>
+          <pre id="123" name="1"/>
+          <arrow id="124" name="1"/>
+          <fork id="125" name="1" kind="weak">
+            <transition id="126" dest="105"/>
+          </fork>
+        </state>
+        <state id="127" name="Closing" initial="false" final="false" default="false">
+          <local id="128" name="_L53" clock="false" type="10"/>
+          <local id="129" name="_L52" clock="false" type="10"/>
+          <local id="130" name="_L51" clock="false" type="10"/>
+          <local id="131" name="_L50" clock="false" type="10"/>
+          <local id="132" name="_L48" clock="false" type="1"/>
+          <local id="133" name="_L47" clock="false" type="10"/>
+          <local id="134" name="_L46" clock="false" type="6"/>
+          <local id="135" name="_L45" clock="false" type="6"/>
+          <local id="136" name="_L44" clock="false" type="10"/>
+          <local id="137" name="_L43" clock="false" type="6"/>
+          <local id="138" name="_L54" clock="false" type="6"/>
+          <arrow id="139" name="4"/>
+          <pre id="140" name="4"/>
+          <fork id="141" name="2" kind="weak">
+            <transition id="142" dest="145"/>
+          </fork>
+          <fork id="143" name="1" kind="strong">
+            <transition id="144" dest="111"/>
+          </fork>
+        </state>
+        <state id="145" name="FullyClose" initial="false" final="false" default="false">
+          <local id="146" name="_L14" clock="false" type="1"/>
+          <local id="147" name="_L13" clock="false" type="6"/>
+          <local id="148" name="_L12" clock="false" type="6"/>
+          <local id="149" name="_L11" clock="false" type="6"/>
+          <local id="150" name="_L10" clock="false" type="6"/>
+        </state>
+      </automaton>
+    </operator>
+    <operator id="151" name="Button" imported="false" root="false" expanded="false">
+      <input id="152" name="clicked" clock="false" type="6"/>
+      <input id="153" name="deactivate" clock="false" type="6"/>
+      <output id="154" name="activated" clock="false" type="6"/>
+      <automaton id="155" name="Button">
+        <state id="156" name="notPressed" initial="true" final="false" default="false">
+          <local id="157" name="_L2" clock="false" type="6"/>
+          <fork id="158" name="1" kind="strong">
+            <transition id="159" dest="160"/>
+          </fork>
+        </state>
+        <state id="160" name="pressed" initial="false" final="false" default="false">
+          <local id="161" name="_L1" clock="false" type="6"/>
+          <fork id="162" name="1" kind="strong">
+            <transition id="163" dest="156"/>
+          </fork>
+        </state>
+      </automaton>
+    </operator>
+    <operator id="164" name="Bridge" imported="false" root="false" expanded="false">
+      <input id="165" name="deployRequest" clock="false" type="6"/>
+      <input id="166" name="retractRequest" clock="false" type="6"/>
+      <output id="167" name="deployed" clock="false" type="6"/>
+      <automaton id="168" name="SM1">
+        <state id="169" name="ToMove" initial="true" final="false" default="false">
+          <local id="170" name="_L5" clock="false" type="6"/>
+          <fork id="171" name="1" kind="strong">
+            <transition id="172" dest="175"/>
+          </fork>
+          <fork id="173" name="2" kind="strong">
+            <transition id="174" dest="179"/>
+          </fork>
+        </state>
+        <state id="175" name="Deployed" initial="false" final="false" default="false">
+          <local id="176" name="_L4" clock="false" type="6"/>
+          <fork id="177" name="1" kind="strong">
+            <transition id="178" dest="179"/>
+          </fork>
+        </state>
+        <state id="179" name="Retracted" initial="false" final="false" default="false">
+          <local id="180" name="_L1" clock="false" type="6"/>
+          <fork id="181" name="1" kind="strong">
+            <transition id="182" dest="175"/>
           </fork>
         </state>
       </automaton>
@@ -121,285 +272,705 @@
   </model>
   <generated>
     <c>
-      <file id="68" name="Door.h">
-        <function id="69" name="Door_init">
-          <parameter id="70" name="outC" type="76" pointer="true"/>
+      <file id="183" name="Controller.h">
+        <function id="184" name="Controller_init">
+          <parameter id="185" name="outC" type="191" pointer="true"/>
         </function>
-        <function id="71" name="Door_reset">
-          <parameter id="72" name="outC" type="76" pointer="true"/>
+        <function id="186" name="Controller_reset">
+          <parameter id="187" name="outC" type="191" pointer="true"/>
         </function>
-        <function id="73" name="Door">
-          <parameter id="74" name="inC" type="120" pointer="true"/>
-          <parameter id="75" name="outC" type="76" pointer="true"/>
+        <function id="188" name="Controller">
+          <parameter id="189" name="inC" type="236" pointer="true"/>
+          <parameter id="190" name="outC" type="191" pointer="true"/>
         </function>
-        <struct id="76" name="outC_Door">
-          <field id="77" name="opening" type="170" pointer="false"/>
-          <field id="78" name="closing" type="170" pointer="false"/>
-          <field id="79" name="opened" type="170" pointer="false"/>
-          <field id="80" name="closed" type="170" pointer="false"/>
-          <field id="81" name="init" type="170" pointer="false"/>
-          <field id="82" name="init1" type="170" pointer="false"/>
-          <field id="83" name="_L5_Opening_SM1" type="161" pointer="false"/>
-          <field id="84" name="_L2_Closing_SM1" type="161" pointer="false"/>
-          <field id="85" name="SM1_state_nxt" type="124" pointer="false"/>
-          <field id="86" name="SM1_reset_act" type="170" pointer="false"/>
-          <field id="87" name="SM1_reset_nxt" type="170" pointer="false"/>
-          <field id="88" name="Opening_weakb_clock_SM1" type="170" pointer="false"/>
-          <field id="89" name="Closing_weakb_clock_SM1" type="170" pointer="false"/>
-          <field id="90" name="SM1_state_act" type="124" pointer="false"/>
-          <field id="91" name="_L5_FullyClose_SM1" type="170" pointer="false"/>
-          <field id="92" name="_L2_FullyClose_SM1" type="170" pointer="false"/>
-          <field id="93" name="_L3_FullyClose_SM1" type="170" pointer="false"/>
-          <field id="94" name="_L4_FullyClose_SM1" type="170" pointer="false"/>
-          <field id="95" name="_L1_FullyOpen_SM1" type="170" pointer="false"/>
-          <field id="96" name="_L2_FullyOpen_SM1" type="170" pointer="false"/>
-          <field id="97" name="_L3_FullyOpen_SM1" type="170" pointer="false"/>
-          <field id="98" name="_L4_FullyOpen_SM1" type="170" pointer="false"/>
-          <field id="99" name="_L15_Opening_SM1" type="170" pointer="false"/>
-          <field id="100" name="_L14_Opening_SM1" type="170" pointer="false"/>
-          <field id="101" name="_L13_Opening_SM1" type="170" pointer="false"/>
-          <field id="102" name="_L12_Opening_SM1" type="161" pointer="false"/>
-          <field id="103" name="_L11_Opening_SM1" type="161" pointer="false"/>
-          <field id="104" name="_L9_Opening_SM1" type="161" pointer="false"/>
-          <field id="105" name="_L7_Opening_SM1" type="170" pointer="false"/>
-          <field id="106" name="_L6_Opening_SM1" type="161" pointer="false"/>
-          <field id="107" name="_L4_Opening_SM1" type="161" pointer="false"/>
-          <field id="108" name="_L10_Closing_SM1" type="161" pointer="false"/>
-          <field id="109" name="_L7_Closing_SM1" type="170" pointer="false"/>
-          <field id="110" name="_L8_Closing_SM1" type="170" pointer="false"/>
-          <field id="111" name="_L9_Closing_SM1" type="170" pointer="false"/>
-          <field id="112" name="_L1_Closing_SM1" type="161" pointer="false"/>
-          <field id="113" name="_L3_Closing_SM1" type="161" pointer="false"/>
-          <field id="114" name="_L4_Closing_SM1" type="161" pointer="false"/>
-          <field id="115" name="_L5_Closing_SM1" type="170" pointer="false"/>
-          <field id="116" name="_L6_Closing_SM1" type="161" pointer="false"/>
-          <field id="117" name="SM1_state_sel" type="124" pointer="false"/>
-          <field id="118" name="SM1_fired_strong" type="129" pointer="false"/>
-          <field id="119" name="SM1_fired" type="129" pointer="false"/>
+        <struct id="191" name="outC_Controller">
+          <field id="192" name="doorStatus" type="347" pointer="false"/>
+          <field id="193" name="bridgeStatus" type="436" pointer="false"/>
+          <field id="194" name="openDoor" type="436" pointer="false"/>
+          <field id="195" name="closeDoor" type="436" pointer="false"/>
+          <field id="196" name="deployBridge" type="436" pointer="false"/>
+          <field id="197" name="retractBridge" type="436" pointer="false"/>
+          <field id="198" name="secured" type="436" pointer="false"/>
+          <field id="199" name="SM1_state_nxt" type="352" pointer="false"/>
+          <field id="200" name="SM1_reset_act" type="436" pointer="false"/>
+          <field id="201" name="SM1_reset_nxt" type="436" pointer="false"/>
+          <field id="202" name="Context_Door_3" type="291" pointer="false"/>
+          <field id="203" name="Context_Button_1" type="271" pointer="false"/>
+          <field id="204" name="Context_Button_7" type="271" pointer="false"/>
+          <field id="205" name="Context_Bridge_5" type="250" pointer="false"/>
+          <field id="206" name="SM1_state_act" type="352" pointer="false"/>
+          <field id="207" name="_L15_Door_SM1" type="347" pointer="false"/>
+          <field id="208" name="_L14_Door_SM1" type="436" pointer="false"/>
+          <field id="209" name="_L13_Door_SM1" type="436" pointer="false"/>
+          <field id="210" name="_L10_DoorButton_SM1" type="436" pointer="false"/>
+          <field id="211" name="_L6_DoorButton_SM1" type="436" pointer="false"/>
+          <field id="212" name="_L5_DoorButton_SM1" type="436" pointer="false"/>
+          <field id="213" name="_L4_DoorButton_SM1" type="436" pointer="false"/>
+          <field id="214" name="_L11_ToPressButton_SM1" type="436" pointer="false"/>
+          <field id="215" name="_L8_ToPressButton_SM1" type="436" pointer="false"/>
+          <field id="216" name="_L6_ToPressButton_SM1" type="436" pointer="false"/>
+          <field id="217" name="_L5_ToPressButton_SM1" type="436" pointer="false"/>
+          <field id="218" name="_L4_ToPressButton_SM1" type="436" pointer="false"/>
+          <field id="219" name="_L3_ToPressButton_SM1" type="436" pointer="false"/>
+          <field id="220" name="_L2_ToPressButton_SM1" type="436" pointer="false"/>
+          <field id="221" name="_L1_ToPressButton_SM1" type="347" pointer="false"/>
+          <field id="222" name="_L3_Open_SM1" type="436" pointer="false"/>
+          <field id="223" name="_L1_Open_SM1" type="436" pointer="false"/>
+          <field id="224" name="_L1_ToLeaveStation_SM1" type="436" pointer="false"/>
+          <field id="225" name="_L4_BridgeButton_SM1" type="436" pointer="false"/>
+          <field id="226" name="_L3_BridgeButton_SM1" type="436" pointer="false"/>
+          <field id="227" name="_L2_BridgeButton_SM1" type="436" pointer="false"/>
+          <field id="228" name="_L1_BridgeButton_SM1" type="436" pointer="false"/>
+          <field id="229" name="_L6_Bridge_SM1" type="436" pointer="false"/>
+          <field id="230" name="_L4_Bridge_SM1" type="436" pointer="false"/>
+          <field id="231" name="_L3_Bridge_SM1" type="436" pointer="false"/>
+          <field id="232" name="_L1_Bridge_SM1" type="436" pointer="false"/>
+          <field id="233" name="SM1_state_sel" type="352" pointer="false"/>
+          <field id="234" name="SM1_fired_strong" type="360" pointer="false"/>
+          <field id="235" name="SM1_fired" type="360" pointer="false"/>
         </struct>
-        <struct id="120" name="inC_Door">
-          <field id="121" name="openRequest" type="170" pointer="false"/>
-          <field id="122" name="closeRequest" type="170" pointer="false"/>
+        <struct id="236" name="inC_Controller">
+          <field id="237" name="requireDoor" type="436" pointer="false"/>
+          <field id="238" name="requireBridge" type="436" pointer="false"/>
+          <field id="239" name="immDeparture" type="436" pointer="false"/>
+          <field id="240" name="inStation" type="436" pointer="false"/>
         </struct>
       </file>
-      <file id="123" name="kcg_types.h">
-        <enum id="124" name="SSM_ST_SM1" tagName="kcg_tag_SSM_ST_SM1">
-          <value id="125" name="SSM_st_FullyClose_SM1"/>
-          <value id="126" name="SSM_st_FullyOpen_SM1"/>
-          <value id="127" name="SSM_st_Opening_SM1"/>
-          <value id="128" name="SSM_st_Closing_SM1"/>
-        </enum>
-        <enum id="129" name="SSM_TR_SM1" tagName="kcg_tag_SSM_TR_SM1">
-          <value id="130" name="SSM_TR_no_trans_SM1"/>
-          <value id="131" name="SSM_TR_FullyClose_Opening_1_FullyClose_SM1"/>
-          <value id="132" name="SSM_TR_FullyOpen_Closing_1_FullyOpen_SM1"/>
-          <value id="133" name="SSM_TR_Opening_FullyOpen_1_Opening_SM1"/>
-          <value id="134" name="SSM_TR_Closing_Opening_1_Closing_SM1"/>
-          <value id="135" name="SSM_TR_Closing_FullyClose_2_Closing_SM1"/>
-        </enum>
-        <macro id="136" name="kcg_assign_array"/>
-        <macro id="137" name="kcg_assign_struct"/>
-        <macro id="138" name="kcg_lnot_uint8"/>
-        <macro id="139" name="kcg_lnot_uint16"/>
-        <macro id="140" name="kcg_lnot_uint32"/>
-        <macro id="141" name="kcg_lnot_uint64"/>
-        <macro id="142" name="kcg_lsl_uint8"/>
-        <macro id="143" name="kcg_lsl_uint16"/>
-        <macro id="144" name="kcg_lsl_uint32"/>
-        <macro id="145" name="kcg_lsl_uint64"/>
-        <macro id="146" name="kcg_true"/>
-        <macro id="147" name="kcg_false"/>
-        <macro id="148" name="kcg_lit_int8"/>
-        <macro id="149" name="kcg_lit_int16"/>
-        <macro id="150" name="kcg_lit_int32"/>
-        <macro id="151" name="kcg_lit_int64"/>
-        <macro id="152" name="kcg_lit_uint8"/>
-        <macro id="153" name="kcg_lit_uint16"/>
-        <macro id="154" name="kcg_lit_uint32"/>
-        <macro id="155" name="kcg_lit_uint64"/>
-        <macro id="156" name="kcg_lit_size"/>
-        <macro id="157" name="kcg_lit_float64"/>
-        <macro id="158" name="kcg_lit_float32"/>
-        <predefType id="159" name="kcg_int8"/>
-        <predefType id="160" name="kcg_int16"/>
-        <predefType id="161" name="kcg_int32"/>
-        <predefType id="162" name="kcg_int64"/>
-        <predefType id="163" name="kcg_uint8"/>
-        <predefType id="164" name="kcg_uint16"/>
-        <predefType id="165" name="kcg_uint32"/>
-        <predefType id="166" name="kcg_uint64"/>
-        <predefType id="167" name="kcg_size"/>
-        <predefType id="168" name="kcg_float64"/>
-        <predefType id="169" name="kcg_float32"/>
-        <predefType id="170" name="kcg_bool"/>
-        <predefType id="171" name="kcg_char"/>
-        <macro id="172" name="KCG_MAPW_CPY"/>
+      <file id="241" name="Bridge.h">
+        <function id="242" name="Bridge_init">
+          <parameter id="243" name="outC" type="250" pointer="true"/>
+        </function>
+        <function id="244" name="Bridge_reset">
+          <parameter id="245" name="outC" type="250" pointer="true"/>
+        </function>
+        <function id="246" name="Bridge">
+          <parameter id="247" name="deployRequest" type="436" pointer="false"/>
+          <parameter id="248" name="retractRequest" type="436" pointer="false"/>
+          <parameter id="249" name="outC" type="250" pointer="true"/>
+        </function>
+        <struct id="250" name="outC_Bridge">
+          <field id="251" name="deployed" type="436" pointer="false"/>
+          <field id="252" name="SM1_state_nxt" type="372" pointer="false"/>
+          <field id="253" name="SM1_reset_act" type="436" pointer="false"/>
+          <field id="254" name="SM1_reset_nxt" type="436" pointer="false"/>
+          <field id="255" name="SM1_state_act" type="372" pointer="false"/>
+          <field id="256" name="_L5_ToMove_SM1" type="436" pointer="false"/>
+          <field id="257" name="_L4_Deployed_SM1" type="436" pointer="false"/>
+          <field id="258" name="_L1_Retracted_SM1" type="436" pointer="false"/>
+          <field id="259" name="SM1_state_sel" type="372" pointer="false"/>
+          <field id="260" name="SM1_fired_strong" type="376" pointer="false"/>
+          <field id="261" name="SM1_fired" type="376" pointer="false"/>
+        </struct>
       </file>
-      <file id="173" name="kcg_consts.h"/>
-      <file id="174" name="kcg_sensors.h"/>
+      <file id="262" name="Button.h">
+        <function id="263" name="Button_init">
+          <parameter id="264" name="outC" type="271" pointer="true"/>
+        </function>
+        <function id="265" name="Button_reset">
+          <parameter id="266" name="outC" type="271" pointer="true"/>
+        </function>
+        <function id="267" name="Button">
+          <parameter id="268" name="clicked" type="436" pointer="false"/>
+          <parameter id="269" name="deactivate" type="436" pointer="false"/>
+          <parameter id="270" name="outC" type="271" pointer="true"/>
+        </function>
+        <struct id="271" name="outC_Button">
+          <field id="272" name="activated" type="436" pointer="false"/>
+          <field id="273" name="Button_state_nxt" type="382" pointer="false"/>
+          <field id="274" name="Button_reset_act" type="436" pointer="false"/>
+          <field id="275" name="Button_reset_nxt" type="436" pointer="false"/>
+          <field id="276" name="Button_state_act" type="382" pointer="false"/>
+          <field id="277" name="_L2_notPressed_Button" type="436" pointer="false"/>
+          <field id="278" name="_L1_pressed_Button" type="436" pointer="false"/>
+          <field id="279" name="Button_state_sel" type="382" pointer="false"/>
+          <field id="280" name="Button_fired_strong" type="385" pointer="false"/>
+          <field id="281" name="Button_fired" type="385" pointer="false"/>
+        </struct>
+      </file>
+      <file id="282" name="Door.h">
+        <function id="283" name="Door_init">
+          <parameter id="284" name="outC" type="291" pointer="true"/>
+        </function>
+        <function id="285" name="Door_reset">
+          <parameter id="286" name="outC" type="291" pointer="true"/>
+        </function>
+        <function id="287" name="Door">
+          <parameter id="288" name="openRequest" type="436" pointer="false"/>
+          <parameter id="289" name="closeRequest" type="436" pointer="false"/>
+          <parameter id="290" name="outC" type="291" pointer="true"/>
+        </function>
+        <struct id="291" name="outC_Door">
+          <field id="292" name="doorStatus" type="347" pointer="false"/>
+          <field id="293" name="init" type="436" pointer="false"/>
+          <field id="294" name="init1" type="436" pointer="false"/>
+          <field id="295" name="_L5_Opening_SM1" type="427" pointer="false"/>
+          <field id="296" name="_L44_Closing_SM1" type="427" pointer="false"/>
+          <field id="297" name="SM1_state_nxt" type="389" pointer="false"/>
+          <field id="298" name="SM1_reset_act" type="436" pointer="false"/>
+          <field id="299" name="SM1_reset_nxt" type="436" pointer="false"/>
+          <field id="300" name="Opening_weakb_clock_SM1" type="436" pointer="false"/>
+          <field id="301" name="Closing_weakb_clock_SM1" type="436" pointer="false"/>
+          <field id="302" name="SM1_state_act" type="389" pointer="false"/>
+          <field id="303" name="_L13_ToMove_SM1" type="436" pointer="false"/>
+          <field id="304" name="_L12_ToMove_SM1" type="436" pointer="false"/>
+          <field id="305" name="_L11_ToMove_SM1" type="436" pointer="false"/>
+          <field id="306" name="_L7_ToMove_SM1" type="436" pointer="false"/>
+          <field id="307" name="_L6_ToMove_SM1" type="347" pointer="false"/>
+          <field id="308" name="_L10_FullyOpen_SM1" type="436" pointer="false"/>
+          <field id="309" name="_L11_FullyOpen_SM1" type="436" pointer="false"/>
+          <field id="310" name="_L12_FullyOpen_SM1" type="436" pointer="false"/>
+          <field id="311" name="_L13_FullyOpen_SM1" type="436" pointer="false"/>
+          <field id="312" name="_L14_FullyOpen_SM1" type="347" pointer="false"/>
+          <field id="313" name="_L22_Opening_SM1" type="436" pointer="false"/>
+          <field id="314" name="_L23_Opening_SM1" type="347" pointer="false"/>
+          <field id="315" name="_L24_Opening_SM1" type="436" pointer="false"/>
+          <field id="316" name="_L25_Opening_SM1" type="436" pointer="false"/>
+          <field id="317" name="_L12_Opening_SM1" type="427" pointer="false"/>
+          <field id="318" name="_L11_Opening_SM1" type="427" pointer="false"/>
+          <field id="319" name="_L9_Opening_SM1" type="427" pointer="false"/>
+          <field id="320" name="_L7_Opening_SM1" type="436" pointer="false"/>
+          <field id="321" name="_L6_Opening_SM1" type="427" pointer="false"/>
+          <field id="322" name="_L4_Opening_SM1" type="427" pointer="false"/>
+          <field id="323" name="_L54_Closing_SM1" type="436" pointer="false"/>
+          <field id="324" name="_L43_Closing_SM1" type="436" pointer="false"/>
+          <field id="325" name="_L45_Closing_SM1" type="436" pointer="false"/>
+          <field id="326" name="_L46_Closing_SM1" type="436" pointer="false"/>
+          <field id="327" name="_L47_Closing_SM1" type="427" pointer="false"/>
+          <field id="328" name="_L48_Closing_SM1" type="347" pointer="false"/>
+          <field id="329" name="_L50_Closing_SM1" type="427" pointer="false"/>
+          <field id="330" name="_L51_Closing_SM1" type="427" pointer="false"/>
+          <field id="331" name="_L52_Closing_SM1" type="427" pointer="false"/>
+          <field id="332" name="_L53_Closing_SM1" type="427" pointer="false"/>
+          <field id="333" name="_L10_FullyClose_SM1" type="436" pointer="false"/>
+          <field id="334" name="_L11_FullyClose_SM1" type="436" pointer="false"/>
+          <field id="335" name="_L12_FullyClose_SM1" type="436" pointer="false"/>
+          <field id="336" name="_L13_FullyClose_SM1" type="436" pointer="false"/>
+          <field id="337" name="_L14_FullyClose_SM1" type="347" pointer="false"/>
+          <field id="338" name="SM1_state_sel" type="389" pointer="false"/>
+          <field id="339" name="SM1_fired_strong" type="395" pointer="false"/>
+          <field id="340" name="SM1_fired" type="395" pointer="false"/>
+        </struct>
+      </file>
+      <file id="341" name="kcg_types.h">
+        <ifdef id="342" name="kcg_use_status">
+          <function id="343" name="kcg_comp_status" returnType="436">
+            <parameter id="344" name="kcg_c1" type="347" pointer="true"/>
+            <parameter id="345" name="kcg_c2" type="347" pointer="true"/>
+          </function>
+        </ifdef>
+        <macro id="346" name="kcg_copy_status"/>
+        <struct id="347" name="status" tagName="kcg_tag_status">
+          <field id="348" name="opening" type="436" pointer="false"/>
+          <field id="349" name="opened" type="436" pointer="false"/>
+          <field id="350" name="closing" type="436" pointer="false"/>
+          <field id="351" name="closed" type="436" pointer="false"/>
+        </struct>
+        <enum id="352" name="SSM_ST_SM1" tagName="kcg_tag_SSM_ST_SM1">
+          <value id="353" name="SSM_st_Door_SM1"/>
+          <value id="354" name="SSM_st_DoorButton_SM1"/>
+          <value id="355" name="SSM_st_ToPressButton_SM1"/>
+          <value id="356" name="SSM_st_Open_SM1"/>
+          <value id="357" name="SSM_st_ToLeaveStation_SM1"/>
+          <value id="358" name="SSM_st_BridgeButton_SM1"/>
+          <value id="359" name="SSM_st_Bridge_SM1"/>
+        </enum>
+        <enum id="360" name="SSM_TR_SM1" tagName="kcg_tag_SSM_TR_SM1">
+          <value id="361" name="_8_SSM_TR_no_trans_SM1"/>
+          <value id="362" name="SSM_TR_Door_Bridge_1_Door_SM1"/>
+          <value id="363" name="SSM_TR_Door_Open_2_Door_SM1"/>
+          <value id="364" name="SSM_TR_Door_ToLeaveStation_3_Door_SM1"/>
+          <value id="365" name="SSM_TR_DoorButton_Door_1_DoorButton_SM1"/>
+          <value id="366" name="SSM_TR_ToPressButton_BridgeButton_1_ToPressButton_SM1"/>
+          <value id="367" name="SSM_TR_ToPressButton_DoorButton_2_ToPressButton_SM1"/>
+          <value id="368" name="SSM_TR_Open_Door_1_Open_SM1"/>
+          <value id="369" name="SSM_TR_ToLeaveStation_ToPressButton_1_ToLeaveStation_SM1"/>
+          <value id="370" name="SSM_TR_BridgeButton_Door_1_BridgeButton_SM1"/>
+          <value id="371" name="SSM_TR_Bridge_Door_1_Bridge_SM1"/>
+        </enum>
+        <enum id="372" name="_2_SSM_ST_SM1" tagName="kcg_tag__2_SSM_ST_SM1">
+          <value id="373" name="_7_SSM_st_ToMove_SM1"/>
+          <value id="374" name="SSM_st_Deployed_SM1"/>
+          <value id="375" name="SSM_st_Retracted_SM1"/>
+        </enum>
+        <enum id="376" name="_3_SSM_TR_SM1" tagName="kcg_tag__3_SSM_TR_SM1">
+          <value id="377" name="_6_SSM_TR_no_trans_SM1"/>
+          <value id="378" name="SSM_TR_ToMove_Deployed_1_ToMove_SM1"/>
+          <value id="379" name="SSM_TR_ToMove_Retracted_2_ToMove_SM1"/>
+          <value id="380" name="SSM_TR_Deployed_Retracted_1_Deployed_SM1"/>
+          <value id="381" name="SSM_TR_Retracted_Deployed_1_Retracted_SM1"/>
+        </enum>
+        <enum id="382" name="SSM_ST_Button" tagName="kcg_tag_SSM_ST_Button">
+          <value id="383" name="SSM_st_notPressed_Button"/>
+          <value id="384" name="SSM_st_pressed_Button"/>
+        </enum>
+        <enum id="385" name="SSM_TR_Button" tagName="kcg_tag_SSM_TR_Button">
+          <value id="386" name="SSM_TR_no_trans_Button"/>
+          <value id="387" name="SSM_TR_notPressed_pressed_1_notPressed_Button"/>
+          <value id="388" name="SSM_TR_pressed_notPressed_1_pressed_Button"/>
+        </enum>
+        <enum id="389" name="_4_SSM_ST_SM1" tagName="kcg_tag__4_SSM_ST_SM1">
+          <value id="390" name="SSM_st_ToMove_SM1"/>
+          <value id="391" name="SSM_st_FullyOpen_SM1"/>
+          <value id="392" name="SSM_st_Opening_SM1"/>
+          <value id="393" name="SSM_st_Closing_SM1"/>
+          <value id="394" name="SSM_st_FullyClose_SM1"/>
+        </enum>
+        <enum id="395" name="_5_SSM_TR_SM1" tagName="kcg_tag__5_SSM_TR_SM1">
+          <value id="396" name="SSM_TR_no_trans_SM1"/>
+          <value id="397" name="SSM_TR_ToMove_Opening_1_ToMove_SM1"/>
+          <value id="398" name="SSM_TR_ToMove_Closing_2_ToMove_SM1"/>
+          <value id="399" name="SSM_TR_Opening_FullyOpen_1_Opening_SM1"/>
+          <value id="400" name="SSM_TR_Closing_Opening_1_Closing_SM1"/>
+          <value id="401" name="SSM_TR_Closing_FullyClose_2_Closing_SM1"/>
+        </enum>
+        <macro id="402" name="kcg_assign_array"/>
+        <macro id="403" name="kcg_assign_struct"/>
+        <macro id="404" name="kcg_lnot_uint8"/>
+        <macro id="405" name="kcg_lnot_uint16"/>
+        <macro id="406" name="kcg_lnot_uint32"/>
+        <macro id="407" name="kcg_lnot_uint64"/>
+        <macro id="408" name="kcg_lsl_uint8"/>
+        <macro id="409" name="kcg_lsl_uint16"/>
+        <macro id="410" name="kcg_lsl_uint32"/>
+        <macro id="411" name="kcg_lsl_uint64"/>
+        <macro id="412" name="kcg_true"/>
+        <macro id="413" name="kcg_false"/>
+        <macro id="414" name="kcg_lit_int8"/>
+        <macro id="415" name="kcg_lit_int16"/>
+        <macro id="416" name="kcg_lit_int32"/>
+        <macro id="417" name="kcg_lit_int64"/>
+        <macro id="418" name="kcg_lit_uint8"/>
+        <macro id="419" name="kcg_lit_uint16"/>
+        <macro id="420" name="kcg_lit_uint32"/>
+        <macro id="421" name="kcg_lit_uint64"/>
+        <macro id="422" name="kcg_lit_size"/>
+        <macro id="423" name="kcg_lit_float64"/>
+        <macro id="424" name="kcg_lit_float32"/>
+        <predefType id="425" name="kcg_int8"/>
+        <predefType id="426" name="kcg_int16"/>
+        <predefType id="427" name="kcg_int32"/>
+        <predefType id="428" name="kcg_int64"/>
+        <predefType id="429" name="kcg_uint8"/>
+        <predefType id="430" name="kcg_uint16"/>
+        <predefType id="431" name="kcg_uint32"/>
+        <predefType id="432" name="kcg_uint64"/>
+        <predefType id="433" name="kcg_size"/>
+        <predefType id="434" name="kcg_float64"/>
+        <predefType id="435" name="kcg_float32"/>
+        <predefType id="436" name="kcg_bool"/>
+        <predefType id="437" name="kcg_char"/>
+        <macro id="438" name="KCG_MAPW_CPY"/>
+      </file>
+      <file id="439" name="kcg_consts.h"/>
+      <file id="440" name="kcg_sensors.h"/>
     </c>
-    <map srcId="168" dstId="157" role="wrapped-lit"/>
-    <map srcId="169" dstId="158" role="wrapped-lit"/>
-    <map srcId="167" dstId="156" role="wrapped-lit"/>
-    <map srcId="166" dstId="155" role="wrapped-lit"/>
-    <map srcId="166" dstId="141" role="wrapped-lnot"/>
-    <map srcId="166" dstId="145" role="wrapped-lsl"/>
-    <map srcId="165" dstId="154" role="wrapped-lit"/>
-    <map srcId="165" dstId="140" role="wrapped-lnot"/>
-    <map srcId="165" dstId="144" role="wrapped-lsl"/>
-    <map srcId="164" dstId="153" role="wrapped-lit"/>
-    <map srcId="164" dstId="139" role="wrapped-lnot"/>
-    <map srcId="164" dstId="143" role="wrapped-lsl"/>
-    <map srcId="163" dstId="152" role="wrapped-lit"/>
-    <map srcId="163" dstId="138" role="wrapped-lnot"/>
-    <map srcId="163" dstId="142" role="wrapped-lsl"/>
-    <map srcId="162" dstId="151" role="wrapped-lit"/>
-    <map srcId="161" dstId="150" role="wrapped-lit"/>
-    <map srcId="160" dstId="149" role="wrapped-lit"/>
-    <map srcId="159" dstId="148" role="wrapped-lit"/>
-    <map srcId="116" dstId="90" role="clock"/>
-    <map srcId="116" dstId="128" role="clock-value"/>
-    <map srcId="115" dstId="90" role="clock"/>
-    <map srcId="115" dstId="128" role="clock-value"/>
-    <map srcId="114" dstId="90" role="clock"/>
-    <map srcId="114" dstId="128" role="clock-value"/>
-    <map srcId="113" dstId="90" role="clock"/>
-    <map srcId="113" dstId="128" role="clock-value"/>
-    <map srcId="112" dstId="90" role="clock"/>
-    <map srcId="112" dstId="128" role="clock-value"/>
-    <map srcId="111" dstId="90" role="clock"/>
-    <map srcId="111" dstId="128" role="clock-value"/>
-    <map srcId="110" dstId="90" role="clock"/>
-    <map srcId="110" dstId="128" role="clock-value"/>
-    <map srcId="109" dstId="90" role="clock"/>
-    <map srcId="109" dstId="128" role="clock-value"/>
-    <map srcId="108" dstId="90" role="clock"/>
-    <map srcId="108" dstId="128" role="clock-value"/>
-    <map srcId="107" dstId="90" role="clock"/>
-    <map srcId="107" dstId="127" role="clock-value"/>
-    <map srcId="106" dstId="90" role="clock"/>
-    <map srcId="106" dstId="127" role="clock-value"/>
-    <map srcId="105" dstId="90" role="clock"/>
-    <map srcId="105" dstId="127" role="clock-value"/>
-    <map srcId="104" dstId="90" role="clock"/>
-    <map srcId="104" dstId="127" role="clock-value"/>
-    <map srcId="103" dstId="90" role="clock"/>
-    <map srcId="103" dstId="127" role="clock-value"/>
-    <map srcId="102" dstId="90" role="clock"/>
-    <map srcId="102" dstId="127" role="clock-value"/>
-    <map srcId="101" dstId="90" role="clock"/>
-    <map srcId="101" dstId="127" role="clock-value"/>
-    <map srcId="100" dstId="90" role="clock"/>
-    <map srcId="100" dstId="127" role="clock-value"/>
-    <map srcId="99" dstId="90" role="clock"/>
-    <map srcId="99" dstId="127" role="clock-value"/>
-    <map srcId="98" dstId="90" role="clock"/>
-    <map srcId="98" dstId="126" role="clock-value"/>
-    <map srcId="97" dstId="90" role="clock"/>
-    <map srcId="97" dstId="126" role="clock-value"/>
-    <map srcId="96" dstId="90" role="clock"/>
-    <map srcId="96" dstId="126" role="clock-value"/>
-    <map srcId="95" dstId="90" role="clock"/>
-    <map srcId="95" dstId="126" role="clock-value"/>
-    <map srcId="94" dstId="90" role="clock"/>
-    <map srcId="94" dstId="125" role="clock-value"/>
-    <map srcId="93" dstId="90" role="clock"/>
-    <map srcId="93" dstId="125" role="clock-value"/>
-    <map srcId="92" dstId="90" role="clock"/>
-    <map srcId="92" dstId="125" role="clock-value"/>
-    <map srcId="91" dstId="90" role="clock"/>
-    <map srcId="91" dstId="125" role="clock-value"/>
-    <map srcId="89" dstId="90" role="clock"/>
-    <map srcId="89" dstId="128" role="clock-value"/>
-    <map srcId="88" dstId="90" role="clock"/>
-    <map srcId="88" dstId="127" role="clock-value"/>
-    <map srcId="84" dstId="90" role="clock"/>
-    <map srcId="84" dstId="128" role="clock-value"/>
-    <map srcId="83" dstId="90" role="clock"/>
-    <map srcId="83" dstId="127" role="clock-value"/>
+    <map srcId="434" dstId="423" role="wrapped-lit"/>
+    <map srcId="435" dstId="424" role="wrapped-lit"/>
+    <map srcId="433" dstId="422" role="wrapped-lit"/>
+    <map srcId="432" dstId="421" role="wrapped-lit"/>
+    <map srcId="432" dstId="407" role="wrapped-lnot"/>
+    <map srcId="432" dstId="411" role="wrapped-lsl"/>
+    <map srcId="431" dstId="420" role="wrapped-lit"/>
+    <map srcId="431" dstId="406" role="wrapped-lnot"/>
+    <map srcId="431" dstId="410" role="wrapped-lsl"/>
+    <map srcId="430" dstId="419" role="wrapped-lit"/>
+    <map srcId="430" dstId="405" role="wrapped-lnot"/>
+    <map srcId="430" dstId="409" role="wrapped-lsl"/>
+    <map srcId="429" dstId="418" role="wrapped-lit"/>
+    <map srcId="429" dstId="404" role="wrapped-lnot"/>
+    <map srcId="429" dstId="408" role="wrapped-lsl"/>
+    <map srcId="428" dstId="417" role="wrapped-lit"/>
+    <map srcId="427" dstId="416" role="wrapped-lit"/>
+    <map srcId="426" dstId="415" role="wrapped-lit"/>
+    <map srcId="425" dstId="414" role="wrapped-lit"/>
+    <map srcId="347" dstId="342" role="type-use"/>
+    <map srcId="347" dstId="343" role="type-comparison"/>
+    <map srcId="347" dstId="346" role="type-copy"/>
+    <map srcId="232" dstId="206" role="clock"/>
+    <map srcId="232" dstId="359" role="clock-value"/>
+    <map srcId="231" dstId="206" role="clock"/>
+    <map srcId="231" dstId="359" role="clock-value"/>
+    <map srcId="230" dstId="206" role="clock"/>
+    <map srcId="230" dstId="359" role="clock-value"/>
+    <map srcId="229" dstId="206" role="clock"/>
+    <map srcId="229" dstId="359" role="clock-value"/>
+    <map srcId="228" dstId="206" role="clock"/>
+    <map srcId="228" dstId="358" role="clock-value"/>
+    <map srcId="227" dstId="206" role="clock"/>
+    <map srcId="227" dstId="358" role="clock-value"/>
+    <map srcId="226" dstId="206" role="clock"/>
+    <map srcId="226" dstId="358" role="clock-value"/>
+    <map srcId="225" dstId="206" role="clock"/>
+    <map srcId="225" dstId="358" role="clock-value"/>
+    <map srcId="224" dstId="206" role="clock"/>
+    <map srcId="224" dstId="357" role="clock-value"/>
+    <map srcId="223" dstId="206" role="clock"/>
+    <map srcId="223" dstId="356" role="clock-value"/>
+    <map srcId="222" dstId="206" role="clock"/>
+    <map srcId="222" dstId="356" role="clock-value"/>
+    <map srcId="221" dstId="206" role="clock"/>
+    <map srcId="221" dstId="355" role="clock-value"/>
+    <map srcId="220" dstId="206" role="clock"/>
+    <map srcId="220" dstId="355" role="clock-value"/>
+    <map srcId="219" dstId="206" role="clock"/>
+    <map srcId="219" dstId="355" role="clock-value"/>
+    <map srcId="218" dstId="206" role="clock"/>
+    <map srcId="218" dstId="355" role="clock-value"/>
+    <map srcId="217" dstId="206" role="clock"/>
+    <map srcId="217" dstId="355" role="clock-value"/>
+    <map srcId="216" dstId="206" role="clock"/>
+    <map srcId="216" dstId="355" role="clock-value"/>
+    <map srcId="215" dstId="206" role="clock"/>
+    <map srcId="215" dstId="355" role="clock-value"/>
+    <map srcId="214" dstId="206" role="clock"/>
+    <map srcId="214" dstId="355" role="clock-value"/>
+    <map srcId="213" dstId="206" role="clock"/>
+    <map srcId="213" dstId="354" role="clock-value"/>
+    <map srcId="212" dstId="206" role="clock"/>
+    <map srcId="212" dstId="354" role="clock-value"/>
+    <map srcId="211" dstId="206" role="clock"/>
+    <map srcId="211" dstId="354" role="clock-value"/>
+    <map srcId="210" dstId="206" role="clock"/>
+    <map srcId="210" dstId="354" role="clock-value"/>
+    <map srcId="209" dstId="206" role="clock"/>
+    <map srcId="209" dstId="353" role="clock-value"/>
+    <map srcId="208" dstId="206" role="clock"/>
+    <map srcId="208" dstId="353" role="clock-value"/>
+    <map srcId="207" dstId="206" role="clock"/>
+    <map srcId="207" dstId="353" role="clock-value"/>
+    <map srcId="205" dstId="206" role="clock"/>
+    <map srcId="205" dstId="359" role="clock-value"/>
+    <map srcId="204" dstId="206" role="clock"/>
+    <map srcId="204" dstId="358" role="clock-value"/>
+    <map srcId="203" dstId="206" role="clock"/>
+    <map srcId="203" dstId="354" role="clock-value"/>
+    <map srcId="202" dstId="206" role="clock"/>
+    <map srcId="202" dstId="353" role="clock-value"/>
+    <map srcId="258" dstId="255" role="clock"/>
+    <map srcId="258" dstId="375" role="clock-value"/>
+    <map srcId="257" dstId="255" role="clock"/>
+    <map srcId="257" dstId="374" role="clock-value"/>
+    <map srcId="256" dstId="255" role="clock"/>
+    <map srcId="256" dstId="373" role="clock-value"/>
+    <map srcId="278" dstId="276" role="clock"/>
+    <map srcId="278" dstId="384" role="clock-value"/>
+    <map srcId="277" dstId="276" role="clock"/>
+    <map srcId="277" dstId="383" role="clock-value"/>
+    <map srcId="337" dstId="302" role="clock"/>
+    <map srcId="337" dstId="394" role="clock-value"/>
+    <map srcId="336" dstId="302" role="clock"/>
+    <map srcId="336" dstId="394" role="clock-value"/>
+    <map srcId="335" dstId="302" role="clock"/>
+    <map srcId="335" dstId="394" role="clock-value"/>
+    <map srcId="334" dstId="302" role="clock"/>
+    <map srcId="334" dstId="394" role="clock-value"/>
+    <map srcId="333" dstId="302" role="clock"/>
+    <map srcId="333" dstId="394" role="clock-value"/>
+    <map srcId="332" dstId="302" role="clock"/>
+    <map srcId="332" dstId="393" role="clock-value"/>
+    <map srcId="331" dstId="302" role="clock"/>
+    <map srcId="331" dstId="393" role="clock-value"/>
+    <map srcId="330" dstId="302" role="clock"/>
+    <map srcId="330" dstId="393" role="clock-value"/>
+    <map srcId="329" dstId="302" role="clock"/>
+    <map srcId="329" dstId="393" role="clock-value"/>
+    <map srcId="328" dstId="302" role="clock"/>
+    <map srcId="328" dstId="393" role="clock-value"/>
+    <map srcId="327" dstId="302" role="clock"/>
+    <map srcId="327" dstId="393" role="clock-value"/>
+    <map srcId="326" dstId="302" role="clock"/>
+    <map srcId="326" dstId="393" role="clock-value"/>
+    <map srcId="325" dstId="302" role="clock"/>
+    <map srcId="325" dstId="393" role="clock-value"/>
+    <map srcId="324" dstId="302" role="clock"/>
+    <map srcId="324" dstId="393" role="clock-value"/>
+    <map srcId="323" dstId="302" role="clock"/>
+    <map srcId="323" dstId="393" role="clock-value"/>
+    <map srcId="322" dstId="302" role="clock"/>
+    <map srcId="322" dstId="392" role="clock-value"/>
+    <map srcId="321" dstId="302" role="clock"/>
+    <map srcId="321" dstId="392" role="clock-value"/>
+    <map srcId="320" dstId="302" role="clock"/>
+    <map srcId="320" dstId="392" role="clock-value"/>
+    <map srcId="319" dstId="302" role="clock"/>
+    <map srcId="319" dstId="392" role="clock-value"/>
+    <map srcId="318" dstId="302" role="clock"/>
+    <map srcId="318" dstId="392" role="clock-value"/>
+    <map srcId="317" dstId="302" role="clock"/>
+    <map srcId="317" dstId="392" role="clock-value"/>
+    <map srcId="316" dstId="302" role="clock"/>
+    <map srcId="316" dstId="392" role="clock-value"/>
+    <map srcId="315" dstId="302" role="clock"/>
+    <map srcId="315" dstId="392" role="clock-value"/>
+    <map srcId="314" dstId="302" role="clock"/>
+    <map srcId="314" dstId="392" role="clock-value"/>
+    <map srcId="313" dstId="302" role="clock"/>
+    <map srcId="313" dstId="392" role="clock-value"/>
+    <map srcId="312" dstId="302" role="clock"/>
+    <map srcId="312" dstId="391" role="clock-value"/>
+    <map srcId="311" dstId="302" role="clock"/>
+    <map srcId="311" dstId="391" role="clock-value"/>
+    <map srcId="310" dstId="302" role="clock"/>
+    <map srcId="310" dstId="391" role="clock-value"/>
+    <map srcId="309" dstId="302" role="clock"/>
+    <map srcId="309" dstId="391" role="clock-value"/>
+    <map srcId="308" dstId="302" role="clock"/>
+    <map srcId="308" dstId="391" role="clock-value"/>
+    <map srcId="307" dstId="302" role="clock"/>
+    <map srcId="307" dstId="390" role="clock-value"/>
+    <map srcId="306" dstId="302" role="clock"/>
+    <map srcId="306" dstId="390" role="clock-value"/>
+    <map srcId="305" dstId="302" role="clock"/>
+    <map srcId="305" dstId="390" role="clock-value"/>
+    <map srcId="304" dstId="302" role="clock"/>
+    <map srcId="304" dstId="390" role="clock-value"/>
+    <map srcId="303" dstId="302" role="clock"/>
+    <map srcId="303" dstId="390" role="clock-value"/>
+    <map srcId="301" dstId="302" role="clock"/>
+    <map srcId="301" dstId="393" role="clock-value"/>
+    <map srcId="300" dstId="302" role="clock"/>
+    <map srcId="300" dstId="392" role="clock-value"/>
+    <map srcId="296" dstId="302" role="clock"/>
+    <map srcId="296" dstId="393" role="clock-value"/>
+    <map srcId="295" dstId="302" role="clock"/>
+    <map srcId="295" dstId="392" role="clock-value"/>
   </generated>
-  <map modelId="50" generatedId="133"/>
-  <map modelId="65" generatedId="135"/>
-  <map modelId="28" generatedId="131"/>
-  <map modelId="22" generatedId="125"/>
-  <map modelId="35" generatedId="132"/>
-  <map modelId="29" generatedId="126"/>
-  <map modelId="21" generatedId="130" role="autom-no-trans-enum"/>
-  <map modelId="67" generatedId="134"/>
-  <map modelId="51" generatedId="128"/>
-  <map modelId="36" generatedId="127"/>
-  <map modelId="14" generatedId="70" role="context-parameter"/>
-  <map modelId="14" generatedId="69" role="init-method"/>
-  <map modelId="14" generatedId="72" role="context-parameter"/>
-  <map modelId="14" generatedId="71" role="reset-method"/>
-  <map modelId="14" generatedId="74" role="input-struct-parameter"/>
-  <map modelId="16" generatedId="122"/>
-  <map modelId="15" generatedId="121"/>
-  <map modelId="14" generatedId="120" role="input-struct-type"/>
-  <map modelId="14" generatedId="75" role="context-parameter"/>
-  <map modelId="21" generatedId="119" role="autom-weak-transition"/>
-  <map modelId="21" generatedId="118" role="autom-strong-transition"/>
-  <map modelId="21" generatedId="117" role="autom-selected-state"/>
-  <map modelId="52" generatedId="116"/>
-  <map modelId="53" generatedId="115"/>
-  <map modelId="54" generatedId="114"/>
-  <map modelId="55" generatedId="113"/>
-  <map modelId="57" generatedId="112"/>
-  <map modelId="58" generatedId="111"/>
-  <map modelId="59" generatedId="110"/>
-  <map modelId="60" generatedId="109"/>
-  <map modelId="61" generatedId="108"/>
-  <map modelId="37" generatedId="107"/>
-  <map modelId="39" generatedId="106"/>
-  <map modelId="40" generatedId="105"/>
-  <map modelId="41" generatedId="104"/>
-  <map modelId="42" generatedId="103"/>
-  <map modelId="43" generatedId="102"/>
-  <map modelId="44" generatedId="101"/>
-  <map modelId="45" generatedId="100"/>
-  <map modelId="46" generatedId="99"/>
-  <map modelId="30" generatedId="98"/>
-  <map modelId="31" generatedId="97"/>
-  <map modelId="32" generatedId="96"/>
-  <map modelId="33" generatedId="95"/>
-  <map modelId="23" generatedId="94"/>
-  <map modelId="24" generatedId="93"/>
-  <map modelId="25" generatedId="92"/>
-  <map modelId="26" generatedId="91"/>
-  <map modelId="21" generatedId="90" role="autom-active-state"/>
-  <map modelId="21" generatedId="87" role="autom-next-reset"/>
-  <map modelId="21" generatedId="86" role="autom-active-reset"/>
-  <map modelId="21" generatedId="85" role="autom-next-state"/>
-  <map modelId="56" generatedId="84"/>
-  <map modelId="62" generatedId="84" role="memory"/>
-  <map modelId="38" generatedId="83"/>
-  <map modelId="47" generatedId="83" role="memory"/>
-  <map modelId="48" generatedId="82" role="init"/>
-  <map modelId="63" generatedId="81" role="init"/>
-  <map modelId="20" generatedId="80"/>
-  <map modelId="19" generatedId="79"/>
-  <map modelId="18" generatedId="78"/>
-  <map modelId="17" generatedId="77"/>
-  <map modelId="14" generatedId="76" role="context-type"/>
-  <map modelId="14" generatedId="68" role="interface-file"/>
-  <map modelId="14" generatedId="73" role="cycle-method"/>
-  <map modelId="21" generatedId="129" role="autom-transitions-type"/>
-  <map modelId="21" generatedId="124" role="autom-states-type"/>
-  <map modelId="2" generatedId="171"/>
-  <map modelId="1" generatedId="170"/>
-  <map modelId="12" generatedId="168"/>
-  <map modelId="11" generatedId="169"/>
-  <map modelId="13" generatedId="167"/>
-  <map modelId="10" generatedId="166"/>
-  <map modelId="9" generatedId="165"/>
-  <map modelId="8" generatedId="164"/>
-  <map modelId="7" generatedId="163"/>
-  <map modelId="6" generatedId="162"/>
-  <map modelId="5" generatedId="161"/>
-  <map modelId="4" generatedId="160"/>
-  <map modelId="3" generatedId="159"/>
+  <map modelId="43" generatedId="364"/>
+  <map modelId="41" generatedId="363"/>
+  <map modelId="39" generatedId="362"/>
+  <map modelId="51" generatedId="365"/>
+  <map modelId="44" generatedId="354"/>
+  <map modelId="64" generatedId="367"/>
+  <map modelId="62" generatedId="366"/>
+  <map modelId="65" generatedId="356"/>
+  <map modelId="69" generatedId="368"/>
+  <map modelId="70" generatedId="357"/>
+  <map modelId="52" generatedId="355"/>
+  <map modelId="73" generatedId="369"/>
+  <map modelId="81" generatedId="370"/>
+  <map modelId="74" generatedId="358"/>
+  <map modelId="33" generatedId="353"/>
+  <map modelId="32" generatedId="361" role="autom-no-trans-enum"/>
+  <map modelId="89" generatedId="371"/>
+  <map modelId="82" generatedId="359"/>
+  <map modelId="174" generatedId="379"/>
+  <map modelId="172" generatedId="378"/>
+  <map modelId="169" generatedId="373"/>
+  <map modelId="178" generatedId="380"/>
+  <map modelId="168" generatedId="377" role="autom-no-trans-enum"/>
+  <map modelId="182" generatedId="381"/>
+  <map modelId="179" generatedId="375"/>
+  <map modelId="175" generatedId="374"/>
+  <map modelId="159" generatedId="387"/>
+  <map modelId="155" generatedId="386" role="autom-no-trans-enum"/>
+  <map modelId="163" generatedId="388"/>
+  <map modelId="160" generatedId="384"/>
+  <map modelId="156" generatedId="383"/>
+  <map modelId="126" generatedId="399"/>
+  <map modelId="142" generatedId="401"/>
+  <map modelId="104" generatedId="398"/>
+  <map modelId="102" generatedId="397"/>
+  <map modelId="95" generatedId="390"/>
+  <map modelId="105" generatedId="391"/>
+  <map modelId="144" generatedId="400"/>
+  <map modelId="127" generatedId="393"/>
+  <map modelId="111" generatedId="392"/>
+  <map modelId="94" generatedId="396" role="autom-no-trans-enum"/>
+  <map modelId="145" generatedId="394"/>
+  <map modelId="20" generatedId="185" role="context-parameter"/>
+  <map modelId="20" generatedId="184" role="init-method"/>
+  <map modelId="20" generatedId="187" role="context-parameter"/>
+  <map modelId="20" generatedId="186" role="reset-method"/>
+  <map modelId="20" generatedId="189" role="input-struct-parameter"/>
+  <map modelId="24" generatedId="240"/>
+  <map modelId="23" generatedId="239"/>
+  <map modelId="22" generatedId="238"/>
+  <map modelId="21" generatedId="237"/>
+  <map modelId="20" generatedId="236" role="input-struct-type"/>
+  <map modelId="20" generatedId="190" role="context-parameter"/>
+  <map modelId="32" generatedId="235" role="autom-weak-transition"/>
+  <map modelId="32" generatedId="234" role="autom-strong-transition"/>
+  <map modelId="32" generatedId="233" role="autom-selected-state"/>
+  <map modelId="83" generatedId="232"/>
+  <map modelId="84" generatedId="231"/>
+  <map modelId="85" generatedId="230"/>
+  <map modelId="86" generatedId="229"/>
+  <map modelId="75" generatedId="228"/>
+  <map modelId="76" generatedId="227"/>
+  <map modelId="77" generatedId="226"/>
+  <map modelId="78" generatedId="225"/>
+  <map modelId="71" generatedId="224"/>
+  <map modelId="66" generatedId="223"/>
+  <map modelId="67" generatedId="222"/>
+  <map modelId="53" generatedId="221"/>
+  <map modelId="54" generatedId="220"/>
+  <map modelId="55" generatedId="219"/>
+  <map modelId="56" generatedId="218"/>
+  <map modelId="57" generatedId="217"/>
+  <map modelId="58" generatedId="216"/>
+  <map modelId="59" generatedId="215"/>
+  <map modelId="60" generatedId="214"/>
+  <map modelId="45" generatedId="213"/>
+  <map modelId="46" generatedId="212"/>
+  <map modelId="47" generatedId="211"/>
+  <map modelId="48" generatedId="210"/>
+  <map modelId="34" generatedId="209"/>
+  <map modelId="35" generatedId="208"/>
+  <map modelId="36" generatedId="207"/>
+  <map modelId="32" generatedId="206" role="autom-active-state"/>
+  <map modelId="87" generatedId="205"/>
+  <map modelId="79" generatedId="204"/>
+  <map modelId="49" generatedId="203"/>
+  <map modelId="37" generatedId="202"/>
+  <map modelId="32" generatedId="201" role="autom-next-reset"/>
+  <map modelId="32" generatedId="200" role="autom-active-reset"/>
+  <map modelId="32" generatedId="199" role="autom-next-state"/>
+  <map modelId="31" generatedId="198"/>
+  <map modelId="32" generatedId="198" role="memory"/>
+  <map modelId="30" generatedId="197"/>
+  <map modelId="32" generatedId="197" role="memory"/>
+  <map modelId="29" generatedId="196"/>
+  <map modelId="32" generatedId="196" role="memory"/>
+  <map modelId="28" generatedId="195"/>
+  <map modelId="32" generatedId="195" role="memory"/>
+  <map modelId="27" generatedId="194"/>
+  <map modelId="32" generatedId="194" role="memory"/>
+  <map modelId="26" generatedId="193"/>
+  <map modelId="32" generatedId="193" role="memory"/>
+  <map modelId="25" generatedId="192"/>
+  <map modelId="32" generatedId="192" role="memory"/>
+  <map modelId="20" generatedId="191" role="context-type"/>
+  <map modelId="20" generatedId="183" role="interface-file"/>
+  <map modelId="20" generatedId="188" role="cycle-method"/>
+  <map modelId="164" generatedId="243" role="context-parameter"/>
+  <map modelId="164" generatedId="242" role="init-method"/>
+  <map modelId="164" generatedId="245" role="context-parameter"/>
+  <map modelId="164" generatedId="244" role="reset-method"/>
+  <map modelId="166" generatedId="248"/>
+  <map modelId="165" generatedId="247"/>
+  <map modelId="164" generatedId="249" role="context-parameter"/>
+  <map modelId="168" generatedId="261" role="autom-weak-transition"/>
+  <map modelId="168" generatedId="260" role="autom-strong-transition"/>
+  <map modelId="168" generatedId="259" role="autom-selected-state"/>
+  <map modelId="180" generatedId="258"/>
+  <map modelId="176" generatedId="257"/>
+  <map modelId="170" generatedId="256"/>
+  <map modelId="168" generatedId="255" role="autom-active-state"/>
+  <map modelId="168" generatedId="254" role="autom-next-reset"/>
+  <map modelId="168" generatedId="253" role="autom-active-reset"/>
+  <map modelId="168" generatedId="252" role="autom-next-state"/>
+  <map modelId="167" generatedId="251"/>
+  <map modelId="164" generatedId="250" role="context-type"/>
+  <map modelId="164" generatedId="241" role="interface-file"/>
+  <map modelId="164" generatedId="246" role="cycle-method"/>
+  <map modelId="151" generatedId="264" role="context-parameter"/>
+  <map modelId="151" generatedId="263" role="init-method"/>
+  <map modelId="151" generatedId="266" role="context-parameter"/>
+  <map modelId="151" generatedId="265" role="reset-method"/>
+  <map modelId="153" generatedId="269"/>
+  <map modelId="152" generatedId="268"/>
+  <map modelId="151" generatedId="270" role="context-parameter"/>
+  <map modelId="155" generatedId="281" role="autom-weak-transition"/>
+  <map modelId="155" generatedId="280" role="autom-strong-transition"/>
+  <map modelId="155" generatedId="279" role="autom-selected-state"/>
+  <map modelId="161" generatedId="278"/>
+  <map modelId="157" generatedId="277"/>
+  <map modelId="155" generatedId="276" role="autom-active-state"/>
+  <map modelId="155" generatedId="275" role="autom-next-reset"/>
+  <map modelId="155" generatedId="274" role="autom-active-reset"/>
+  <map modelId="155" generatedId="273" role="autom-next-state"/>
+  <map modelId="154" generatedId="272"/>
+  <map modelId="151" generatedId="271" role="context-type"/>
+  <map modelId="151" generatedId="262" role="interface-file"/>
+  <map modelId="151" generatedId="267" role="cycle-method"/>
+  <map modelId="90" generatedId="284" role="context-parameter"/>
+  <map modelId="90" generatedId="283" role="init-method"/>
+  <map modelId="90" generatedId="286" role="context-parameter"/>
+  <map modelId="90" generatedId="285" role="reset-method"/>
+  <map modelId="92" generatedId="289"/>
+  <map modelId="91" generatedId="288"/>
+  <map modelId="90" generatedId="290" role="context-parameter"/>
+  <map modelId="94" generatedId="340" role="autom-weak-transition"/>
+  <map modelId="94" generatedId="339" role="autom-strong-transition"/>
+  <map modelId="94" generatedId="338" role="autom-selected-state"/>
+  <map modelId="146" generatedId="337"/>
+  <map modelId="147" generatedId="336"/>
+  <map modelId="148" generatedId="335"/>
+  <map modelId="149" generatedId="334"/>
+  <map modelId="150" generatedId="333"/>
+  <map modelId="128" generatedId="332"/>
+  <map modelId="129" generatedId="331"/>
+  <map modelId="130" generatedId="330"/>
+  <map modelId="131" generatedId="329"/>
+  <map modelId="132" generatedId="328"/>
+  <map modelId="133" generatedId="327"/>
+  <map modelId="134" generatedId="326"/>
+  <map modelId="135" generatedId="325"/>
+  <map modelId="137" generatedId="324"/>
+  <map modelId="138" generatedId="323"/>
+  <map modelId="112" generatedId="322"/>
+  <map modelId="114" generatedId="321"/>
+  <map modelId="115" generatedId="320"/>
+  <map modelId="116" generatedId="319"/>
+  <map modelId="117" generatedId="318"/>
+  <map modelId="118" generatedId="317"/>
+  <map modelId="119" generatedId="316"/>
+  <map modelId="120" generatedId="315"/>
+  <map modelId="121" generatedId="314"/>
+  <map modelId="122" generatedId="313"/>
+  <map modelId="106" generatedId="312"/>
+  <map modelId="107" generatedId="311"/>
+  <map modelId="108" generatedId="310"/>
+  <map modelId="109" generatedId="309"/>
+  <map modelId="110" generatedId="308"/>
+  <map modelId="96" generatedId="307"/>
+  <map modelId="97" generatedId="306"/>
+  <map modelId="98" generatedId="305"/>
+  <map modelId="99" generatedId="304"/>
+  <map modelId="100" generatedId="303"/>
+  <map modelId="94" generatedId="302" role="autom-active-state"/>
+  <map modelId="94" generatedId="299" role="autom-next-reset"/>
+  <map modelId="94" generatedId="298" role="autom-active-reset"/>
+  <map modelId="94" generatedId="297" role="autom-next-state"/>
+  <map modelId="136" generatedId="296"/>
+  <map modelId="140" generatedId="296" role="memory"/>
+  <map modelId="113" generatedId="295"/>
+  <map modelId="123" generatedId="295" role="memory"/>
+  <map modelId="124" generatedId="294" role="init"/>
+  <map modelId="139" generatedId="293" role="init"/>
+  <map modelId="93" generatedId="292"/>
+  <map modelId="90" generatedId="291" role="context-type"/>
+  <map modelId="90" generatedId="282" role="interface-file"/>
+  <map modelId="90" generatedId="287" role="cycle-method"/>
+  <map modelId="94" generatedId="395" role="autom-transitions-type"/>
+  <map modelId="94" generatedId="389" role="autom-states-type"/>
+  <map modelId="155" generatedId="385" role="autom-transitions-type"/>
+  <map modelId="155" generatedId="382" role="autom-states-type"/>
+  <map modelId="168" generatedId="376" role="autom-transitions-type"/>
+  <map modelId="168" generatedId="372" role="autom-states-type"/>
+  <map modelId="32" generatedId="360" role="autom-transitions-type"/>
+  <map modelId="32" generatedId="352" role="autom-states-type"/>
+  <map modelId="5" generatedId="351"/>
+  <map modelId="4" generatedId="350"/>
+  <map modelId="3" generatedId="349"/>
+  <map modelId="2" generatedId="348"/>
+  <map modelId="19" generatedId="347"/>
+  <map modelId="1" generatedId="347"/>
+  <map modelId="7" generatedId="437"/>
+  <map modelId="6" generatedId="436"/>
+  <map modelId="17" generatedId="434"/>
+  <map modelId="16" generatedId="435"/>
+  <map modelId="18" generatedId="433"/>
+  <map modelId="15" generatedId="432"/>
+  <map modelId="14" generatedId="431"/>
+  <map modelId="13" generatedId="430"/>
+  <map modelId="12" generatedId="429"/>
+  <map modelId="11" generatedId="428"/>
+  <map modelId="10" generatedId="427"/>
+  <map modelId="9" generatedId="426"/>
+  <map modelId="8" generatedId="425"/>
 </mapping>
 <!--$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** mapping.xml
-** Generation date: 2020-03-12T16:20:07
+** Generation date: 2020-03-13T00:03:44
 *************************************************************$-->

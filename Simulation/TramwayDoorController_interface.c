@@ -7,22 +7,28 @@
 #define UNUSED(x) (void)(x)
 /* context */
 
-inC_Door inputs_ctx;
-static inC_Door inputs_ctx_execute;
-outC_Door outputs_ctx;
+inC_Controller inputs_ctx;
+static inC_Controller inputs_ctx_execute;
+outC_Controller outputs_ctx;
 
 static void _SCSIM_RestoreInterface(void) {
-    init_kcg_bool(&inputs_ctx.openRequest);
-    init_kcg_bool(&inputs_ctx_execute.openRequest);
-    init_kcg_bool(&inputs_ctx.closeRequest);
-    init_kcg_bool(&inputs_ctx_execute.closeRequest);
+    init_kcg_bool(&inputs_ctx.requireDoor);
+    init_kcg_bool(&inputs_ctx_execute.requireDoor);
+    init_kcg_bool(&inputs_ctx.requireBridge);
+    init_kcg_bool(&inputs_ctx_execute.requireBridge);
+    init_kcg_bool(&inputs_ctx.immDeparture);
+    init_kcg_bool(&inputs_ctx_execute.immDeparture);
+    init_kcg_bool(&inputs_ctx.inStation);
+    init_kcg_bool(&inputs_ctx_execute.inStation);
     memset((void*)&outputs_ctx, 0, sizeof(outputs_ctx));
 }
 
 static void _SCSIM_ExecuteInterface(void) {
     pSimulator->m_pfnAcquireValueMutex(pSimulator);
-    inputs_ctx_execute.openRequest = inputs_ctx.openRequest;
-    inputs_ctx_execute.closeRequest = inputs_ctx.closeRequest;
+    inputs_ctx_execute.requireDoor = inputs_ctx.requireDoor;
+    inputs_ctx_execute.requireBridge = inputs_ctx.requireBridge;
+    inputs_ctx_execute.immDeparture = inputs_ctx.immDeparture;
+    inputs_ctx_execute.inStation = inputs_ctx.inStation;
     pSimulator->m_pfnReleaseValueMutex(pSimulator);
 }
 
@@ -32,7 +38,7 @@ extern "C" {
 
 const int  rt_version = Srtv62;
 
-const char* _SCSIM_CheckSum = "925193f032affc7612011080ddcefd58";
+const char* _SCSIM_CheckSum = "df97766e3d6851c2a3f78ddd32bd177a";
 const char* _SCSIM_SmuTypesCheckSum = "f59a7f532a7d2323bdffcdce912b7ce3";
 
 /* simulation */
@@ -44,7 +50,7 @@ int SimInit(void) {
     BeforeSimInit();
 #endif
 #ifndef KCG_USER_DEFINED_INIT
-    Door_init(&outputs_ctx);
+    Controller_init(&outputs_ctx);
     nRet = 1;
 #else
     nRet = 0;
@@ -62,7 +68,7 @@ int SimReset(void) {
     BeforeSimInit();
 #endif
 #ifndef KCG_NO_EXTERN_CALL_TO_RESET
-    Door_reset(&outputs_ctx);
+    Controller_reset(&outputs_ctx);
     nRet = 1;
 #else
     nRet = 0;
@@ -74,21 +80,21 @@ int SimReset(void) {
 }
 
 #ifdef __cplusplus
-    #ifdef pSimoutC_DoorCIVTable_defined
-        extern struct SimCustomInitVTable *pSimoutC_DoorCIVTable;
+    #ifdef pSimoutC_ControllerCIVTable_defined
+        extern struct SimCustomInitVTable *pSimoutC_ControllerCIVTable;
     #else 
-        struct SimCustomInitVTable *pSimoutC_DoorCIVTable = NULL;
+        struct SimCustomInitVTable *pSimoutC_ControllerCIVTable = NULL;
     #endif
 #else
-    struct SimCustomInitVTable *pSimoutC_DoorCIVTable;
+    struct SimCustomInitVTable *pSimoutC_ControllerCIVTable;
 #endif
 
 int SimCustomInit(void) {
     int nRet = 0;
-    if (pSimoutC_DoorCIVTable != NULL && 
-        pSimoutC_DoorCIVTable->m_pfnCustomInit != NULL) {
+    if (pSimoutC_ControllerCIVTable != NULL && 
+        pSimoutC_ControllerCIVTable->m_pfnCustomInit != NULL) {
         /* VTable function provided => call it */
-        nRet = pSimoutC_DoorCIVTable->m_pfnCustomInit ((void*)&outputs_ctx);
+        nRet = pSimoutC_ControllerCIVTable->m_pfnCustomInit ((void*)&outputs_ctx);
     }
     else {
         /* VTable misssing => error */
@@ -107,7 +113,7 @@ int SimStep(void) {
         BeforeSimStep();
 #endif
     _SCSIM_ExecuteInterface();
-    Door(&inputs_ctx_execute, &outputs_ctx);
+    Controller(&inputs_ctx_execute, &outputs_ctx);
 #ifdef EXTENDED_SIM
     AfterSimStep();
 #endif
@@ -139,8 +145,8 @@ void SsmConnectExternalInputs(int bConnect) {
 
 int SsmGetDumpSize(void) {
     int nSize = 0;
-    nSize += sizeof(inC_Door);
-    nSize += sizeof(outC_Door);
+    nSize += sizeof(inC_Controller);
+    nSize += sizeof(outC_Controller);
 #ifdef EXTENDED_SIM
     nSize += ExtendedGetDumpSize();
 #endif
@@ -149,10 +155,10 @@ int SsmGetDumpSize(void) {
 
 void SsmGatherDumpData(char * pData) {
     char* pCurrent = pData;
-    memcpy(pCurrent, &inputs_ctx, sizeof(inC_Door));
-    pCurrent += sizeof(inC_Door);
-    memcpy(pCurrent, &outputs_ctx, sizeof(outC_Door));
-    pCurrent += sizeof(outC_Door);
+    memcpy(pCurrent, &inputs_ctx, sizeof(inC_Controller));
+    pCurrent += sizeof(inC_Controller);
+    memcpy(pCurrent, &outputs_ctx, sizeof(outC_Controller));
+    pCurrent += sizeof(outC_Controller);
 #ifdef EXTENDED_SIM
     ExtendedGatherDumpData(pCurrent);
 #endif
@@ -160,10 +166,10 @@ void SsmGatherDumpData(char * pData) {
 
 void SsmRestoreDumpData(const char * pData) {
     const char* pCurrent = pData;
-    memcpy(&inputs_ctx, pCurrent, sizeof(inC_Door));
-    pCurrent += sizeof(inC_Door);
-    memcpy(&outputs_ctx, pCurrent, sizeof(outC_Door));
-    pCurrent += sizeof(outC_Door);
+    memcpy(&inputs_ctx, pCurrent, sizeof(inC_Controller));
+    pCurrent += sizeof(inC_Controller);
+    memcpy(&outputs_ctx, pCurrent, sizeof(outC_Controller));
+    pCurrent += sizeof(outC_Controller);
 #ifdef EXTENDED_SIM
     ExtendedRestoreDumpData(pCurrent);
 #endif

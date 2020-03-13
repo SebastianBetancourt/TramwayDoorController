@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/6" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3">
+	<declarations>
+		<Operator kind="node" name="Bridge">
+			<inputs>
+				<Variable name="deployRequest">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/4c1e/6862/1F28/5e6acdc17be4"/>
+					</pragmas>
+				</Variable>
+				<Variable name="retractRequest">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/4c23/6862/1F28/5e6acde17366"/>
+					</pragmas>
+				</Variable>
+			</inputs>
+			<outputs>
+				<Variable name="deployed">
+					<type>
+						<NamedType>
+							<type>
+								<TypeRef name="bool"/>
+							</type>
+						</NamedType>
+					</type>
+					<pragmas>
+						<ed:Variable oid="!ed/4c30/6862/1F28/5e6ace6a652f"/>
+					</pragmas>
+				</Variable>
+			</outputs>
+			<data>
+				<StateMachine name="SM1">
+					<states>
+						<State initial="true" name="ToMove">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="Deployed"/>
+									</target>
+									<condition>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="deployRequest"/>
+											</path>
+										</IdExpression>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/4d04/6862/1F28/5e6acfbc6a0b"/>
+									</pragmas>
+								</Transition>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="Retracted"/>
+									</target>
+									<condition>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="retractRequest"/>
+											</path>
+										</IdExpression>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/56e1/43C5/3E0/5e6b0d9b50f8"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L5">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/4c66/6862/1F28/5e6acf3c732d"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- deployed = _L5; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="deployed"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L5"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4c58/6862/1F28/5e6acf342acb"/>
+									</pragmas>
+								</Equation>
+								<!-- _L5 = false; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L5"/>
+									</lefts>
+									<right>
+										<ConstValue value="false"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4c65/6862/1F28/5e6acf3c5c54"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/4ba6/6862/1F28/5e6ac15d1272"/>
+							</pragmas>
+						</State>
+						<State name="Deployed">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="Retracted"/>
+									</target>
+									<condition>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="retractRequest"/>
+											</path>
+										</IdExpression>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/5b79/6862/1F28/5e6aec3c12a8"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L4">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/4ce4/6862/1F28/5e6acf6a33ea"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- deployed = _L4; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="deployed"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L4"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4ce2/6862/1F28/5e6acf6a4bf4"/>
+									</pragmas>
+								</Equation>
+								<!-- _L4 = true; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L4"/>
+									</lefts>
+									<right>
+										<ConstValue value="true"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/4ce3/6862/1F28/5e6acf6a4cf6"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/4c3d/6862/1F28/5e6acec01ad6"/>
+							</pragmas>
+						</State>
+						<State name="Retracted">
+							<unless>
+								<Transition kind="restart">
+									<target>
+										<StateRef name="Deployed"/>
+									</target>
+									<condition>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="deployRequest"/>
+											</path>
+										</IdExpression>
+									</condition>
+									<pragmas>
+										<ed:Transition oid="!ed/56d8/43C5/3E0/5e6b0d8a3c8e"/>
+									</pragmas>
+								</Transition>
+							</unless>
+							<locals>
+								<Variable name="_L1">
+									<type>
+										<NamedType>
+											<type>
+												<TypeRef name="bool"/>
+											</type>
+										</NamedType>
+									</type>
+									<pragmas>
+										<ed:Variable oid="!ed/56ae/43C5/3E0/5e6b0d2e7722"/>
+									</pragmas>
+								</Variable>
+							</locals>
+							<data>
+								<!-- _L1 = false; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="_L1"/>
+									</lefts>
+									<right>
+										<ConstValue value="false"/>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/56ad/43C5/3E0/5e6b0d2e172f"/>
+									</pragmas>
+								</Equation>
+								<!-- deployed = _L1; -->
+								<Equation>
+									<lefts>
+										<VariableRef name="deployed"/>
+									</lefts>
+									<right>
+										<IdExpression>
+											<path>
+												<ConstVarRef name="_L1"/>
+											</path>
+										</IdExpression>
+									</right>
+									<pragmas>
+										<ed:Equation oid="!ed/56af/43C5/3E0/5e6b0d2e557f"/>
+									</pragmas>
+								</Equation>
+							</data>
+							<pragmas>
+								<ed:State oid="!ed/5686/43C5/3E0/5e6b0d035adf"/>
+							</pragmas>
+						</State>
+					</states>
+					<pragmas>
+						<ed:StateMachine oid="!ed/4bab/6862/1F28/5e6ac15e1ca6"/>
+					</pragmas>
+				</StateMachine>
+			</data>
+			<pragmas>
+				<ed:Operator oid="!ed/4b92/6862/1F28/5e6ac1431aa9" xmlns="http://www.esterel-technologies.com/ns/scade/pragmas/editor/6">
+					<diagrams>
+						<NetDiagram name="Bridge_1" landscape="true" format="A4 (210 297)" oid="!ed/4b93/6862/1F28/5e6ac143592b">
+							<presentationElements>
+								<StateMachineGE presentable="!ed/4bab/6862/1F28/5e6ac15e1ca6">
+									<position>
+										<Point x="3254" y="1535"/>
+									</position>
+									<size>
+										<Size width="16854" height="8043"/>
+									</size>
+								</StateMachineGE>
+								<StateGE presentable="!ed/4ba6/6862/1F28/5e6ac15d1272">
+									<position>
+										<Point x="4233" y="4207"/>
+									</position>
+									<size>
+										<Size width="5318" height="2223"/>
+									</size>
+								</StateGE>
+								<StateGE presentable="!ed/4c3d/6862/1F28/5e6acec01ad6">
+									<position>
+										<Point x="13679" y="2540"/>
+									</position>
+									<size>
+										<Size width="5001" height="1905"/>
+									</size>
+								</StateGE>
+								<EquationGE presentable="!ed/4c58/6862/1F28/5e6acf342acb">
+									<position>
+										<Point x="7276" y="5159"/>
+									</position>
+									<size>
+										<Size width="318" height="502"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/4c65/6862/1F28/5e6acf3c5c54">
+									<position>
+										<Point x="5927" y="5265"/>
+									</position>
+									<size>
+										<Size width="211" height="318"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/4c65/6862/1F28/5e6acf3c5c54" dstEquation="!ed/4c58/6862/1F28/5e6acf342acb">
+									<positions>
+										<Point x="6138" y="5424"/>
+										<Point x="6720" y="5424"/>
+										<Point x="6720" y="5424"/>
+										<Point x="7329" y="5424"/>
+									</positions>
+								</Edge>
+								<EquationGE presentable="!ed/4ce2/6862/1F28/5e6acf6a4bf4">
+									<position>
+										<Point x="16484" y="3413"/>
+									</position>
+									<size>
+										<Size width="318" height="502"/>
+									</size>
+								</EquationGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/4ce3/6862/1F28/5e6acf6a4cf6">
+									<position>
+										<Point x="15134" y="3519"/>
+									</position>
+									<size>
+										<Size width="212" height="318"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/4ce3/6862/1F28/5e6acf6a4cf6" dstEquation="!ed/4ce2/6862/1F28/5e6acf6a4bf4">
+									<positions>
+										<Point x="15346" y="3678"/>
+										<Point x="15928" y="3678"/>
+										<Point x="15928" y="3678"/>
+										<Point x="16536" y="3678"/>
+									</positions>
+								</Edge>
+								<TransitionGE presentable="!ed/4d04/6862/1F28/5e6acfbc6a0b">
+									<positions>
+										<Point x="9551" y="4657"/>
+										<Point x="10292" y="3731"/>
+										<Point x="12197" y="2752"/>
+										<Point x="13679" y="2963"/>
+									</positions>
+									<labelSize>
+										<Size width="3334" height="370"/>
+									</labelSize>
+									<labelPos>
+										<Point x="9657" y="2196"/>
+									</labelPos>
+									<slashPos>
+										<Point x="12197" y="2196"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/5b79/6862/1F28/5e6aec3c12a8">
+									<positions>
+										<Point x="16378" y="4445"/>
+										<Point x="16642" y="5133"/>
+										<Point x="16536" y="5715"/>
+										<Point x="16245" y="6297"/>
+									</positions>
+									<labelSize>
+										<Size width="3519" height="370"/>
+									</labelSize>
+									<labelPos>
+										<Point x="16246" y="5134"/>
+									</labelPos>
+									<slashPos>
+										<Point x="18971" y="5133"/>
+									</slashPos>
+								</TransitionGE>
+								<StateGE presentable="!ed/5686/43C5/3E0/5e6b0d035adf">
+									<position>
+										<Point x="13705" y="6297"/>
+									</position>
+									<size>
+										<Size width="5001" height="2222"/>
+									</size>
+								</StateGE>
+								<EquationGE kind="OBJ_LIT" presentable="!ed/56ad/43C5/3E0/5e6b0d2e172f">
+									<position>
+										<Point x="15214" y="7699"/>
+									</position>
+									<size>
+										<Size width="212" height="318"/>
+									</size>
+								</EquationGE>
+								<EquationGE presentable="!ed/56af/43C5/3E0/5e6b0d2e557f">
+									<position>
+										<Point x="16563" y="7594"/>
+									</position>
+									<size>
+										<Size width="318" height="502"/>
+									</size>
+								</EquationGE>
+								<Edge leftVarIndex="1" rightExprIndex="1" srcEquation="!ed/56ad/43C5/3E0/5e6b0d2e172f" dstEquation="!ed/56af/43C5/3E0/5e6b0d2e557f">
+									<positions>
+										<Point x="15425" y="7858"/>
+										<Point x="16007" y="7858"/>
+										<Point x="16007" y="7858"/>
+										<Point x="16616" y="7858"/>
+									</positions>
+								</Edge>
+								<TransitionGE presentable="!ed/56d8/43C5/3E0/5e6b0d8a3c8e">
+									<positions>
+										<Point x="15505" y="6297"/>
+										<Point x="15240" y="5398"/>
+										<Point x="15372" y="4921"/>
+										<Point x="15505" y="4445"/>
+									</positions>
+									<labelSize>
+										<Size width="3334" height="370"/>
+									</labelSize>
+									<labelPos>
+										<Point x="12091" y="4948"/>
+									</labelPos>
+									<slashPos>
+										<Point x="14631" y="4948"/>
+									</slashPos>
+								</TransitionGE>
+								<TransitionGE presentable="!ed/56e1/43C5/3E0/5e6b0d9b50f8">
+									<positions>
+										<Point x="9551" y="5662"/>
+										<Point x="11589" y="7435"/>
+										<Point x="12488" y="7250"/>
+										<Point x="13705" y="7408"/>
+									</positions>
+									<labelSize>
+										<Size width="3520" height="370"/>
+									</labelSize>
+									<labelPos>
+										<Point x="9181" y="7620"/>
+									</labelPos>
+									<slashPos>
+										<Point x="11906" y="7620"/>
+									</slashPos>
+								</TransitionGE>
+							</presentationElements>
+						</NetDiagram>
+					</diagrams>
+				</ed:Operator>
+			</pragmas>
+		</Operator>
+	</declarations>
+</File>

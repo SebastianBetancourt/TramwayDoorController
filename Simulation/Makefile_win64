@@ -8,7 +8,16 @@ SHELL=cmd.exe
 
 C_FLAGS = -pedantic
 
-all: Door.exe Door.dll 
+all: Controller.exe Controller.dll 
+
+win64/Controller.o: Controller.c
+	gcc -I"$(SCADE)\libraries\SC65\libmathext" -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "Controller.c" -o "win64\Controller.o"
+
+win64/Bridge.o: Bridge.c
+	gcc -I"$(SCADE)\libraries\SC65\libmathext" -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "Bridge.c" -o "win64\Bridge.o"
+
+win64/Button.o: Button.c
+	gcc -I"$(SCADE)\libraries\SC65\libmathext" -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "Button.c" -o "win64\Button.o"
 
 win64/Door.o: Door.c
 	gcc -I"$(SCADE)\libraries\SC65\libmathext" -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "Door.c" -o "win64\Door.o"
@@ -46,8 +55,8 @@ win64/TramwayDoorController_interface.o: TramwayDoorController_interface.c
 win64/SmuProxy.o: C:/Program\ Files/ANSYS\ Inc/v195/SCADE/SCADE/lib/C/SmuProxy.c
 	gcc -I"$(SCADE)\libraries\SC65\libmathext" -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "C:\Program Files\ANSYS Inc\v195\SCADE\SCADE\lib\C\SmuProxy.c" -o "win64\SmuProxy.o"
 
-Door.dll: win64/Door.o win64/kcg_types.o win64/kcg_consts.o win64/TramwayDoorController_type.o win64/SmuPredefConv.o win64/SmuConfig.o win64/SmuTypes.o win64/SmuLib.o win64/SmuVTable.o win64/TramwayDoorController_mapping.o win64/TramwayDoorController_interface.o win64/SmuProxy.o SmuExport.def 
-	gcc -mwindows -mwin32 -shared -static-libgcc  "win64\Door.o" "win64\kcg_types.o" "win64\kcg_consts.o" "win64\TramwayDoorController_type.o" "win64\SmuPredefConv.o" "win64\SmuConfig.o" "win64\SmuTypes.o" "win64\SmuLib.o" "win64\SmuVTable.o" "win64\TramwayDoorController_mapping.o" "win64\TramwayDoorController_interface.o" "win64\SmuProxy.o" -Wl,--output-def,"SmuExport.def" -lm -lwsock32 -m64 -o "Door.dll" 
+Controller.dll: win64/Controller.o win64/Bridge.o win64/Button.o win64/Door.o win64/kcg_types.o win64/kcg_consts.o win64/TramwayDoorController_type.o win64/SmuPredefConv.o win64/SmuConfig.o win64/SmuTypes.o win64/SmuLib.o win64/SmuVTable.o win64/TramwayDoorController_mapping.o win64/TramwayDoorController_interface.o win64/SmuProxy.o SmuExport.def 
+	gcc -mwindows -mwin32 -shared -static-libgcc  "win64\Controller.o" "win64\Bridge.o" "win64\Button.o" "win64\Door.o" "win64\kcg_types.o" "win64\kcg_consts.o" "win64\TramwayDoorController_type.o" "win64\SmuPredefConv.o" "win64\SmuConfig.o" "win64\SmuTypes.o" "win64\SmuLib.o" "win64\SmuVTable.o" "win64\TramwayDoorController_mapping.o" "win64\TramwayDoorController_interface.o" "win64\SmuProxy.o" -Wl,--output-def,"SmuExport.def" -lm -lwsock32 -m64 -o "Controller.dll" 
 
 SmuExport.def: C:/Program\ Files/ANSYS\ Inc/v195/SCADE/SCADE/lib/C/SmuExport.def
 	copy "C:\Program Files\ANSYS Inc\v195\SCADE\SCADE\lib\C\SmuExport.def" "SmuExport.def"
@@ -58,8 +67,8 @@ win64/TramwayDoorController_dll.o: TramwayDoorController_dll.c
 win64/SmuMainWindows.o: C:/Program\ Files/ANSYS\ Inc/v195/SCADE/SCADE/lib/C/SmuMainWindows.c
 	gcc -I"$(SCADE)\libraries\SC65\libmathext" -I"." -I"$(SCADE)" -I"$(SCADE)\include" -I"$(SCADE)\include\C" -I"$(SCADE)\include\Ada" -I"$(SCADE)\lib\Ada" $(C_FLAGS) -DBUILD_DLL -DSIM -DWIN32 -D_CONSOLE -D_MBCS -c -ansi -std=c99 -m64 "C:\Program Files\ANSYS Inc\v195\SCADE\SCADE\lib\C\SmuMainWindows.c" -o "win64\SmuMainWindows.o"
 
-Door.exe: win64/TramwayDoorController_dll.o win64/SmuMainWindows.o 
-	gcc "win64\TramwayDoorController_dll.o" "win64\SmuMainWindows.o" -lm -lwsock32 -m64 -o "Door.exe" 
+Controller.exe: win64/TramwayDoorController_dll.o win64/SmuMainWindows.o 
+	gcc "win64\TramwayDoorController_dll.o" "win64\SmuMainWindows.o" -lm -lwsock32 -m64 -o "Controller.exe" 
 
 #############################################################
 ######    End of Makefile

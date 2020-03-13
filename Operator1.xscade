@@ -76,18 +76,6 @@
 										<ed:Variable oid="!ed/49e3/408F/1164/5e588bcf7c50"/>
 									</pragmas>
 								</Variable>
-								<Variable name="_L3">
-									<type>
-										<NamedType>
-											<type>
-												<TypeRef name="bool"/>
-											</type>
-										</NamedType>
-									</type>
-									<pragmas>
-										<ed:Variable oid="!ed/4a45/408F/1164/5e588cc04b97"/>
-									</pragmas>
-								</Variable>
 							</locals>
 							<data>
 								<!-- activated = _L2; -->
@@ -116,22 +104,6 @@
 									</right>
 									<pragmas>
 										<ed:Equation oid="!ed/49e2/408F/1164/5e588bcf677f"/>
-									</pragmas>
-								</Equation>
-								<!-- _L3 = clicked; -->
-								<Equation>
-									<lefts>
-										<VariableRef name="_L3"/>
-									</lefts>
-									<right>
-										<IdExpression>
-											<path>
-												<ConstVarRef name="clicked"/>
-											</path>
-										</IdExpression>
-									</right>
-									<pragmas>
-										<ed:Equation oid="!ed/4a44/408F/1164/5e588cc01981"/>
 									</pragmas>
 								</Equation>
 							</data>
@@ -170,18 +142,6 @@
 										<ed:Variable oid="!ed/4a0d/408F/1164/5e588c092836"/>
 									</pragmas>
 								</Variable>
-								<Variable name="_L2">
-									<type>
-										<NamedType>
-											<type>
-												<TypeRef name="bool"/>
-											</type>
-										</NamedType>
-									</type>
-									<pragmas>
-										<ed:Variable oid="!ed/4a5c/408F/1164/5e588ce82520"/>
-									</pragmas>
-								</Variable>
 							</locals>
 							<data>
 								<!-- _L1 = true; -->
@@ -210,22 +170,6 @@
 									</right>
 									<pragmas>
 										<ed:Equation oid="!ed/4a1a/408F/1164/5e588c1be7"/>
-									</pragmas>
-								</Equation>
-								<!-- _L2 = deactivate; -->
-								<Equation>
-									<lefts>
-										<VariableRef name="_L2"/>
-									</lefts>
-									<right>
-										<IdExpression>
-											<path>
-												<ConstVarRef name="deactivate"/>
-											</path>
-										</IdExpression>
-									</right>
-									<pragmas>
-										<ed:Equation oid="!ed/4a5b/408F/1164/5e588ce826c7"/>
 									</pragmas>
 								</Equation>
 							</data>
@@ -350,22 +294,6 @@
 										<Point x="21934" y="9948"/>
 									</positions>
 								</Edge>
-								<EquationGE presentable="!ed/4a44/408F/1164/5e588cc01981">
-									<position>
-										<Point x="11536" y="8996"/>
-									</position>
-									<size>
-										<Size width="264" height="503"/>
-									</size>
-								</EquationGE>
-								<EquationGE presentable="!ed/4a5b/408F/1164/5e588ce826c7">
-									<position>
-										<Point x="20955" y="9022"/>
-									</position>
-									<size>
-										<Size width="264" height="503"/>
-									</size>
-								</EquationGE>
 							</presentationElements>
 						</NetDiagram>
 					</diagrams>
