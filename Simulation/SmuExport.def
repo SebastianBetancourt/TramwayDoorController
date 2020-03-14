@@ -491,63 +491,69 @@ EXPORTS
     scope_46_entries @490 DATA
     scope_47 @491 DATA
     scope_47_entries @492 DATA
-    scope_4_entries @493 DATA
-    scope_5 @494 DATA
-    scope_5_entries @495 DATA
-    scope_6 @496 DATA
-    scope_6_entries @497 DATA
-    scope_7 @498 DATA
-    scope_7_entries @499 DATA
-    scope_8 @500 DATA
-    scope_8_entries @501 DATA
-    scope_9 @502 DATA
-    scope_9_entries @503 DATA
-    ssm_char_to_string @504
-    ssm_double_to_string @505
-    ssm_float_to_string @506
-    ssm_inf @507
-    ssm_int_to_base_string @508
-    ssm_int_to_string @509
-    ssm_is_inf_dbl @510
-    ssm_is_inf_flt @511
-    ssm_is_nan_dbl @512
-    ssm_is_nan_flt @513
-    ssm_nan @514
-    ssm_real_to_string_ @515
-    ssm_sign_bit_dbl @516
-    ssm_sign_bit_flt @517
-    ssm_string_to_char @518
-    ssm_string_to_char_ @519
-    ssm_string_to_double @520
-    ssm_string_to_float @521
-    ssm_string_to_int @522
-    ssm_string_to_int_ @523
-    ssm_string_to_real_ @524
-    status_to_double @525
-    status_to_long @526
-    status_to_string @527
-    strDefaultRealFormat @528 DATA
-    string_to_SSM_ST_Button @529
-    string_to_SSM_ST_SM1 @530
-    string_to_SSM_TR_Button @531
-    string_to_SSM_TR_SM1 @532
-    string_to_VTable @533
-    string_to__2_SSM_ST_SM1 @534
-    string_to__3_SSM_TR_SM1 @535
-    string_to__4_SSM_ST_SM1 @536
-    string_to__5_SSM_TR_SM1 @537
-    string_to_kcg_bool @538
-    string_to_kcg_char @539
-    string_to_kcg_float32 @540
-    string_to_kcg_float64 @541
-    string_to_kcg_int16 @542
-    string_to_kcg_int32 @543
-    string_to_kcg_int64 @544
-    string_to_kcg_int8 @545
-    string_to_kcg_size @546
-    string_to_kcg_uint16 @547
-    string_to_kcg_uint32 @548
-    string_to_kcg_uint64 @549
-    string_to_kcg_uint8 @550
-    string_to_status @551
-    updateCompareResult @552
+    scope_48 @493 DATA
+    scope_48_entries @494 DATA
+    scope_49 @495 DATA
+    scope_49_entries @496 DATA
+    scope_4_entries @497 DATA
+    scope_5 @498 DATA
+    scope_50 @499 DATA
+    scope_50_entries @500 DATA
+    scope_5_entries @501 DATA
+    scope_6 @502 DATA
+    scope_6_entries @503 DATA
+    scope_7 @504 DATA
+    scope_7_entries @505 DATA
+    scope_8 @506 DATA
+    scope_8_entries @507 DATA
+    scope_9 @508 DATA
+    scope_9_entries @509 DATA
+    ssm_char_to_string @510
+    ssm_double_to_string @511
+    ssm_float_to_string @512
+    ssm_inf @513
+    ssm_int_to_base_string @514
+    ssm_int_to_string @515
+    ssm_is_inf_dbl @516
+    ssm_is_inf_flt @517
+    ssm_is_nan_dbl @518
+    ssm_is_nan_flt @519
+    ssm_nan @520
+    ssm_real_to_string_ @521
+    ssm_sign_bit_dbl @522
+    ssm_sign_bit_flt @523
+    ssm_string_to_char @524
+    ssm_string_to_char_ @525
+    ssm_string_to_double @526
+    ssm_string_to_float @527
+    ssm_string_to_int @528
+    ssm_string_to_int_ @529
+    ssm_string_to_real_ @530
+    status_to_double @531
+    status_to_long @532
+    status_to_string @533
+    strDefaultRealFormat @534 DATA
+    string_to_SSM_ST_Button @535
+    string_to_SSM_ST_SM1 @536
+    string_to_SSM_TR_Button @537
+    string_to_SSM_TR_SM1 @538
+    string_to_VTable @539
+    string_to__2_SSM_ST_SM1 @540
+    string_to__3_SSM_TR_SM1 @541
+    string_to__4_SSM_ST_SM1 @542
+    string_to__5_SSM_TR_SM1 @543
+    string_to_kcg_bool @544
+    string_to_kcg_char @545
+    string_to_kcg_float32 @546
+    string_to_kcg_float64 @547
+    string_to_kcg_int16 @548
+    string_to_kcg_int32 @549
+    string_to_kcg_int64 @550
+    string_to_kcg_int8 @551
+    string_to_kcg_size @552
+    string_to_kcg_uint16 @553
+    string_to_kcg_uint32 @554
+    string_to_kcg_uint64 @555
+    string_to_kcg_uint8 @556
+    string_to_status @557
+    updateCompareResult @558

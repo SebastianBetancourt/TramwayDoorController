@@ -1,6 +1,6 @@
 /* $********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** Command: kcg66.exe -config C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/config.txt
-** Generation date: 2020-03-13T00:03:44
+** Generation date: 2020-03-13T19:51:02
 *************************************************************$ */
 #ifndef _KCG_TYPES_H_
 #define _KCG_TYPES_H_
@@ -222,15 +222,18 @@ typedef enum kcg_tag__2_SSM_ST_SM1 {
 typedef enum kcg_tag_SSM_TR_SM1 {
   _8_SSM_TR_no_trans_SM1,
   SSM_TR_Door_Bridge_1_Door_SM1,
-  SSM_TR_Door_Open_2_Door_SM1,
-  SSM_TR_Door_ToLeaveStation_3_Door_SM1,
+  SSM_TR_Door_Bridge_2_Door_SM1,
+  SSM_TR_Door_Open_3_Door_SM1,
+  SSM_TR_Door_ToLeaveStation_4_Door_SM1,
   SSM_TR_DoorButton_Door_1_DoorButton_SM1,
   SSM_TR_ToPressButton_BridgeButton_1_ToPressButton_SM1,
   SSM_TR_ToPressButton_DoorButton_2_ToPressButton_SM1,
-  SSM_TR_Open_Door_1_Open_SM1,
+  SSM_TR_Open_BridgeButton_1_Open_SM1,
+  SSM_TR_Open_Door_2_Open_SM1,
   SSM_TR_ToLeaveStation_ToPressButton_1_ToLeaveStation_SM1,
   SSM_TR_BridgeButton_Door_1_BridgeButton_SM1,
-  SSM_TR_Bridge_Door_1_Bridge_SM1
+  SSM_TR_Bridge_ToLeaveStation_1_Bridge_SM1,
+  SSM_TR_Bridge_Door_2_Bridge_SM1
 } SSM_TR_SM1;
 /* Controller/SM1: */
 typedef enum kcg_tag_SSM_ST_SM1 {
@@ -270,6 +273,6 @@ extern kcg_bool kcg_comp_status(status *kcg_c1, status *kcg_c2);
 #endif /* _KCG_TYPES_H_ */
 /* $********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** kcg_types.h
-** Generation date: 2020-03-13T00:03:44
+** Generation date: 2020-03-13T19:51:02
 *************************************************************$ */
 

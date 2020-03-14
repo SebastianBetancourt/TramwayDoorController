@@ -38,7 +38,7 @@ extern "C" {
 
 const int  rt_version = Srtv62;
 
-const char* _SCSIM_CheckSum = "df97766e3d6851c2a3f78ddd32bd177a";
+const char* _SCSIM_CheckSum = "662564828a2d5798334062a544532e3c";
 const char* _SCSIM_SmuTypesCheckSum = "f59a7f532a7d2323bdffcdce912b7ce3";
 
 /* simulation */

@@ -59,11 +59,15 @@
           </Fork>
           <Fork priority="2">
             <Condition/>
-            <Transition kind="weak" scadeDest="Open" targetName="SSM_TR_Door_Open_2_Door_SM1"/>
+            <Transition kind="weak" scadeDest="Bridge" targetName="SSM_TR_Door_Bridge_2_Door_SM1"/>
           </Fork>
           <Fork priority="3">
             <Condition/>
-            <Transition kind="weak" scadeDest="ToLeaveStation" targetName="SSM_TR_Door_ToLeaveStation_3_Door_SM1"/>
+            <Transition kind="weak" scadeDest="Open" targetName="SSM_TR_Door_Open_3_Door_SM1"/>
+          </Fork>
+          <Fork priority="4">
+            <Condition/>
+            <Transition kind="weak" scadeDest="ToLeaveStation" targetName="SSM_TR_Door_ToLeaveStation_4_Door_SM1"/>
           </Fork>
         </State>
         <State scadeName="DoorButton" targetName="SSM_st_DoorButton_SM1">
@@ -102,7 +106,11 @@
           <Local clockVal="SSM_st_Open_SM1" clockVar="SM1_state_act" inCtx="true" scadeName="_L3" scadeType="bool" targetName="_L3_Open_SM1" targetType="kcg_bool"/>
           <Fork priority="1">
             <Condition/>
-            <Transition kind="weak" scadeDest="Door" targetName="SSM_TR_Open_Door_1_Open_SM1"/>
+            <Transition kind="weak" scadeDest="BridgeButton" targetName="SSM_TR_Open_BridgeButton_1_Open_SM1"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Transition kind="weak" scadeDest="Door" targetName="SSM_TR_Open_Door_2_Open_SM1"/>
           </Fork>
         </State>
         <State scadeName="ToLeaveStation" targetName="SSM_st_ToLeaveStation_SM1">
@@ -135,7 +143,11 @@
           </NodeInstance>
           <Fork priority="1">
             <Condition/>
-            <Transition kind="weak" scadeDest="Door" targetName="SSM_TR_Bridge_Door_1_Bridge_SM1"/>
+            <Transition kind="weak" scadeDest="ToLeaveStation" targetName="SSM_TR_Bridge_ToLeaveStation_1_Bridge_SM1"/>
+          </Fork>
+          <Fork priority="2">
+            <Condition/>
+            <Transition kind="weak" scadeDest="Door" targetName="SSM_TR_Bridge_Door_2_Bridge_SM1"/>
           </Fork>
         </State>
         <ActiveState inCtx="true" targetName="SM1_state_act"/>

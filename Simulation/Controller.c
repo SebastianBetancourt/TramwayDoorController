@@ -1,6 +1,6 @@
 /* $********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** Command: kcg66.exe -config C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/config.txt
-** Generation date: 2020-03-13T00:03:44
+** Generation date: 2020-03-13T19:51:02
 *************************************************************$ */
 
 #include "kcg_consts.h"
@@ -30,6 +30,8 @@ void Controller(inC_Controller *inC, outC_Controller *outC)
   kcg_bool SM1_reset_nxt_partial;
   /* SM1: */
   SSM_TR_SM1 SM1_fired_partial;
+  /* SM1:Door:<4> */
+  kcg_bool tr_4_guard_Door_SM1;
   /* SM1:Door:<3> */
   kcg_bool tr_3_guard_Door_SM1;
   /* SM1:Door:<2> */
@@ -102,6 +104,8 @@ void Controller(inC_Controller *inC, outC_Controller *outC)
   kcg_bool _29_SM1_reset_nxt_partial;
   /* SM1: */
   SSM_TR_SM1 _30_SM1_fired_partial;
+  /* SM1:Open:<2> */
+  kcg_bool tr_2_guard_Open_SM1;
   /* SM1:Open:<1> */
   kcg_bool tr_1_guard_Open_SM1;
   /* doorStatus/ */
@@ -168,6 +172,8 @@ void Controller(inC_Controller *inC, outC_Controller *outC)
   kcg_bool _59_SM1_reset_nxt_partial;
   /* SM1: */
   SSM_TR_SM1 _60_SM1_fired_partial;
+  /* SM1:Bridge:<2> */
+  kcg_bool tr_2_guard_Bridge_SM1;
   /* SM1:Bridge:<1> */
   kcg_bool tr_1_guard_Bridge_SM1;
   /* secured/ */
@@ -231,15 +237,29 @@ void Controller(inC_Controller *inC, outC_Controller *outC)
         &outC->Context_Bridge_5);
       outC->_L1_Bridge_SM1 = outC->Context_Bridge_5.deployed;
       _53_openDoor_partial = outC->_L1_Bridge_SM1;
-      tr_1_guard_Bridge_SM1 = _53_openDoor_partial;
+      tr_2_guard_Bridge_SM1 = _53_openDoor_partial;
+      _52_bridgeStatus_partial = outC->_L1_Bridge_SM1;
+      tr_1_guard_Bridge_SM1 = _51_doorStatus_partial.closed &
+        (!_52_bridgeStatus_partial);
       if (tr_1_guard_Bridge_SM1) {
-        _60_SM1_fired_partial = SSM_TR_Bridge_Door_1_Bridge_SM1;
+        _60_SM1_fired_partial = SSM_TR_Bridge_ToLeaveStation_1_Bridge_SM1;
+      }
+      else if (tr_2_guard_Bridge_SM1) {
+        _60_SM1_fired_partial = SSM_TR_Bridge_Door_2_Bridge_SM1;
       }
       else {
         _60_SM1_fired_partial = _8_SSM_TR_no_trans_SM1;
       }
-      _59_SM1_reset_nxt_partial = tr_1_guard_Bridge_SM1;
       if (tr_1_guard_Bridge_SM1) {
+        _59_SM1_reset_nxt_partial = kcg_true;
+      }
+      else {
+        _59_SM1_reset_nxt_partial = tr_2_guard_Bridge_SM1;
+      }
+      if (tr_1_guard_Bridge_SM1) {
+        _58_SM1_state_nxt_partial = SSM_st_ToLeaveStation_SM1;
+      }
+      else if (tr_2_guard_Bridge_SM1) {
         _58_SM1_state_nxt_partial = SSM_st_Door_SM1;
       }
       else {
@@ -247,7 +267,6 @@ void Controller(inC_Controller *inC, outC_Controller *outC)
       }
       outC->_L6_Bridge_SM1 = !outC->_L1_Bridge_SM1;
       _54_closeDoor_partial = outC->_L6_Bridge_SM1;
-      _52_bridgeStatus_partial = outC->_L1_Bridge_SM1;
       break;
     case SSM_st_BridgeButton_SM1 :
       _47_secured_partial = last_secured;
@@ -325,19 +344,29 @@ void Controller(inC_Controller *inC, outC_Controller *outC)
       break;
     case SSM_st_Open_SM1 :
       _27_secured_partial = last_secured;
-      _26_retractBridge_partial = last_retractBridge;
-      _25_deployBridge_partial = last_deployBridge;
       _22_bridgeStatus_partial = last_bridgeStatus;
       kcg_copy_status(&_21_doorStatus_partial, &last_doorStatus);
-      tr_1_guard_Open_SM1 = inC->immDeparture;
+      tr_2_guard_Open_SM1 = inC->immDeparture;
+      tr_1_guard_Open_SM1 = inC->requireBridge & (!_22_bridgeStatus_partial);
       if (tr_1_guard_Open_SM1) {
-        _30_SM1_fired_partial = SSM_TR_Open_Door_1_Open_SM1;
+        _30_SM1_fired_partial = SSM_TR_Open_BridgeButton_1_Open_SM1;
+      }
+      else if (tr_2_guard_Open_SM1) {
+        _30_SM1_fired_partial = SSM_TR_Open_Door_2_Open_SM1;
       }
       else {
         _30_SM1_fired_partial = _8_SSM_TR_no_trans_SM1;
       }
-      _29_SM1_reset_nxt_partial = tr_1_guard_Open_SM1;
       if (tr_1_guard_Open_SM1) {
+        _29_SM1_reset_nxt_partial = kcg_true;
+      }
+      else {
+        _29_SM1_reset_nxt_partial = tr_2_guard_Open_SM1;
+      }
+      if (tr_1_guard_Open_SM1) {
+        _28_SM1_state_nxt_partial = SSM_st_BridgeButton_SM1;
+      }
+      else if (tr_2_guard_Open_SM1) {
         _28_SM1_state_nxt_partial = SSM_st_Door_SM1;
       }
       else {
@@ -345,6 +374,8 @@ void Controller(inC_Controller *inC, outC_Controller *outC)
       }
       outC->_L1_Open_SM1 = inC->immDeparture;
       outC->_L3_Open_SM1 = !outC->_L1_Open_SM1;
+      _25_deployBridge_partial = outC->_L3_Open_SM1;
+      _26_retractBridge_partial = outC->_L1_Open_SM1;
       _23_openDoor_partial = outC->_L3_Open_SM1;
       _24_closeDoor_partial = outC->_L1_Open_SM1;
       break;
@@ -546,17 +577,21 @@ void Controller(inC_Controller *inC, outC_Controller *outC)
       Door(outC->_L13_Door_SM1, outC->_L14_Door_SM1, &outC->Context_Door_3);
       kcg_copy_status(&outC->_L15_Door_SM1, &outC->Context_Door_3.doorStatus);
       kcg_copy_status(&doorStatus_partial, &outC->_L15_Door_SM1);
-      tr_3_guard_Door_SM1 = doorStatus_partial.closed & (!deployBridge_partial);
-      tr_2_guard_Door_SM1 = doorStatus_partial.opened;
-      tr_1_guard_Door_SM1 = doorStatus_partial.closed & deployBridge_partial;
+      tr_4_guard_Door_SM1 = doorStatus_partial.closed & (!bridgeStatus_partial);
+      tr_3_guard_Door_SM1 = doorStatus_partial.opened;
+      tr_2_guard_Door_SM1 = doorStatus_partial.closed & deployBridge_partial;
+      tr_1_guard_Door_SM1 = doorStatus_partial.closed & bridgeStatus_partial;
       if (tr_1_guard_Door_SM1) {
         SM1_fired_partial = SSM_TR_Door_Bridge_1_Door_SM1;
       }
       else if (tr_2_guard_Door_SM1) {
-        SM1_fired_partial = SSM_TR_Door_Open_2_Door_SM1;
+        SM1_fired_partial = SSM_TR_Door_Bridge_2_Door_SM1;
       }
       else if (tr_3_guard_Door_SM1) {
-        SM1_fired_partial = SSM_TR_Door_ToLeaveStation_3_Door_SM1;
+        SM1_fired_partial = SSM_TR_Door_Open_3_Door_SM1;
+      }
+      else if (tr_4_guard_Door_SM1) {
+        SM1_fired_partial = SSM_TR_Door_ToLeaveStation_4_Door_SM1;
       }
       else {
         SM1_fired_partial = _8_SSM_TR_no_trans_SM1;
@@ -567,16 +602,22 @@ void Controller(inC_Controller *inC, outC_Controller *outC)
       else if (tr_2_guard_Door_SM1) {
         SM1_reset_nxt_partial = kcg_true;
       }
+      else if (tr_3_guard_Door_SM1) {
+        SM1_reset_nxt_partial = kcg_true;
+      }
       else {
-        SM1_reset_nxt_partial = tr_3_guard_Door_SM1;
+        SM1_reset_nxt_partial = tr_4_guard_Door_SM1;
       }
       if (tr_1_guard_Door_SM1) {
         SM1_state_nxt_partial = SSM_st_Bridge_SM1;
       }
       else if (tr_2_guard_Door_SM1) {
-        SM1_state_nxt_partial = SSM_st_Open_SM1;
+        SM1_state_nxt_partial = SSM_st_Bridge_SM1;
       }
       else if (tr_3_guard_Door_SM1) {
+        SM1_state_nxt_partial = SSM_st_Open_SM1;
+      }
+      else if (tr_4_guard_Door_SM1) {
         SM1_state_nxt_partial = SSM_st_ToLeaveStation_SM1;
       }
       else {
@@ -679,6 +720,6 @@ void Controller_reset(outC_Controller *outC)
 
 /* $********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** Controller.c
-** Generation date: 2020-03-13T00:03:44
+** Generation date: 2020-03-13T19:51:02
 *************************************************************$ */
 
