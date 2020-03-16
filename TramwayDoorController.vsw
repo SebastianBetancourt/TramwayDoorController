@@ -19,10 +19,10 @@ base ::= SEQUENCE OF {
 	}
 }
 base ::= {
-{2, ""}
+{3, ""}
 }
 workspace ::= {
-{"1", NULL}
+{"1", "2"}
 }
 project_ref ::= {
 {"2", "TramwayDoorController.etp", "1"}
