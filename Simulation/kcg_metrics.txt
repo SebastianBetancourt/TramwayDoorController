@@ -1,0 +1,29 @@
+$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** Command: kcg66.exe -config C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/config.txt
+** Generation date: 2020-03-29T21:29:58
+*************************************************************$
+Data structures
+  Structures
+    Max members in a single structure: 49
+  Arrays
+    Max number of dimensions for an array: 0
+    Maximum size for a dimension: 0
+  Enumeration
+    Max of enum constants in a single enumeration: 14
+Control structures
+  Max numbers of case labels in a switch: 7
+  Max number of nesting levels in compound statement: 3
+Program size
+  Functions
+    Max number of function parameters in definition: 3
+    Max number of function arguments in a call: 3
+  Expressions
+    Max number of nesting levels of parenthesized expression in a full expression: 2
+  Identifiers
+    Max number of identifiers with block scope declared in one block: 92
+    Max number of macro identifiers simultaneously defined in one preprocessing translation unit: 45
+    Max number of extern identifiers in one translation unit: 13
+$********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
+** kcg_metrics.txt
+** Generation date: 2020-03-29T21:29:58
+*************************************************************$

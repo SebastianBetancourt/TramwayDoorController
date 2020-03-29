@@ -1,12 +1,16 @@
 *** Post-namespace Warning (WAR_508): Unused flow
-  at file C:\Users\SEBAST~1\AppData\Local\Temp\ScadeChecker\4452\checker_file.scade, line 176, character 0
-  at path Button/Button:notPressed:_L3/
- The local variable _L3 is never used
+  at file C:\Users\USER\AppData\Local\Temp\ScadeChecker\3204\checker_file.scade, line 4391, character 0
+  at path Proofs::SecuredDriving/_L8/
+ The local variable _L8 is never used
 *** Post-namespace Warning (WAR_508): Unused flow
-  at file C:\Users\SEBAST~1\AppData\Local\Temp\ScadeChecker\4452\checker_file.scade, line 210, character 0
-  at path Button/Button:pressed:_L2/
- The local variable _L2 is never used
+  at file C:\Users\USER\AppData\Local\Temp\ScadeChecker\3204\checker_file.scade, line 4395, character 0
+  at path Proofs::SecuredDriving/_L7/
+ The local variable _L7 is never used
 *** Post-namespace Warning (WAR_508): Unused flow
-  at file C:\Users\SEBAST~1\AppData\Local\Temp\ScadeChecker\4452\checker_file.scade, line 138, character 0
-  at path Button/pressed/
- The input variable pressed is never used
+  at file C:\Users\USER\AppData\Local\Temp\ScadeChecker\3204\checker_file.scade, line 4399, character 0
+  at path Proofs::SecuredDriving/_L6/
+ The local variable _L6 is never used
+*** Post-namespace Warning (WAR_508): Unused flow
+  at file C:\Users\USER\AppData\Local\Temp\ScadeChecker\3204\checker_file.scade, line 4403, character 0
+  at path Proofs::SecuredDriving/_L5/
+ The local variable _L5 is never used

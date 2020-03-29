@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<File xmlns="http://www.esterel-technologies.com/ns/scade/6" xmlns:ed="http://www.esterel-technologies.com/ns/scade/pragmas/editor/6" xmlns:kcg="http://www.esterel-technologies.com/ns/scade/pragmas/codegen/3">
+	<declarations>
+		<Type name="status">
+			<definition>
+				<Struct>
+					<fields>
+						<Field name="opening">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/50ea/6862/1F28/5e6add157819"/>
+							</pragmas>
+						</Field>
+						<Field name="opened">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/50f5/6862/1F28/5e6ade01115b"/>
+							</pragmas>
+						</Field>
+						<Field name="closing">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/50f4/6862/1F28/5e6addfa3861"/>
+							</pragmas>
+						</Field>
+						<Field name="closed">
+							<type>
+								<NamedType>
+									<type>
+										<TypeRef name="bool"/>
+									</type>
+								</NamedType>
+							</type>
+							<pragmas>
+								<ed:Field oid="!ed/50f6/6862/1F28/5e6ade09190b"/>
+							</pragmas>
+						</Field>
+					</fields>
+				</Struct>
+			</definition>
+			<pragmas>
+				<ed:Type oid="!ed/50e9/6862/1F28/5e6adcf832ed"/>
+			</pragmas>
+		</Type>
+	</declarations>
+</File>
