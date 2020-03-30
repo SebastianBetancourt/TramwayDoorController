@@ -1,6 +1,6 @@
 /* $********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** Command: kcg66.exe -config C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/config.txt
-** Generation date: 2020-03-13T19:51:02
+** Generation date: 2020-03-29T21:29:58
 *************************************************************$ */
 #ifndef _Controller_H_
 #define _Controller_H_
@@ -24,7 +24,7 @@ typedef struct {
 typedef struct {
   /* ---------------------------  outputs  --------------------------- */
   status /* doorStatus/ */ doorStatus;
-  kcg_bool /* bridgeStatus/ */ bridgeStatus;
+  status /* bridgeStatus/ */ bridgeStatus;
   kcg_bool /* openDoor/ */ openDoor;
   kcg_bool /* closeDoor/ */ closeDoor;
   kcg_bool /* deployBridge/ */ deployBridge;
@@ -39,7 +39,7 @@ typedef struct {
   outC_Door /* SM1:Door:_L15=(Door#3)/ */ Context_Door_3;
   outC_Button /* SM1:DoorButton:_L4=(Button#1)/ */ Context_Button_1;
   outC_Button /* SM1:BridgeButton:_L1=(Button#7)/ */ Context_Button_7;
-  outC_Bridge /* SM1:Bridge:_L1=(Bridge#5)/ */ Context_Bridge_5;
+  outC_Bridge /* SM1:Bridge:_L8=(Bridge#5)/ */ Context_Bridge_5;
   /* ------------------ clocks of observable data -------------------- */
   SSM_ST_SM1 /* SM1: */ SM1_state_act;
   /* -------------------- (-debug) no assertions  -------------------- */
@@ -56,7 +56,6 @@ typedef struct {
   kcg_bool /* SM1:ToPressButton:_L6/ */ _L6_ToPressButton_SM1;
   kcg_bool /* SM1:ToPressButton:_L5/ */ _L5_ToPressButton_SM1;
   kcg_bool /* SM1:ToPressButton:_L4/ */ _L4_ToPressButton_SM1;
-  kcg_bool /* SM1:ToPressButton:_L3/ */ _L3_ToPressButton_SM1;
   kcg_bool /* SM1:ToPressButton:_L2/ */ _L2_ToPressButton_SM1;
   status /* SM1:ToPressButton:_L1/ */ _L1_ToPressButton_SM1;
   kcg_bool /* SM1:Open:_L3/ */ _L3_Open_SM1;
@@ -66,10 +65,11 @@ typedef struct {
   kcg_bool /* SM1:BridgeButton:_L3/ */ _L3_BridgeButton_SM1;
   kcg_bool /* SM1:BridgeButton:_L2/ */ _L2_BridgeButton_SM1;
   kcg_bool /* SM1:BridgeButton:_L1/ */ _L1_BridgeButton_SM1;
-  kcg_bool /* SM1:Bridge:_L6/ */ _L6_Bridge_SM1;
+  kcg_bool /* SM1:Bridge:_L11/ */ _L11_Bridge_SM1;
+  kcg_bool /* SM1:Bridge:_L9/ */ _L9_Bridge_SM1;
+  status /* SM1:Bridge:_L8/ */ _L8_Bridge_SM1;
   kcg_bool /* SM1:Bridge:_L4/ */ _L4_Bridge_SM1;
   kcg_bool /* SM1:Bridge:_L3/ */ _L3_Bridge_SM1;
-  kcg_bool /* SM1:Bridge:_L1/ */ _L1_Bridge_SM1;
   SSM_ST_SM1 /* SM1: */ SM1_state_sel;
   SSM_TR_SM1 /* SM1: */ SM1_fired_strong;
   SSM_TR_SM1 /* SM1: */ SM1_fired;
@@ -92,6 +92,6 @@ extern void Controller_init(outC_Controller *outC);
 #endif /* _Controller_H_ */
 /* $********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** Controller.h
-** Generation date: 2020-03-13T19:51:02
+** Generation date: 2020-03-29T21:29:58
 *************************************************************$ */
 

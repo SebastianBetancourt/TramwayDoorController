@@ -1,6 +1,6 @@
 /* $********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** Command: kcg66.exe -config C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/config.txt
-** Generation date: 2020-03-13T19:51:02
+** Generation date: 2020-03-29T21:29:58
 *************************************************************$ */
 
 #include "kcg_types.h"
@@ -21,6 +21,6 @@ kcg_bool kcg_comp_status(status *kcg_c1, status *kcg_c2)
 
 /* $********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** kcg_types.c
-** Generation date: 2020-03-13T19:51:02
+** Generation date: 2020-03-29T21:29:58
 *************************************************************$ */
 

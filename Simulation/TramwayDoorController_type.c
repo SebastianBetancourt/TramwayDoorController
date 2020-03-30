@@ -27,14 +27,18 @@ char strDefaultRealFormat[] = "%.5g"; /* (from .etp) */
 #endif
 
 static SimEnumValUtils _2_SSM_ST_SM1_values[] = {
-    { "ToMove", _7_SSM_st_ToMove_SM1},
-    { "ToMove", _7_SSM_st_ToMove_SM1},
-    { "Deployed", SSM_st_Deployed_SM1},
-    { "Deployed", SSM_st_Deployed_SM1},
-    { "Retracted", SSM_st_Retracted_SM1},
-    { "Retracted", SSM_st_Retracted_SM1},
+    { "ToMove", SSM_st_ToMove_SM1},
+    { "ToMove", SSM_st_ToMove_SM1},
+    { "FullyOpen", SSM_st_FullyOpen_SM1},
+    { "FullyOpen", SSM_st_FullyOpen_SM1},
+    { "Opening", SSM_st_Opening_SM1},
+    { "Opening", SSM_st_Opening_SM1},
+    { "Closing", SSM_st_Closing_SM1},
+    { "Closing", SSM_st_Closing_SM1},
+    { "FullyClose", SSM_st_FullyClose_SM1},
+    { "FullyClose", SSM_st_FullyClose_SM1},
 };
-const int _2_SSM_ST_SM1_nb_values = 6;
+const int _2_SSM_ST_SM1_nb_values = 10;
 
 int _2_SSM_ST_SM1_to_string(const void *pValue, PFN_STR_APPEND pfnStrAppend, void *pStrObj)
 {
@@ -132,7 +136,7 @@ int get__2_SSM_ST_SM1_signature(PFN_STR_APPEND pfnStrAppend, void *pStrObj)
 
 int init__2_SSM_ST_SM1(void *pValue)
 {
-    *(_2_SSM_ST_SM1*)pValue = _7_SSM_st_ToMove_SM1;
+    *(_2_SSM_ST_SM1*)pValue = SSM_st_ToMove_SM1;
     return 1;
 }
 
@@ -179,18 +183,20 @@ SimTypeUtils _Type__2_SSM_ST_SM1_Utils = {
 #endif
 
 static SimEnumValUtils _3_SSM_TR_SM1_values[] = {
-    { "_6_SSM_TR_no_trans_SM1", _6_SSM_TR_no_trans_SM1},
-    { "_6_SSM_TR_no_trans_SM1", _6_SSM_TR_no_trans_SM1},
-    { "SSM_TR_ToMove_Deployed_1_ToMove_SM1", SSM_TR_ToMove_Deployed_1_ToMove_SM1},
-    { "SSM_TR_ToMove_Deployed_1_ToMove_SM1", SSM_TR_ToMove_Deployed_1_ToMove_SM1},
-    { "SSM_TR_ToMove_Retracted_2_ToMove_SM1", SSM_TR_ToMove_Retracted_2_ToMove_SM1},
-    { "SSM_TR_ToMove_Retracted_2_ToMove_SM1", SSM_TR_ToMove_Retracted_2_ToMove_SM1},
-    { "SSM_TR_Deployed_Retracted_1_Deployed_SM1", SSM_TR_Deployed_Retracted_1_Deployed_SM1},
-    { "SSM_TR_Deployed_Retracted_1_Deployed_SM1", SSM_TR_Deployed_Retracted_1_Deployed_SM1},
-    { "SSM_TR_Retracted_Deployed_1_Retracted_SM1", SSM_TR_Retracted_Deployed_1_Retracted_SM1},
-    { "SSM_TR_Retracted_Deployed_1_Retracted_SM1", SSM_TR_Retracted_Deployed_1_Retracted_SM1},
+    { "SSM_TR_no_trans_SM1", SSM_TR_no_trans_SM1},
+    { "SSM_TR_no_trans_SM1", SSM_TR_no_trans_SM1},
+    { "SSM_TR_ToMove_Opening_1_ToMove_SM1", SSM_TR_ToMove_Opening_1_ToMove_SM1},
+    { "SSM_TR_ToMove_Opening_1_ToMove_SM1", SSM_TR_ToMove_Opening_1_ToMove_SM1},
+    { "SSM_TR_ToMove_Closing_2_ToMove_SM1", SSM_TR_ToMove_Closing_2_ToMove_SM1},
+    { "SSM_TR_ToMove_Closing_2_ToMove_SM1", SSM_TR_ToMove_Closing_2_ToMove_SM1},
+    { "SSM_TR_Opening_FullyOpen_1_Opening_SM1", SSM_TR_Opening_FullyOpen_1_Opening_SM1},
+    { "SSM_TR_Opening_FullyOpen_1_Opening_SM1", SSM_TR_Opening_FullyOpen_1_Opening_SM1},
+    { "SSM_TR_Closing_Opening_1_Closing_SM1", SSM_TR_Closing_Opening_1_Closing_SM1},
+    { "SSM_TR_Closing_Opening_1_Closing_SM1", SSM_TR_Closing_Opening_1_Closing_SM1},
+    { "SSM_TR_Closing_FullyClose_2_Closing_SM1", SSM_TR_Closing_FullyClose_2_Closing_SM1},
+    { "SSM_TR_Closing_FullyClose_2_Closing_SM1", SSM_TR_Closing_FullyClose_2_Closing_SM1},
 };
-const int _3_SSM_TR_SM1_nb_values = 10;
+const int _3_SSM_TR_SM1_nb_values = 12;
 
 int _3_SSM_TR_SM1_to_string(const void *pValue, PFN_STR_APPEND pfnStrAppend, void *pStrObj)
 {
@@ -288,7 +294,7 @@ int get__3_SSM_TR_SM1_signature(PFN_STR_APPEND pfnStrAppend, void *pStrObj)
 
 int init__3_SSM_TR_SM1(void *pValue)
 {
-    *(_3_SSM_TR_SM1*)pValue = _6_SSM_TR_no_trans_SM1;
+    *(_3_SSM_TR_SM1*)pValue = SSM_TR_no_trans_SM1;
     return 1;
 }
 
@@ -318,320 +324,6 @@ SimTypeUtils _Type__3_SSM_TR_SM1_Utils = {
     release__3_SSM_TR_SM1,
     copy__3_SSM_TR_SM1,
     sizeof(_3_SSM_TR_SM1)
-};
-
-/****************************************************************
- ** _4_SSM_ST_SM1 
- ****************************************************************/
-
-#ifdef __cplusplus
-  #ifdef pSim_4_SSM_ST_SM1VTable_defined
-    extern struct SimTypeVTable *pSim_4_SSM_ST_SM1VTable;
-  #else 
-    struct SimTypeVTable *pSim_4_SSM_ST_SM1VTable = NULL;
-  #endif
-#else
-  struct SimTypeVTable *pSim_4_SSM_ST_SM1VTable;
-#endif
-
-static SimEnumValUtils _4_SSM_ST_SM1_values[] = {
-    { "ToMove", SSM_st_ToMove_SM1},
-    { "ToMove", SSM_st_ToMove_SM1},
-    { "FullyOpen", SSM_st_FullyOpen_SM1},
-    { "FullyOpen", SSM_st_FullyOpen_SM1},
-    { "Opening", SSM_st_Opening_SM1},
-    { "Opening", SSM_st_Opening_SM1},
-    { "Closing", SSM_st_Closing_SM1},
-    { "Closing", SSM_st_Closing_SM1},
-    { "FullyClose", SSM_st_FullyClose_SM1},
-    { "FullyClose", SSM_st_FullyClose_SM1},
-};
-const int _4_SSM_ST_SM1_nb_values = 10;
-
-int _4_SSM_ST_SM1_to_string(const void *pValue, PFN_STR_APPEND pfnStrAppend, void *pStrObj)
-{
-    if (pSim_4_SSM_ST_SM1VTable != NULL
-        && pSim_4_SSM_ST_SM1VTable->m_pfnGetConvInfo(SptString, SptNone) == 1) {
-       return pfnStrAppend(*(char**)pSim_4_SSM_ST_SM1VTable->m_pfnToType(SptString, pValue), pStrObj);
-    }
-    return pConverter->m_pfnEnumToString(*(_4_SSM_ST_SM1*)pValue, _4_SSM_ST_SM1_values, _4_SSM_ST_SM1_nb_values, pfnStrAppend, pStrObj); 
-}
-
-int check__4_SSM_ST_SM1_string(const char *str, char **endptr)
-{
-    static _4_SSM_ST_SM1 rTemp;
-    return string_to__4_SSM_ST_SM1(str, &rTemp, endptr);
-}
-
-int string_to__4_SSM_ST_SM1(const char *str, void *pValue, char **endptr)
-{
-    int nRet = 0;
-    skip_whitespace(str);
-    if (pSim_4_SSM_ST_SM1VTable != NULL) {
-        nRet = string_to_VTable(str, pSim_4_SSM_ST_SM1VTable, pValue, endptr);
-    }
-    if (nRet == 0) {
-        int nTemp = 0;
-        nRet = pConverter->m_pfnStringToEnum(str, &nTemp, _4_SSM_ST_SM1_values, _4_SSM_ST_SM1_nb_values, endptr);
-        if (pValue != NULL && nRet != 0)
-            *(_4_SSM_ST_SM1*)pValue = (_4_SSM_ST_SM1)nTemp;
-    }
-    return nRet;
-}
-
-int is__4_SSM_ST_SM1_double_conversion_allowed()
-{
-    if (pSim_4_SSM_ST_SM1VTable != NULL) {
-        return is_VTable_double_conversion_allowed(pSim_4_SSM_ST_SM1VTable);
-    }
-    return 1;
-}
-
-int _4_SSM_ST_SM1_to_double(const void *pValue, double *nValue)
-{
-    if (pSim_4_SSM_ST_SM1VTable != NULL) {
-        return VTable_to_double(pValue, pSim_4_SSM_ST_SM1VTable, nValue);
-    }
-    *nValue = (double)*((_4_SSM_ST_SM1*)pValue);
-    return 1;
-}
-
-int is__4_SSM_ST_SM1_long_conversion_allowed()
-{
-    if (pSim_4_SSM_ST_SM1VTable != NULL) {
-        return is_VTable_long_conversion_allowed(pSim_4_SSM_ST_SM1VTable);
-    }
-    return 1;
-}
-
-int _4_SSM_ST_SM1_to_long(const void *pValue, long *nValue)
-{
-    if (pSim_4_SSM_ST_SM1VTable != NULL) {
-        return VTable_to_long(pValue, pSim_4_SSM_ST_SM1VTable, nValue);
-    }
-    *nValue = (long)*((_4_SSM_ST_SM1*)pValue);
-    return 1;
-}
-
-void compare__4_SSM_ST_SM1(int *pResult, const void *pValue1, const void *pValue2, SimTolerance *pTol, const char *pszPath, PFN_STR_LIST_APPEND pfnStrListAppend, void *pListErrPaths)
-{
-    int unitResult = 0;
-    /* Customized comparison */
-    if (pSim_4_SSM_ST_SM1VTable != NULL
-        && pSim_4_SSM_ST_SM1VTable->m_version >= Scv612
-        && pSim_4_SSM_ST_SM1VTable->m_pfnCompare != NULL) {
-        if (pSim_4_SSM_ST_SM1VTable->m_version >= Scv65) {
-            /* R15 and higher: VTable Compare function shall UPDATE *pResult global flag (*pResult |= SIM_CMP_RES_LT/...): */
-            unitResult = pSim_4_SSM_ST_SM1VTable->m_pfnCompare(pResult, pValue1, pValue2);
-        } else {
-            /* Before R15: VTable Compare function shall SET *pResult global flag (*pResult = -1/1/0): */
-            pSim_4_SSM_ST_SM1VTable->m_pfnCompare(&unitResult, pValue1, pValue2);
-            updateCompareResult(unitResult, pResult);
-        }
-    } else {
-        /* Predefined comparison */
-        unitResult = predef_compare_enum(pResult, (int)(*(_4_SSM_ST_SM1*)pValue1), (int)(*(_4_SSM_ST_SM1*)pValue2));
-    }
-    UNUSED(pTol);
-    if (unitResult != 0 && pfnStrListAppend != NULL && pszPath != NULL && *pszPath != 0 && pListErrPaths != NULL)
-        pfnStrListAppend(pszPath, pListErrPaths);
-}
-
-int get__4_SSM_ST_SM1_signature(PFN_STR_APPEND pfnStrAppend, void *pStrObj)
-{
-    return pConverter->m_pfnGetEnumSignature(_4_SSM_ST_SM1_values, _4_SSM_ST_SM1_nb_values, pfnStrAppend, pStrObj);
-}
-
-int init__4_SSM_ST_SM1(void *pValue)
-{
-    *(_4_SSM_ST_SM1*)pValue = SSM_st_ToMove_SM1;
-    return 1;
-}
-
-int release__4_SSM_ST_SM1(void *pValue)
-{
-    UNUSED(pValue);
-    return 1;
-}
-
-int copy__4_SSM_ST_SM1(void *pToValue, const void *pFromValue)
-{
-    *((_4_SSM_ST_SM1*)pToValue) = *((_4_SSM_ST_SM1*)pFromValue);
-    return 1;
-}
-
-SimTypeUtils _Type__4_SSM_ST_SM1_Utils = {
-    _4_SSM_ST_SM1_to_string,
-    check__4_SSM_ST_SM1_string,
-    string_to__4_SSM_ST_SM1,
-    is__4_SSM_ST_SM1_double_conversion_allowed,
-    _4_SSM_ST_SM1_to_double,
-    is__4_SSM_ST_SM1_long_conversion_allowed,
-    _4_SSM_ST_SM1_to_long,
-    compare__4_SSM_ST_SM1,
-    get__4_SSM_ST_SM1_signature,
-    init__4_SSM_ST_SM1,
-    release__4_SSM_ST_SM1,
-    copy__4_SSM_ST_SM1,
-    sizeof(_4_SSM_ST_SM1)
-};
-
-/****************************************************************
- ** _5_SSM_TR_SM1 
- ****************************************************************/
-
-#ifdef __cplusplus
-  #ifdef pSim_5_SSM_TR_SM1VTable_defined
-    extern struct SimTypeVTable *pSim_5_SSM_TR_SM1VTable;
-  #else 
-    struct SimTypeVTable *pSim_5_SSM_TR_SM1VTable = NULL;
-  #endif
-#else
-  struct SimTypeVTable *pSim_5_SSM_TR_SM1VTable;
-#endif
-
-static SimEnumValUtils _5_SSM_TR_SM1_values[] = {
-    { "SSM_TR_no_trans_SM1", SSM_TR_no_trans_SM1},
-    { "SSM_TR_no_trans_SM1", SSM_TR_no_trans_SM1},
-    { "SSM_TR_ToMove_Opening_1_ToMove_SM1", SSM_TR_ToMove_Opening_1_ToMove_SM1},
-    { "SSM_TR_ToMove_Opening_1_ToMove_SM1", SSM_TR_ToMove_Opening_1_ToMove_SM1},
-    { "SSM_TR_ToMove_Closing_2_ToMove_SM1", SSM_TR_ToMove_Closing_2_ToMove_SM1},
-    { "SSM_TR_ToMove_Closing_2_ToMove_SM1", SSM_TR_ToMove_Closing_2_ToMove_SM1},
-    { "SSM_TR_Opening_FullyOpen_1_Opening_SM1", SSM_TR_Opening_FullyOpen_1_Opening_SM1},
-    { "SSM_TR_Opening_FullyOpen_1_Opening_SM1", SSM_TR_Opening_FullyOpen_1_Opening_SM1},
-    { "SSM_TR_Closing_Opening_1_Closing_SM1", SSM_TR_Closing_Opening_1_Closing_SM1},
-    { "SSM_TR_Closing_Opening_1_Closing_SM1", SSM_TR_Closing_Opening_1_Closing_SM1},
-    { "SSM_TR_Closing_FullyClose_2_Closing_SM1", SSM_TR_Closing_FullyClose_2_Closing_SM1},
-    { "SSM_TR_Closing_FullyClose_2_Closing_SM1", SSM_TR_Closing_FullyClose_2_Closing_SM1},
-};
-const int _5_SSM_TR_SM1_nb_values = 12;
-
-int _5_SSM_TR_SM1_to_string(const void *pValue, PFN_STR_APPEND pfnStrAppend, void *pStrObj)
-{
-    if (pSim_5_SSM_TR_SM1VTable != NULL
-        && pSim_5_SSM_TR_SM1VTable->m_pfnGetConvInfo(SptString, SptNone) == 1) {
-       return pfnStrAppend(*(char**)pSim_5_SSM_TR_SM1VTable->m_pfnToType(SptString, pValue), pStrObj);
-    }
-    return pConverter->m_pfnEnumToString(*(_5_SSM_TR_SM1*)pValue, _5_SSM_TR_SM1_values, _5_SSM_TR_SM1_nb_values, pfnStrAppend, pStrObj); 
-}
-
-int check__5_SSM_TR_SM1_string(const char *str, char **endptr)
-{
-    static _5_SSM_TR_SM1 rTemp;
-    return string_to__5_SSM_TR_SM1(str, &rTemp, endptr);
-}
-
-int string_to__5_SSM_TR_SM1(const char *str, void *pValue, char **endptr)
-{
-    int nRet = 0;
-    skip_whitespace(str);
-    if (pSim_5_SSM_TR_SM1VTable != NULL) {
-        nRet = string_to_VTable(str, pSim_5_SSM_TR_SM1VTable, pValue, endptr);
-    }
-    if (nRet == 0) {
-        int nTemp = 0;
-        nRet = pConverter->m_pfnStringToEnum(str, &nTemp, _5_SSM_TR_SM1_values, _5_SSM_TR_SM1_nb_values, endptr);
-        if (pValue != NULL && nRet != 0)
-            *(_5_SSM_TR_SM1*)pValue = (_5_SSM_TR_SM1)nTemp;
-    }
-    return nRet;
-}
-
-int is__5_SSM_TR_SM1_double_conversion_allowed()
-{
-    if (pSim_5_SSM_TR_SM1VTable != NULL) {
-        return is_VTable_double_conversion_allowed(pSim_5_SSM_TR_SM1VTable);
-    }
-    return 1;
-}
-
-int _5_SSM_TR_SM1_to_double(const void *pValue, double *nValue)
-{
-    if (pSim_5_SSM_TR_SM1VTable != NULL) {
-        return VTable_to_double(pValue, pSim_5_SSM_TR_SM1VTable, nValue);
-    }
-    *nValue = (double)*((_5_SSM_TR_SM1*)pValue);
-    return 1;
-}
-
-int is__5_SSM_TR_SM1_long_conversion_allowed()
-{
-    if (pSim_5_SSM_TR_SM1VTable != NULL) {
-        return is_VTable_long_conversion_allowed(pSim_5_SSM_TR_SM1VTable);
-    }
-    return 1;
-}
-
-int _5_SSM_TR_SM1_to_long(const void *pValue, long *nValue)
-{
-    if (pSim_5_SSM_TR_SM1VTable != NULL) {
-        return VTable_to_long(pValue, pSim_5_SSM_TR_SM1VTable, nValue);
-    }
-    *nValue = (long)*((_5_SSM_TR_SM1*)pValue);
-    return 1;
-}
-
-void compare__5_SSM_TR_SM1(int *pResult, const void *pValue1, const void *pValue2, SimTolerance *pTol, const char *pszPath, PFN_STR_LIST_APPEND pfnStrListAppend, void *pListErrPaths)
-{
-    int unitResult = 0;
-    /* Customized comparison */
-    if (pSim_5_SSM_TR_SM1VTable != NULL
-        && pSim_5_SSM_TR_SM1VTable->m_version >= Scv612
-        && pSim_5_SSM_TR_SM1VTable->m_pfnCompare != NULL) {
-        if (pSim_5_SSM_TR_SM1VTable->m_version >= Scv65) {
-            /* R15 and higher: VTable Compare function shall UPDATE *pResult global flag (*pResult |= SIM_CMP_RES_LT/...): */
-            unitResult = pSim_5_SSM_TR_SM1VTable->m_pfnCompare(pResult, pValue1, pValue2);
-        } else {
-            /* Before R15: VTable Compare function shall SET *pResult global flag (*pResult = -1/1/0): */
-            pSim_5_SSM_TR_SM1VTable->m_pfnCompare(&unitResult, pValue1, pValue2);
-            updateCompareResult(unitResult, pResult);
-        }
-    } else {
-        /* Predefined comparison */
-        unitResult = predef_compare_enum(pResult, (int)(*(_5_SSM_TR_SM1*)pValue1), (int)(*(_5_SSM_TR_SM1*)pValue2));
-    }
-    UNUSED(pTol);
-    if (unitResult != 0 && pfnStrListAppend != NULL && pszPath != NULL && *pszPath != 0 && pListErrPaths != NULL)
-        pfnStrListAppend(pszPath, pListErrPaths);
-}
-
-int get__5_SSM_TR_SM1_signature(PFN_STR_APPEND pfnStrAppend, void *pStrObj)
-{
-    return pConverter->m_pfnGetEnumSignature(_5_SSM_TR_SM1_values, _5_SSM_TR_SM1_nb_values, pfnStrAppend, pStrObj);
-}
-
-int init__5_SSM_TR_SM1(void *pValue)
-{
-    *(_5_SSM_TR_SM1*)pValue = SSM_TR_no_trans_SM1;
-    return 1;
-}
-
-int release__5_SSM_TR_SM1(void *pValue)
-{
-    UNUSED(pValue);
-    return 1;
-}
-
-int copy__5_SSM_TR_SM1(void *pToValue, const void *pFromValue)
-{
-    *((_5_SSM_TR_SM1*)pToValue) = *((_5_SSM_TR_SM1*)pFromValue);
-    return 1;
-}
-
-SimTypeUtils _Type__5_SSM_TR_SM1_Utils = {
-    _5_SSM_TR_SM1_to_string,
-    check__5_SSM_TR_SM1_string,
-    string_to__5_SSM_TR_SM1,
-    is__5_SSM_TR_SM1_double_conversion_allowed,
-    _5_SSM_TR_SM1_to_double,
-    is__5_SSM_TR_SM1_long_conversion_allowed,
-    _5_SSM_TR_SM1_to_long,
-    compare__5_SSM_TR_SM1,
-    get__5_SSM_TR_SM1_signature,
-    init__5_SSM_TR_SM1,
-    release__5_SSM_TR_SM1,
-    copy__5_SSM_TR_SM1,
-    sizeof(_5_SSM_TR_SM1)
 };
 
 /****************************************************************
@@ -2791,6 +2483,162 @@ SimTypeUtils _Type_SSM_ST_SM1_Utils = {
 };
 
 /****************************************************************
+ ** SSM_ST_SM2 
+ ****************************************************************/
+
+#ifdef __cplusplus
+  #ifdef pSimSSM_ST_SM2VTable_defined
+    extern struct SimTypeVTable *pSimSSM_ST_SM2VTable;
+  #else 
+    struct SimTypeVTable *pSimSSM_ST_SM2VTable = NULL;
+  #endif
+#else
+  struct SimTypeVTable *pSimSSM_ST_SM2VTable;
+#endif
+
+static SimEnumValUtils SSM_ST_SM2_values[] = {
+    { "ToMove", SSM_st_ToMove_SM2},
+    { "ToMove", SSM_st_ToMove_SM2},
+    { "FullyOpen", SSM_st_FullyOpen_SM2},
+    { "FullyOpen", SSM_st_FullyOpen_SM2},
+    { "Opening", SSM_st_Opening_SM2},
+    { "Opening", SSM_st_Opening_SM2},
+    { "Closing", SSM_st_Closing_SM2},
+    { "Closing", SSM_st_Closing_SM2},
+    { "FullyClose", SSM_st_FullyClose_SM2},
+    { "FullyClose", SSM_st_FullyClose_SM2},
+};
+const int SSM_ST_SM2_nb_values = 10;
+
+int SSM_ST_SM2_to_string(const void *pValue, PFN_STR_APPEND pfnStrAppend, void *pStrObj)
+{
+    if (pSimSSM_ST_SM2VTable != NULL
+        && pSimSSM_ST_SM2VTable->m_pfnGetConvInfo(SptString, SptNone) == 1) {
+       return pfnStrAppend(*(char**)pSimSSM_ST_SM2VTable->m_pfnToType(SptString, pValue), pStrObj);
+    }
+    return pConverter->m_pfnEnumToString(*(SSM_ST_SM2*)pValue, SSM_ST_SM2_values, SSM_ST_SM2_nb_values, pfnStrAppend, pStrObj); 
+}
+
+int check_SSM_ST_SM2_string(const char *str, char **endptr)
+{
+    static SSM_ST_SM2 rTemp;
+    return string_to_SSM_ST_SM2(str, &rTemp, endptr);
+}
+
+int string_to_SSM_ST_SM2(const char *str, void *pValue, char **endptr)
+{
+    int nRet = 0;
+    skip_whitespace(str);
+    if (pSimSSM_ST_SM2VTable != NULL) {
+        nRet = string_to_VTable(str, pSimSSM_ST_SM2VTable, pValue, endptr);
+    }
+    if (nRet == 0) {
+        int nTemp = 0;
+        nRet = pConverter->m_pfnStringToEnum(str, &nTemp, SSM_ST_SM2_values, SSM_ST_SM2_nb_values, endptr);
+        if (pValue != NULL && nRet != 0)
+            *(SSM_ST_SM2*)pValue = (SSM_ST_SM2)nTemp;
+    }
+    return nRet;
+}
+
+int is_SSM_ST_SM2_double_conversion_allowed()
+{
+    if (pSimSSM_ST_SM2VTable != NULL) {
+        return is_VTable_double_conversion_allowed(pSimSSM_ST_SM2VTable);
+    }
+    return 1;
+}
+
+int SSM_ST_SM2_to_double(const void *pValue, double *nValue)
+{
+    if (pSimSSM_ST_SM2VTable != NULL) {
+        return VTable_to_double(pValue, pSimSSM_ST_SM2VTable, nValue);
+    }
+    *nValue = (double)*((SSM_ST_SM2*)pValue);
+    return 1;
+}
+
+int is_SSM_ST_SM2_long_conversion_allowed()
+{
+    if (pSimSSM_ST_SM2VTable != NULL) {
+        return is_VTable_long_conversion_allowed(pSimSSM_ST_SM2VTable);
+    }
+    return 1;
+}
+
+int SSM_ST_SM2_to_long(const void *pValue, long *nValue)
+{
+    if (pSimSSM_ST_SM2VTable != NULL) {
+        return VTable_to_long(pValue, pSimSSM_ST_SM2VTable, nValue);
+    }
+    *nValue = (long)*((SSM_ST_SM2*)pValue);
+    return 1;
+}
+
+void compare_SSM_ST_SM2(int *pResult, const void *pValue1, const void *pValue2, SimTolerance *pTol, const char *pszPath, PFN_STR_LIST_APPEND pfnStrListAppend, void *pListErrPaths)
+{
+    int unitResult = 0;
+    /* Customized comparison */
+    if (pSimSSM_ST_SM2VTable != NULL
+        && pSimSSM_ST_SM2VTable->m_version >= Scv612
+        && pSimSSM_ST_SM2VTable->m_pfnCompare != NULL) {
+        if (pSimSSM_ST_SM2VTable->m_version >= Scv65) {
+            /* R15 and higher: VTable Compare function shall UPDATE *pResult global flag (*pResult |= SIM_CMP_RES_LT/...): */
+            unitResult = pSimSSM_ST_SM2VTable->m_pfnCompare(pResult, pValue1, pValue2);
+        } else {
+            /* Before R15: VTable Compare function shall SET *pResult global flag (*pResult = -1/1/0): */
+            pSimSSM_ST_SM2VTable->m_pfnCompare(&unitResult, pValue1, pValue2);
+            updateCompareResult(unitResult, pResult);
+        }
+    } else {
+        /* Predefined comparison */
+        unitResult = predef_compare_enum(pResult, (int)(*(SSM_ST_SM2*)pValue1), (int)(*(SSM_ST_SM2*)pValue2));
+    }
+    UNUSED(pTol);
+    if (unitResult != 0 && pfnStrListAppend != NULL && pszPath != NULL && *pszPath != 0 && pListErrPaths != NULL)
+        pfnStrListAppend(pszPath, pListErrPaths);
+}
+
+int get_SSM_ST_SM2_signature(PFN_STR_APPEND pfnStrAppend, void *pStrObj)
+{
+    return pConverter->m_pfnGetEnumSignature(SSM_ST_SM2_values, SSM_ST_SM2_nb_values, pfnStrAppend, pStrObj);
+}
+
+int init_SSM_ST_SM2(void *pValue)
+{
+    *(SSM_ST_SM2*)pValue = SSM_st_ToMove_SM2;
+    return 1;
+}
+
+int release_SSM_ST_SM2(void *pValue)
+{
+    UNUSED(pValue);
+    return 1;
+}
+
+int copy_SSM_ST_SM2(void *pToValue, const void *pFromValue)
+{
+    *((SSM_ST_SM2*)pToValue) = *((SSM_ST_SM2*)pFromValue);
+    return 1;
+}
+
+SimTypeUtils _Type_SSM_ST_SM2_Utils = {
+    SSM_ST_SM2_to_string,
+    check_SSM_ST_SM2_string,
+    string_to_SSM_ST_SM2,
+    is_SSM_ST_SM2_double_conversion_allowed,
+    SSM_ST_SM2_to_double,
+    is_SSM_ST_SM2_long_conversion_allowed,
+    SSM_ST_SM2_to_long,
+    compare_SSM_ST_SM2,
+    get_SSM_ST_SM2_signature,
+    init_SSM_ST_SM2,
+    release_SSM_ST_SM2,
+    copy_SSM_ST_SM2,
+    sizeof(SSM_ST_SM2)
+};
+
+/****************************************************************
  ** SSM_TR_Button 
  ****************************************************************/
 
@@ -2957,8 +2805,8 @@ SimTypeUtils _Type_SSM_TR_Button_Utils = {
 #endif
 
 static SimEnumValUtils SSM_TR_SM1_values[] = {
-    { "_8_SSM_TR_no_trans_SM1", _8_SSM_TR_no_trans_SM1},
-    { "_8_SSM_TR_no_trans_SM1", _8_SSM_TR_no_trans_SM1},
+    { "_9_SSM_TR_no_trans_SM1", _9_SSM_TR_no_trans_SM1},
+    { "_9_SSM_TR_no_trans_SM1", _9_SSM_TR_no_trans_SM1},
     { "SSM_TR_Door_Bridge_1_Door_SM1", SSM_TR_Door_Bridge_1_Door_SM1},
     { "SSM_TR_Door_Bridge_1_Door_SM1", SSM_TR_Door_Bridge_1_Door_SM1},
     { "SSM_TR_Door_Bridge_2_Door_SM1", SSM_TR_Door_Bridge_2_Door_SM1},
@@ -3084,7 +2932,7 @@ int get_SSM_TR_SM1_signature(PFN_STR_APPEND pfnStrAppend, void *pStrObj)
 
 int init_SSM_TR_SM1(void *pValue)
 {
-    *(SSM_TR_SM1*)pValue = _8_SSM_TR_no_trans_SM1;
+    *(SSM_TR_SM1*)pValue = _9_SSM_TR_no_trans_SM1;
     return 1;
 }
 
@@ -3114,6 +2962,164 @@ SimTypeUtils _Type_SSM_TR_SM1_Utils = {
     release_SSM_TR_SM1,
     copy_SSM_TR_SM1,
     sizeof(SSM_TR_SM1)
+};
+
+/****************************************************************
+ ** SSM_TR_SM2 
+ ****************************************************************/
+
+#ifdef __cplusplus
+  #ifdef pSimSSM_TR_SM2VTable_defined
+    extern struct SimTypeVTable *pSimSSM_TR_SM2VTable;
+  #else 
+    struct SimTypeVTable *pSimSSM_TR_SM2VTable = NULL;
+  #endif
+#else
+  struct SimTypeVTable *pSimSSM_TR_SM2VTable;
+#endif
+
+static SimEnumValUtils SSM_TR_SM2_values[] = {
+    { "SSM_TR_no_trans_SM2", SSM_TR_no_trans_SM2},
+    { "SSM_TR_no_trans_SM2", SSM_TR_no_trans_SM2},
+    { "_5_SSM_TR_ToMove_Opening_1_ToMove_SM2", _5_SSM_TR_ToMove_Opening_1_ToMove_SM2},
+    { "_5_SSM_TR_ToMove_Opening_1_ToMove_SM2", _5_SSM_TR_ToMove_Opening_1_ToMove_SM2},
+    { "_6_SSM_TR_ToMove_Closing_2_ToMove_SM2", _6_SSM_TR_ToMove_Closing_2_ToMove_SM2},
+    { "_6_SSM_TR_ToMove_Closing_2_ToMove_SM2", _6_SSM_TR_ToMove_Closing_2_ToMove_SM2},
+    { "_8_SSM_TR_Opening_FullyOpen_1_Opening_SM2", _8_SSM_TR_Opening_FullyOpen_1_Opening_SM2},
+    { "_8_SSM_TR_Opening_FullyOpen_1_Opening_SM2", _8_SSM_TR_Opening_FullyOpen_1_Opening_SM2},
+    { "_4_SSM_TR_Closing_Opening_1_Closing_SM2", _4_SSM_TR_Closing_Opening_1_Closing_SM2},
+    { "_4_SSM_TR_Closing_Opening_1_Closing_SM2", _4_SSM_TR_Closing_Opening_1_Closing_SM2},
+    { "_7_SSM_TR_Closing_FullyClose_2_Closing_SM2", _7_SSM_TR_Closing_FullyClose_2_Closing_SM2},
+    { "_7_SSM_TR_Closing_FullyClose_2_Closing_SM2", _7_SSM_TR_Closing_FullyClose_2_Closing_SM2},
+};
+const int SSM_TR_SM2_nb_values = 12;
+
+int SSM_TR_SM2_to_string(const void *pValue, PFN_STR_APPEND pfnStrAppend, void *pStrObj)
+{
+    if (pSimSSM_TR_SM2VTable != NULL
+        && pSimSSM_TR_SM2VTable->m_pfnGetConvInfo(SptString, SptNone) == 1) {
+       return pfnStrAppend(*(char**)pSimSSM_TR_SM2VTable->m_pfnToType(SptString, pValue), pStrObj);
+    }
+    return pConverter->m_pfnEnumToString(*(SSM_TR_SM2*)pValue, SSM_TR_SM2_values, SSM_TR_SM2_nb_values, pfnStrAppend, pStrObj); 
+}
+
+int check_SSM_TR_SM2_string(const char *str, char **endptr)
+{
+    static SSM_TR_SM2 rTemp;
+    return string_to_SSM_TR_SM2(str, &rTemp, endptr);
+}
+
+int string_to_SSM_TR_SM2(const char *str, void *pValue, char **endptr)
+{
+    int nRet = 0;
+    skip_whitespace(str);
+    if (pSimSSM_TR_SM2VTable != NULL) {
+        nRet = string_to_VTable(str, pSimSSM_TR_SM2VTable, pValue, endptr);
+    }
+    if (nRet == 0) {
+        int nTemp = 0;
+        nRet = pConverter->m_pfnStringToEnum(str, &nTemp, SSM_TR_SM2_values, SSM_TR_SM2_nb_values, endptr);
+        if (pValue != NULL && nRet != 0)
+            *(SSM_TR_SM2*)pValue = (SSM_TR_SM2)nTemp;
+    }
+    return nRet;
+}
+
+int is_SSM_TR_SM2_double_conversion_allowed()
+{
+    if (pSimSSM_TR_SM2VTable != NULL) {
+        return is_VTable_double_conversion_allowed(pSimSSM_TR_SM2VTable);
+    }
+    return 1;
+}
+
+int SSM_TR_SM2_to_double(const void *pValue, double *nValue)
+{
+    if (pSimSSM_TR_SM2VTable != NULL) {
+        return VTable_to_double(pValue, pSimSSM_TR_SM2VTable, nValue);
+    }
+    *nValue = (double)*((SSM_TR_SM2*)pValue);
+    return 1;
+}
+
+int is_SSM_TR_SM2_long_conversion_allowed()
+{
+    if (pSimSSM_TR_SM2VTable != NULL) {
+        return is_VTable_long_conversion_allowed(pSimSSM_TR_SM2VTable);
+    }
+    return 1;
+}
+
+int SSM_TR_SM2_to_long(const void *pValue, long *nValue)
+{
+    if (pSimSSM_TR_SM2VTable != NULL) {
+        return VTable_to_long(pValue, pSimSSM_TR_SM2VTable, nValue);
+    }
+    *nValue = (long)*((SSM_TR_SM2*)pValue);
+    return 1;
+}
+
+void compare_SSM_TR_SM2(int *pResult, const void *pValue1, const void *pValue2, SimTolerance *pTol, const char *pszPath, PFN_STR_LIST_APPEND pfnStrListAppend, void *pListErrPaths)
+{
+    int unitResult = 0;
+    /* Customized comparison */
+    if (pSimSSM_TR_SM2VTable != NULL
+        && pSimSSM_TR_SM2VTable->m_version >= Scv612
+        && pSimSSM_TR_SM2VTable->m_pfnCompare != NULL) {
+        if (pSimSSM_TR_SM2VTable->m_version >= Scv65) {
+            /* R15 and higher: VTable Compare function shall UPDATE *pResult global flag (*pResult |= SIM_CMP_RES_LT/...): */
+            unitResult = pSimSSM_TR_SM2VTable->m_pfnCompare(pResult, pValue1, pValue2);
+        } else {
+            /* Before R15: VTable Compare function shall SET *pResult global flag (*pResult = -1/1/0): */
+            pSimSSM_TR_SM2VTable->m_pfnCompare(&unitResult, pValue1, pValue2);
+            updateCompareResult(unitResult, pResult);
+        }
+    } else {
+        /* Predefined comparison */
+        unitResult = predef_compare_enum(pResult, (int)(*(SSM_TR_SM2*)pValue1), (int)(*(SSM_TR_SM2*)pValue2));
+    }
+    UNUSED(pTol);
+    if (unitResult != 0 && pfnStrListAppend != NULL && pszPath != NULL && *pszPath != 0 && pListErrPaths != NULL)
+        pfnStrListAppend(pszPath, pListErrPaths);
+}
+
+int get_SSM_TR_SM2_signature(PFN_STR_APPEND pfnStrAppend, void *pStrObj)
+{
+    return pConverter->m_pfnGetEnumSignature(SSM_TR_SM2_values, SSM_TR_SM2_nb_values, pfnStrAppend, pStrObj);
+}
+
+int init_SSM_TR_SM2(void *pValue)
+{
+    *(SSM_TR_SM2*)pValue = SSM_TR_no_trans_SM2;
+    return 1;
+}
+
+int release_SSM_TR_SM2(void *pValue)
+{
+    UNUSED(pValue);
+    return 1;
+}
+
+int copy_SSM_TR_SM2(void *pToValue, const void *pFromValue)
+{
+    *((SSM_TR_SM2*)pToValue) = *((SSM_TR_SM2*)pFromValue);
+    return 1;
+}
+
+SimTypeUtils _Type_SSM_TR_SM2_Utils = {
+    SSM_TR_SM2_to_string,
+    check_SSM_TR_SM2_string,
+    string_to_SSM_TR_SM2,
+    is_SSM_TR_SM2_double_conversion_allowed,
+    SSM_TR_SM2_to_double,
+    is_SSM_TR_SM2_long_conversion_allowed,
+    SSM_TR_SM2_to_long,
+    compare_SSM_TR_SM2,
+    get_SSM_TR_SM2_signature,
+    init_SSM_TR_SM2,
+    release_SSM_TR_SM2,
+    copy_SSM_TR_SM2,
+    sizeof(SSM_TR_SM2)
 };
 
 /****************************************************************

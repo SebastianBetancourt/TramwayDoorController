@@ -22,86 +22,86 @@ EXPORTS
     SSM_ST_SM1_to_double @21
     SSM_ST_SM1_to_long @22
     SSM_ST_SM1_to_string @23
-    SSM_TR_Button_nb_values @24 DATA
-    SSM_TR_Button_to_double @25
-    SSM_TR_Button_to_long @26
-    SSM_TR_Button_to_string @27
-    SSM_TR_SM1_nb_values @28 DATA
-    SSM_TR_SM1_to_double @29
-    SSM_TR_SM1_to_long @30
-    SSM_TR_SM1_to_string @31
-    SimCustomInit @32
-    SimInit @33
-    SimRealloc @34
-    SimReset @35
-    SimStep @36
-    SimStop @37
-    SimStringAlloc @38
-    SimStringAllocEx @39
-    SimStringAppend @40
-    SimStringFree @41
-    SimStringGet @42
-    SimStringListAlloc @43
-    SimStringListAllocEx @44
-    SimStringListAppend @45
-    SimStringListFree @46
-    SimStringListGetCount @47
-    SimStringListGetData @48
-    SimStringListReset @49
-    SimStringReset @50
-    SsmConnectExternalInputs @51
-    SsmCustomInit @52
-    SsmGatherDumpData @53
-    SsmGetCheckSum @54
-    SsmGetConverter @55
-    SsmGetDefaultRealFormat @56
-    SsmGetDumpSize @57
-    SsmGetMapping @58
-    SsmGetSmuTypesCheckSum @59
-    SsmInit @60
-    SsmInitValues @61
-    SsmLoadSnapshot @62
-    SsmOutputMessage @63
-    SsmReset @64
-    SsmRestoreDumpData @65
-    SsmSaveSnapshot @66
-    SsmSetOutputMessageCallback @67
-    SsmSetUpdateCallback @68
-    SsmStep @69
-    SsmStop @70
-    SsmUpdateValues @71
-    StringToEnum @72
-    StringToImported @73
-    UpdateSimulatorValues @74
-    UpdateSimulatorValuesCallback @75 DATA
-    VTable_to_double @76
-    VTable_to_long @77
-    _2_SSM_ST_SM1_nb_values @78 DATA
-    _2_SSM_ST_SM1_to_double @79
-    _2_SSM_ST_SM1_to_long @80
-    _2_SSM_ST_SM1_to_string @81
-    _3_SSM_TR_SM1_nb_values @82 DATA
-    _3_SSM_TR_SM1_to_double @83
-    _3_SSM_TR_SM1_to_long @84
-    _3_SSM_TR_SM1_to_string @85
-    _4_SSM_ST_SM1_nb_values @86 DATA
-    _4_SSM_ST_SM1_to_double @87
-    _4_SSM_ST_SM1_to_long @88
-    _4_SSM_ST_SM1_to_string @89
-    _5_SSM_TR_SM1_nb_values @90 DATA
-    _5_SSM_TR_SM1_to_double @91
-    _5_SSM_TR_SM1_to_long @92
-    _5_SSM_TR_SM1_to_string @93
+    SSM_ST_SM2_nb_values @24 DATA
+    SSM_ST_SM2_to_double @25
+    SSM_ST_SM2_to_long @26
+    SSM_ST_SM2_to_string @27
+    SSM_TR_Button_nb_values @28 DATA
+    SSM_TR_Button_to_double @29
+    SSM_TR_Button_to_long @30
+    SSM_TR_Button_to_string @31
+    SSM_TR_SM1_nb_values @32 DATA
+    SSM_TR_SM1_to_double @33
+    SSM_TR_SM1_to_long @34
+    SSM_TR_SM1_to_string @35
+    SSM_TR_SM2_nb_values @36 DATA
+    SSM_TR_SM2_to_double @37
+    SSM_TR_SM2_to_long @38
+    SSM_TR_SM2_to_string @39
+    SimCustomInit @40
+    SimInit @41
+    SimRealloc @42
+    SimReset @43
+    SimStep @44
+    SimStop @45
+    SimStringAlloc @46
+    SimStringAllocEx @47
+    SimStringAppend @48
+    SimStringFree @49
+    SimStringGet @50
+    SimStringListAlloc @51
+    SimStringListAllocEx @52
+    SimStringListAppend @53
+    SimStringListFree @54
+    SimStringListGetCount @55
+    SimStringListGetData @56
+    SimStringListReset @57
+    SimStringReset @58
+    SsmConnectExternalInputs @59
+    SsmCustomInit @60
+    SsmGatherDumpData @61
+    SsmGetCheckSum @62
+    SsmGetConverter @63
+    SsmGetDefaultRealFormat @64
+    SsmGetDumpSize @65
+    SsmGetMapping @66
+    SsmGetSmuTypesCheckSum @67
+    SsmInit @68
+    SsmInitValues @69
+    SsmLoadSnapshot @70
+    SsmOutputMessage @71
+    SsmReset @72
+    SsmRestoreDumpData @73
+    SsmSaveSnapshot @74
+    SsmSetOutputMessageCallback @75
+    SsmSetUpdateCallback @76
+    SsmStep @77
+    SsmStop @78
+    SsmUpdateValues @79
+    StringToEnum @80
+    StringToImported @81
+    UpdateSimulatorValues @82
+    UpdateSimulatorValuesCallback @83 DATA
+    VTable_to_double @84
+    VTable_to_long @85
+    _2_SSM_ST_SM1_nb_values @86 DATA
+    _2_SSM_ST_SM1_to_double @87
+    _2_SSM_ST_SM1_to_long @88
+    _2_SSM_ST_SM1_to_string @89
+    _3_SSM_TR_SM1_nb_values @90 DATA
+    _3_SSM_TR_SM1_to_double @91
+    _3_SSM_TR_SM1_to_long @92
+    _3_SSM_TR_SM1_to_string @93
     _SCSIM_CheckSum @94 DATA
     _SCSIM_SmuTypesCheckSum @95 DATA
     _Type_SSM_ST_Button_Utils @96 DATA
     _Type_SSM_ST_SM1_Utils @97 DATA
-    _Type_SSM_TR_Button_Utils @98 DATA
-    _Type_SSM_TR_SM1_Utils @99 DATA
-    _Type__2_SSM_ST_SM1_Utils @100 DATA
-    _Type__3_SSM_TR_SM1_Utils @101 DATA
-    _Type__4_SSM_ST_SM1_Utils @102 DATA
-    _Type__5_SSM_TR_SM1_Utils @103 DATA
+    _Type_SSM_ST_SM2_Utils @98 DATA
+    _Type_SSM_TR_Button_Utils @99 DATA
+    _Type_SSM_TR_SM1_Utils @100 DATA
+    _Type_SSM_TR_SM2_Utils @101 DATA
+    _Type__2_SSM_ST_SM1_Utils @102 DATA
+    _Type__3_SSM_TR_SM1_Utils @103 DATA
     _Type_kcg_bool_Utils @104 DATA
     _Type_kcg_char_Utils @105 DATA
     _Type_kcg_float32_Utils @106 DATA
@@ -118,12 +118,12 @@ EXPORTS
     _Type_status_Utils @117 DATA
     check_SSM_ST_Button_string @118
     check_SSM_ST_SM1_string @119
-    check_SSM_TR_Button_string @120
-    check_SSM_TR_SM1_string @121
-    check__2_SSM_ST_SM1_string @122
-    check__3_SSM_TR_SM1_string @123
-    check__4_SSM_ST_SM1_string @124
-    check__5_SSM_TR_SM1_string @125
+    check_SSM_ST_SM2_string @120
+    check_SSM_TR_Button_string @121
+    check_SSM_TR_SM1_string @122
+    check_SSM_TR_SM2_string @123
+    check__2_SSM_ST_SM1_string @124
+    check__3_SSM_TR_SM1_string @125
     check_kcg_bool_string @126
     check_kcg_char_string @127
     check_kcg_float32_string @128
@@ -140,12 +140,12 @@ EXPORTS
     check_status_string @139
     compare_SSM_ST_Button @140
     compare_SSM_ST_SM1 @141
-    compare_SSM_TR_Button @142
-    compare_SSM_TR_SM1 @143
-    compare__2_SSM_ST_SM1 @144
-    compare__3_SSM_TR_SM1 @145
-    compare__4_SSM_ST_SM1 @146
-    compare__5_SSM_TR_SM1 @147
+    compare_SSM_ST_SM2 @142
+    compare_SSM_TR_Button @143
+    compare_SSM_TR_SM1 @144
+    compare_SSM_TR_SM2 @145
+    compare__2_SSM_ST_SM1 @146
+    compare__3_SSM_TR_SM1 @147
     compare_kcg_bool @148
     compare_kcg_char @149
     compare_kcg_float32 @150
@@ -162,12 +162,12 @@ EXPORTS
     compare_status @161
     copy_SSM_ST_Button @162
     copy_SSM_ST_SM1 @163
-    copy_SSM_TR_Button @164
-    copy_SSM_TR_SM1 @165
-    copy__2_SSM_ST_SM1 @166
-    copy__3_SSM_TR_SM1 @167
-    copy__4_SSM_ST_SM1 @168
-    copy__5_SSM_TR_SM1 @169
+    copy_SSM_ST_SM2 @164
+    copy_SSM_TR_Button @165
+    copy_SSM_TR_SM1 @166
+    copy_SSM_TR_SM2 @167
+    copy__2_SSM_ST_SM1 @168
+    copy__3_SSM_TR_SM1 @169
     copy_kcg_bool @170
     copy_kcg_char @171
     copy_kcg_float32 @172
@@ -186,12 +186,12 @@ EXPORTS
     defaultSimToleranceFloat @185 DATA
     get_SSM_ST_Button_signature @186
     get_SSM_ST_SM1_signature @187
-    get_SSM_TR_Button_signature @188
-    get_SSM_TR_SM1_signature @189
-    get__2_SSM_ST_SM1_signature @190
-    get__3_SSM_TR_SM1_signature @191
-    get__4_SSM_ST_SM1_signature @192
-    get__5_SSM_TR_SM1_signature @193
+    get_SSM_ST_SM2_signature @188
+    get_SSM_TR_Button_signature @189
+    get_SSM_TR_SM1_signature @190
+    get_SSM_TR_SM2_signature @191
+    get__2_SSM_ST_SM1_signature @192
+    get__3_SSM_TR_SM1_signature @193
     get_kcg_bool_signature @194
     get_kcg_char_signature @195
     get_kcg_float32_signature @196
@@ -208,12 +208,12 @@ EXPORTS
     get_status_signature @207
     init_SSM_ST_Button @208
     init_SSM_ST_SM1 @209
-    init_SSM_TR_Button @210
-    init_SSM_TR_SM1 @211
-    init__2_SSM_ST_SM1 @212
-    init__3_SSM_TR_SM1 @213
-    init__4_SSM_ST_SM1 @214
-    init__5_SSM_TR_SM1 @215
+    init_SSM_ST_SM2 @210
+    init_SSM_TR_Button @211
+    init_SSM_TR_SM1 @212
+    init_SSM_TR_SM2 @213
+    init__2_SSM_ST_SM1 @214
+    init__3_SSM_TR_SM1 @215
     init_kcg_bool @216
     init_kcg_char @217
     init_kcg_float32 @218
@@ -233,20 +233,20 @@ EXPORTS
     is_SSM_ST_Button_long_conversion_allowed @232
     is_SSM_ST_SM1_double_conversion_allowed @233
     is_SSM_ST_SM1_long_conversion_allowed @234
-    is_SSM_TR_Button_double_conversion_allowed @235
-    is_SSM_TR_Button_long_conversion_allowed @236
-    is_SSM_TR_SM1_double_conversion_allowed @237
-    is_SSM_TR_SM1_long_conversion_allowed @238
-    is_VTable_double_conversion_allowed @239
-    is_VTable_long_conversion_allowed @240
-    is__2_SSM_ST_SM1_double_conversion_allowed @241
-    is__2_SSM_ST_SM1_long_conversion_allowed @242
-    is__3_SSM_TR_SM1_double_conversion_allowed @243
-    is__3_SSM_TR_SM1_long_conversion_allowed @244
-    is__4_SSM_ST_SM1_double_conversion_allowed @245
-    is__4_SSM_ST_SM1_long_conversion_allowed @246
-    is__5_SSM_TR_SM1_double_conversion_allowed @247
-    is__5_SSM_TR_SM1_long_conversion_allowed @248
+    is_SSM_ST_SM2_double_conversion_allowed @235
+    is_SSM_ST_SM2_long_conversion_allowed @236
+    is_SSM_TR_Button_double_conversion_allowed @237
+    is_SSM_TR_Button_long_conversion_allowed @238
+    is_SSM_TR_SM1_double_conversion_allowed @239
+    is_SSM_TR_SM1_long_conversion_allowed @240
+    is_SSM_TR_SM2_double_conversion_allowed @241
+    is_SSM_TR_SM2_long_conversion_allowed @242
+    is_VTable_double_conversion_allowed @243
+    is_VTable_long_conversion_allowed @244
+    is__2_SSM_ST_SM1_double_conversion_allowed @245
+    is__2_SSM_ST_SM1_long_conversion_allowed @246
+    is__3_SSM_TR_SM1_double_conversion_allowed @247
+    is__3_SSM_TR_SM1_long_conversion_allowed @248
     is_kcg_bool_double_conversion_allowed @249
     is_kcg_bool_long_conversion_allowed @250
     is_kcg_char_double_conversion_allowed @251
@@ -327,17 +327,17 @@ EXPORTS
     pSimInt8VTable @326 DATA
     pSimSSM_ST_ButtonVTable @327 DATA
     pSimSSM_ST_SM1VTable @328 DATA
-    pSimSSM_TR_ButtonVTable @329 DATA
-    pSimSSM_TR_SM1VTable @330 DATA
-    pSimSizeVTable @331 DATA
-    pSimUint16VTable @332 DATA
-    pSimUint32VTable @333 DATA
-    pSimUint64VTable @334 DATA
-    pSimUint8VTable @335 DATA
-    pSim_2_SSM_ST_SM1VTable @336 DATA
-    pSim_3_SSM_TR_SM1VTable @337 DATA
-    pSim_4_SSM_ST_SM1VTable @338 DATA
-    pSim_5_SSM_TR_SM1VTable @339 DATA
+    pSimSSM_ST_SM2VTable @329 DATA
+    pSimSSM_TR_ButtonVTable @330 DATA
+    pSimSSM_TR_SM1VTable @331 DATA
+    pSimSSM_TR_SM2VTable @332 DATA
+    pSimSizeVTable @333 DATA
+    pSimUint16VTable @334 DATA
+    pSimUint32VTable @335 DATA
+    pSimUint64VTable @336 DATA
+    pSimUint8VTable @337 DATA
+    pSim_2_SSM_ST_SM1VTable @338 DATA
+    pSim_3_SSM_TR_SM1VTable @339 DATA
     pSimoutC_ControllerCIVTable @340 DATA
     pSimstatusVTable @341 DATA
     pSimulator @342 DATA
@@ -385,12 +385,12 @@ EXPORTS
     predef_string_to_kcg_uint8 @384
     release_SSM_ST_Button @385
     release_SSM_ST_SM1 @386
-    release_SSM_TR_Button @387
-    release_SSM_TR_SM1 @388
-    release__2_SSM_ST_SM1 @389
-    release__3_SSM_TR_SM1 @390
-    release__4_SSM_ST_SM1 @391
-    release__5_SSM_TR_SM1 @392
+    release_SSM_ST_SM2 @387
+    release_SSM_TR_Button @388
+    release_SSM_TR_SM1 @389
+    release_SSM_TR_SM2 @390
+    release__2_SSM_ST_SM1 @391
+    release__3_SSM_TR_SM1 @392
     release_kcg_bool @393
     release_kcg_char @394
     release_kcg_float32 @395
@@ -499,61 +499,67 @@ EXPORTS
     scope_5 @498 DATA
     scope_50 @499 DATA
     scope_50_entries @500 DATA
-    scope_5_entries @501 DATA
-    scope_6 @502 DATA
-    scope_6_entries @503 DATA
-    scope_7 @504 DATA
-    scope_7_entries @505 DATA
-    scope_8 @506 DATA
-    scope_8_entries @507 DATA
-    scope_9 @508 DATA
-    scope_9_entries @509 DATA
-    ssm_char_to_string @510
-    ssm_double_to_string @511
-    ssm_float_to_string @512
-    ssm_inf @513
-    ssm_int_to_base_string @514
-    ssm_int_to_string @515
-    ssm_is_inf_dbl @516
-    ssm_is_inf_flt @517
-    ssm_is_nan_dbl @518
-    ssm_is_nan_flt @519
-    ssm_nan @520
-    ssm_real_to_string_ @521
-    ssm_sign_bit_dbl @522
-    ssm_sign_bit_flt @523
-    ssm_string_to_char @524
-    ssm_string_to_char_ @525
-    ssm_string_to_double @526
-    ssm_string_to_float @527
-    ssm_string_to_int @528
-    ssm_string_to_int_ @529
-    ssm_string_to_real_ @530
-    status_to_double @531
-    status_to_long @532
-    status_to_string @533
-    strDefaultRealFormat @534 DATA
-    string_to_SSM_ST_Button @535
-    string_to_SSM_ST_SM1 @536
-    string_to_SSM_TR_Button @537
-    string_to_SSM_TR_SM1 @538
-    string_to_VTable @539
-    string_to__2_SSM_ST_SM1 @540
-    string_to__3_SSM_TR_SM1 @541
-    string_to__4_SSM_ST_SM1 @542
-    string_to__5_SSM_TR_SM1 @543
-    string_to_kcg_bool @544
-    string_to_kcg_char @545
-    string_to_kcg_float32 @546
-    string_to_kcg_float64 @547
-    string_to_kcg_int16 @548
-    string_to_kcg_int32 @549
-    string_to_kcg_int64 @550
-    string_to_kcg_int8 @551
-    string_to_kcg_size @552
-    string_to_kcg_uint16 @553
-    string_to_kcg_uint32 @554
-    string_to_kcg_uint64 @555
-    string_to_kcg_uint8 @556
-    string_to_status @557
-    updateCompareResult @558
+    scope_51 @501 DATA
+    scope_51_entries @502 DATA
+    scope_52 @503 DATA
+    scope_52_entries @504 DATA
+    scope_53 @505 DATA
+    scope_53_entries @506 DATA
+    scope_5_entries @507 DATA
+    scope_6 @508 DATA
+    scope_6_entries @509 DATA
+    scope_7 @510 DATA
+    scope_7_entries @511 DATA
+    scope_8 @512 DATA
+    scope_8_entries @513 DATA
+    scope_9 @514 DATA
+    scope_9_entries @515 DATA
+    ssm_char_to_string @516
+    ssm_double_to_string @517
+    ssm_float_to_string @518
+    ssm_inf @519
+    ssm_int_to_base_string @520
+    ssm_int_to_string @521
+    ssm_is_inf_dbl @522
+    ssm_is_inf_flt @523
+    ssm_is_nan_dbl @524
+    ssm_is_nan_flt @525
+    ssm_nan @526
+    ssm_real_to_string_ @527
+    ssm_sign_bit_dbl @528
+    ssm_sign_bit_flt @529
+    ssm_string_to_char @530
+    ssm_string_to_char_ @531
+    ssm_string_to_double @532
+    ssm_string_to_float @533
+    ssm_string_to_int @534
+    ssm_string_to_int_ @535
+    ssm_string_to_real_ @536
+    status_to_double @537
+    status_to_long @538
+    status_to_string @539
+    strDefaultRealFormat @540 DATA
+    string_to_SSM_ST_Button @541
+    string_to_SSM_ST_SM1 @542
+    string_to_SSM_ST_SM2 @543
+    string_to_SSM_TR_Button @544
+    string_to_SSM_TR_SM1 @545
+    string_to_SSM_TR_SM2 @546
+    string_to_VTable @547
+    string_to__2_SSM_ST_SM1 @548
+    string_to__3_SSM_TR_SM1 @549
+    string_to_kcg_bool @550
+    string_to_kcg_char @551
+    string_to_kcg_float32 @552
+    string_to_kcg_float64 @553
+    string_to_kcg_int16 @554
+    string_to_kcg_int32 @555
+    string_to_kcg_int64 @556
+    string_to_kcg_int8 @557
+    string_to_kcg_size @558
+    string_to_kcg_uint16 @559
+    string_to_kcg_uint32 @560
+    string_to_kcg_uint64 @561
+    string_to_kcg_uint8 @562
+    string_to_status @563
+    updateCompareResult @564

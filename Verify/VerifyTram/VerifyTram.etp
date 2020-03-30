@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project id="1" oid_count="25" defaultConfiguration="2">
+	<props>
+		<Prop id="3" name="@STUDIO:PRODUCT">
+			<value>SC</value>
+		</Prop>
+		<Prop id="16" name="@STUDIO:TITLE">
+			<value>&lt;title&gt;</value>
+		</Prop>
+		<Prop id="17" name="@STUDIO:SUBTITLE">
+			<value>&lt;subtitle&gt;</value>
+		</Prop>
+		<Prop id="18" name="@STUDIO:DESCRIPTION">
+			<value>&lt;description&gt;</value>
+		</Prop>
+		<Prop id="19" name="@STUDIO:AUTHORS">
+			<value>&lt;authors&gt;</value>
+		</Prop>
+		<Prop id="20" name="@STUDIO:COMPAGNY">
+			<value>&lt;company&gt;</value>
+		</Prop>
+		<Prop id="21" name="@STUDIO:DATE">
+			<value>&lt;date&gt;</value>
+		</Prop>
+		<Prop id="22" name="@STUDIO:INDEX">
+			<value>&lt;index&gt;</value>
+		</Prop>
+		<Prop id="23" name="@STUDIO:REFERENCE">
+			<value>&lt;reference&gt;</value>
+		</Prop>
+		<Prop id="24" name="@SCADE:SAVEVERSION">
+			<value>SCADE65</value>
+		</Prop>
+		<Prop id="25" name="@SCADE:NEWVARIABLESYMBOLS">
+			<value>true</value>
+		</Prop>
+	</props>
+	<roots>
+		<Folder id="4" extensions="scade;xscade" name="Model Files"/>
+		<Folder id="5" name="User Libraries">
+			<elements>
+				<FileRef id="6" persistAs="..\..\TramwayDoorController.etp"/>
+			</elements>
+		</Folder>
+		<Folder id="7" extensions="vsp;etp" name="Scade Libraries">
+			<elements>
+				<FileRef id="8" persistAs="$(SCADE)/libraries/SC65/libverif/libverif.etp"/>
+				<FileRef id="9" persistAs="..\..\..\..\..\..\..\..\Program Files\ANSYS Inc\v195\SCADE\SCADE\libraries\SC65\libdigital\libdigital.etp"/>
+				<FileRef id="10" persistAs="..\..\..\..\..\..\..\..\Program Files\ANSYS Inc\v195\SCADE\SCADE\libraries\SC65\liblinear\liblinear.etp"/>
+				<FileRef id="11" persistAs="..\..\..\..\..\..\..\..\Program Files\ANSYS Inc\v195\SCADE\SCADE\libraries\SC65\libmath\libmath.etp"/>
+				<FileRef id="12" persistAs="..\..\..\..\..\..\..\..\Program Files\ANSYS Inc\v195\SCADE\SCADE\libraries\SC65\libmathext\libmathext.etp"/>
+				<FileRef id="13" persistAs="..\..\..\..\..\..\..\..\Program Files\ANSYS Inc\v195\SCADE\SCADE\libraries\SC65\libpwlinear\libpwlinear.etp"/>
+			</elements>
+		</Folder>
+		<Folder id="14" name="Design Verifier File">
+			<elements>
+				<FileRef id="15" persistAs="VerifyTram.l4"/>
+			</elements>
+		</Folder>
+	</roots>
+	<configurations>
+		<Configuration id="2" name="Default"/>
+	</configurations>
+</Project>

@@ -1,6 +1,6 @@
 /* $********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** Command: kcg66.exe -config C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/config.txt
-** Generation date: 2020-03-13T19:51:02
+** Generation date: 2020-03-29T21:29:58
 *************************************************************$ */
 
 #include "kcg_consts.h"
@@ -18,107 +18,107 @@ void Door(
   /* doorStatus/ */
   status doorStatus_partial;
   /* SM1: */
-  _4_SSM_ST_SM1 SM1_state_nxt_partial;
+  _2_SSM_ST_SM1 SM1_state_nxt_partial;
   /* SM1: */
   kcg_bool SM1_reset_nxt_partial;
   /* SM1: */
-  _5_SSM_TR_SM1 SM1_fired_partial;
+  _3_SSM_TR_SM1 SM1_fired_partial;
   /* doorStatus/ */
   status _1_doorStatus_partial;
   /* SM1: */
-  _4_SSM_ST_SM1 _2_SM1_state_nxt_partial;
+  _2_SSM_ST_SM1 _2_SM1_state_nxt_partial;
   /* SM1: */
   kcg_bool _3_SM1_reset_nxt_partial;
   /* SM1: */
-  _5_SSM_TR_SM1 _4_SM1_fired_partial;
+  _3_SSM_TR_SM1 _4_SM1_fired_partial;
   /* doorStatus/ */
   status _5_doorStatus_partial;
   /* SM1: */
-  _4_SSM_ST_SM1 _6_SM1_state_nxt_partial;
+  _2_SSM_ST_SM1 _6_SM1_state_nxt_partial;
   /* SM1: */
   kcg_bool _7_SM1_reset_nxt_partial;
   /* SM1: */
-  _5_SSM_TR_SM1 _8_SM1_fired_partial;
+  _3_SSM_TR_SM1 _8_SM1_fired_partial;
   /* SM1:Opening:<1> */
   kcg_bool tr_1_guard_Opening_SM1;
   /* SM1: */
-  _5_SSM_TR_SM1 _9_SM1_fired_partial;
+  _3_SSM_TR_SM1 _9_SM1_fired_partial;
   /* SM1: */
   kcg_bool _10_SM1_reset_nxt_partial;
   /* SM1: */
-  _4_SSM_ST_SM1 _11_SM1_state_nxt_partial;
+  _2_SSM_ST_SM1 _11_SM1_state_nxt_partial;
   /* SM1: */
-  _5_SSM_TR_SM1 _12_SM1_fired_partial;
+  _3_SSM_TR_SM1 _12_SM1_fired_partial;
   /* SM1: */
   kcg_bool _13_SM1_reset_nxt_partial;
   /* SM1: */
-  _4_SSM_ST_SM1 _14_SM1_state_nxt_partial;
+  _2_SSM_ST_SM1 _14_SM1_state_nxt_partial;
   /* doorStatus/ */
   status _15_doorStatus_partial;
   /* SM1: */
-  _4_SSM_ST_SM1 _16_SM1_state_nxt_partial;
+  _2_SSM_ST_SM1 _16_SM1_state_nxt_partial;
   /* SM1: */
   kcg_bool _17_SM1_reset_nxt_partial;
   /* SM1: */
-  _5_SSM_TR_SM1 _18_SM1_fired_partial;
+  _3_SSM_TR_SM1 _18_SM1_fired_partial;
   /* SM1:Closing:<2> */
   kcg_bool tr_2_guard_Closing_SM1;
   /* SM1: */
-  _5_SSM_TR_SM1 _19_SM1_fired_partial;
+  _3_SSM_TR_SM1 _19_SM1_fired_partial;
   /* SM1: */
   kcg_bool _20_SM1_reset_nxt_partial;
   /* SM1: */
-  _4_SSM_ST_SM1 _21_SM1_state_nxt_partial;
+  _2_SSM_ST_SM1 _21_SM1_state_nxt_partial;
   /* SM1: */
-  _5_SSM_TR_SM1 _22_SM1_fired_partial;
+  _3_SSM_TR_SM1 _22_SM1_fired_partial;
   /* SM1: */
   kcg_bool _23_SM1_reset_nxt_partial;
   /* SM1: */
-  _4_SSM_ST_SM1 _24_SM1_state_nxt_partial;
+  _2_SSM_ST_SM1 _24_SM1_state_nxt_partial;
   /* doorStatus/ */
   status _25_doorStatus_partial;
   /* SM1: */
-  _4_SSM_ST_SM1 _26_SM1_state_nxt_partial;
+  _2_SSM_ST_SM1 _26_SM1_state_nxt_partial;
   /* SM1: */
   kcg_bool _27_SM1_reset_nxt_partial;
   /* SM1: */
-  _5_SSM_TR_SM1 _28_SM1_fired_partial;
+  _3_SSM_TR_SM1 _28_SM1_fired_partial;
   /* SM1: */
-  _4_SSM_ST_SM1 SM1_state_act_partial;
+  _2_SSM_ST_SM1 SM1_state_act_partial;
   /* SM1: */
   kcg_bool SM1_reset_act_partial;
   /* SM1: */
-  _5_SSM_TR_SM1 SM1_fired_strong_partial;
+  _3_SSM_TR_SM1 SM1_fired_strong_partial;
   /* SM1:ToMove:<2> */
   kcg_bool tr_2_guard_ToMove_SM1;
   /* SM1:ToMove:<1> */
   kcg_bool tr_1_guard_ToMove_SM1;
   /* SM1: */
-  _4_SSM_ST_SM1 _29_SM1_state_act_partial;
+  _2_SSM_ST_SM1 _29_SM1_state_act_partial;
   /* SM1: */
   kcg_bool _30_SM1_reset_act_partial;
   /* SM1: */
-  _5_SSM_TR_SM1 _31_SM1_fired_strong_partial;
+  _3_SSM_TR_SM1 _31_SM1_fired_strong_partial;
   /* SM1: */
-  _4_SSM_ST_SM1 _32_SM1_state_act_partial;
+  _2_SSM_ST_SM1 _32_SM1_state_act_partial;
   /* SM1: */
   kcg_bool _33_SM1_reset_act_partial;
   /* SM1: */
-  _5_SSM_TR_SM1 _34_SM1_fired_strong_partial;
+  _3_SSM_TR_SM1 _34_SM1_fired_strong_partial;
   /* SM1: */
-  _4_SSM_ST_SM1 _35_SM1_state_act_partial;
+  _2_SSM_ST_SM1 _35_SM1_state_act_partial;
   /* SM1: */
   kcg_bool _36_SM1_reset_act_partial;
   /* SM1: */
-  _5_SSM_TR_SM1 _37_SM1_fired_strong_partial;
+  _3_SSM_TR_SM1 _37_SM1_fired_strong_partial;
   /* SM1:Closing:<1> */
   kcg_bool tr_1_guard_Closing_SM1;
   /* SM1: */
-  _4_SSM_ST_SM1 _38_SM1_state_act_partial;
+  _2_SSM_ST_SM1 _38_SM1_state_act_partial;
   /* SM1: */
   kcg_bool _39_SM1_reset_act_partial;
   /* SM1: */
-  _5_SSM_TR_SM1 _40_SM1_fired_strong_partial;
+  _3_SSM_TR_SM1 _40_SM1_fired_strong_partial;
   /* SM1: */
   kcg_bool SM1_reset_sel;
   /* SM1: */
@@ -517,6 +517,6 @@ void Door_reset(outC_Door *outC)
 
 /* $********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** Door.c
-** Generation date: 2020-03-13T19:51:02
+** Generation date: 2020-03-29T21:29:58
 *************************************************************$ */
 

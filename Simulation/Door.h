@@ -1,6 +1,6 @@
 /* $********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** Command: kcg66.exe -config C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/config.txt
-** Generation date: 2020-03-13T19:51:02
+** Generation date: 2020-03-29T21:29:58
 *************************************************************$ */
 #ifndef _Door_H_
 #define _Door_H_
@@ -21,14 +21,14 @@ typedef struct {
   kcg_bool init1;
   kcg_int32 /* SM1:Opening:_L5/ */ _L5_Opening_SM1;
   kcg_int32 /* SM1:Closing:_L44/ */ _L44_Closing_SM1;
-  _4_SSM_ST_SM1 /* SM1: */ SM1_state_nxt;
+  _2_SSM_ST_SM1 /* SM1: */ SM1_state_nxt;
   kcg_bool /* SM1: */ SM1_reset_act;
   kcg_bool /* SM1: */ SM1_reset_nxt;
   /* -------------------- no sub nodes' contexts  -------------------- */
   /* ------------------ clocks of observable data -------------------- */
   kcg_bool /* SM1:Opening: */ Opening_weakb_clock_SM1;
   kcg_bool /* SM1:Closing: */ Closing_weakb_clock_SM1;
-  _4_SSM_ST_SM1 /* SM1: */ SM1_state_act;
+  _2_SSM_ST_SM1 /* SM1: */ SM1_state_act;
   /* -------------------- (-debug) no assertions  -------------------- */
   /* ------------------- (-debug) local variables -------------------- */
   kcg_bool /* SM1:ToMove:_L13/ */ _L13_ToMove_SM1;
@@ -66,9 +66,9 @@ typedef struct {
   kcg_bool /* SM1:FullyClose:_L12/ */ _L12_FullyClose_SM1;
   kcg_bool /* SM1:FullyClose:_L13/ */ _L13_FullyClose_SM1;
   status /* SM1:FullyClose:_L14/ */ _L14_FullyClose_SM1;
-  _4_SSM_ST_SM1 /* SM1: */ SM1_state_sel;
-  _5_SSM_TR_SM1 /* SM1: */ SM1_fired_strong;
-  _5_SSM_TR_SM1 /* SM1: */ SM1_fired;
+  _2_SSM_ST_SM1 /* SM1: */ SM1_state_sel;
+  _3_SSM_TR_SM1 /* SM1: */ SM1_fired_strong;
+  _3_SSM_TR_SM1 /* SM1: */ SM1_fired;
 } outC_Door;
 
 /* ===========  node initialization and cycle functions  =========== */
@@ -91,6 +91,6 @@ extern void Door_init(outC_Door *outC);
 #endif /* _Door_H_ */
 /* $********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** Door.h
-** Generation date: 2020-03-13T19:51:02
+** Generation date: 2020-03-29T21:29:58
 *************************************************************$ */
 

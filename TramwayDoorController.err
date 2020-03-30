@@ -1,0 +1,16 @@
+*** Post-namespace Warning (WAR_508): Unused flow
+  at file C:\Users\USER\AppData\Local\Temp\ScadeChecker\3204\checker_file.scade, line 4391, character 0
+  at path Proofs::SecuredDriving/_L8/
+ The local variable _L8 is never used
+*** Post-namespace Warning (WAR_508): Unused flow
+  at file C:\Users\USER\AppData\Local\Temp\ScadeChecker\3204\checker_file.scade, line 4395, character 0
+  at path Proofs::SecuredDriving/_L7/
+ The local variable _L7 is never used
+*** Post-namespace Warning (WAR_508): Unused flow
+  at file C:\Users\USER\AppData\Local\Temp\ScadeChecker\3204\checker_file.scade, line 4399, character 0
+  at path Proofs::SecuredDriving/_L6/
+ The local variable _L6 is never used
+*** Post-namespace Warning (WAR_508): Unused flow
+  at file C:\Users\USER\AppData\Local\Temp\ScadeChecker\3204\checker_file.scade, line 4403, character 0
+  at path Proofs::SecuredDriving/_L5/
+ The local variable _L5 is never used
