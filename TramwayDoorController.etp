@@ -406,7 +406,6 @@
 				<FileRef id="102" persistAs="Operator41.xscade"/>
 				<FileRef id="103" persistAs="Operator51.xscade"/>
 				<FileRef id="104" persistAs="TramwayDoorController.xscade"/>
-				<FileRef id="106" persistAs="Operator7.xscade"/>
 				<FileRef id="107" persistAs="Package1.xscade"/>
 			</elements>
 		</Folder>
