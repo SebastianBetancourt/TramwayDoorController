@@ -209,40 +209,34 @@ height: 0.5cm;
 </HEAD>
 <BODY>
 
-<DIV class="DocumentClass">&lt;document classification&gt;</DIV><HR style="width: 14cm; text-align: center;">
-<DIV class="Title">&lt;title&gt;</DIV>
-<DIV class="Subtitle">&lt;subtitle&gt;</DIV>
+
+<DIV class="DocumentClass">Project report</DIV><HR style="width: 14cm; text-align: center;">
+<DIV class="Title">Project for the Vérification de modèles course</DIV>
+<DIV class="Subtitle">A model for the tram door controller</DIV>
 <BR>
 <BR>
-<BR>
-<BR>
-<BR>
-<BR>
-<BR>
-<BR>
-<BR>
-<BR>
-<BR>
-<BR>
-<BR>
-<BR>
-<BR>
-<BR>
+<DIV class="BodyText" style="text-align: center;"><IMG SRC='TramwayDoorController_img/unamur.png'><IMG SRC='TramwayDoorController_img/univalle.png'></DIV>
 <BR>
 <DIV class="DocumentInfo">
 <B>Summary:</B></DIV>
 <DIV style="height:35mm;"><DIV class="DocumentInfo">
-&lt;summary&gt;</DIV>
+This is a report about the final project of the Vérification de modèles course offered at Université de Namur
+with the advice of James Ortiz as professor of the course and Jesús Aranda at Universidad del Valle as professor
+who guides an investigative practice.
+<BR>
+This document presents a model for a tram door controller with bridge and buttons for operation. The model is made 
+by using state machines with the Scade tool. Moreover, the model has verifications of its correct behavior using 
+the model checker available in Scade, where we verify the success of two relevant properties.
+<BR>
+</DIV>
 </DIV>
 <DIV class="DocumentInfo">
-<B>Company: </B>&lt;company&gt;<BR>
-<B>Authors: </B>&lt;authors&gt;<BR>
-<B>Reference: </B>&lt;reference&gt;<BR>
-<B>Index: </B>&lt;index&gt;<BR>
-<B>Date: </B>&lt;date&gt;</DIV>
+
+<B>Authors: </B>Jaime Cuartas Granada and Joan Sebastian Betancourt Arias<BR>
+<B>Date: </B>April 2020</DIV>
 <DIV class="DocumentInfo"></DIV><DIV class="DocumentInfo"></DIV><DIV class="DocumentInfo"></DIV><DIV class="DocumentInfo"></DIV><HR style="width: 17cm; text-align: center;">
 <DIV class="DocumentInfo">
-<B>Distribution List: </B>&lt;distribution list&gt;</DIV>
+
 
 <DIV class="Title" style="margin-top: 12pt; border-top-style: dotted;page-break-before: always; padding-top: 12pt;">Table Of Contents</DIV>
 <DIV class="TOC1">1. <A HREF="#_TOC0">General Project Description</A></DIV>
@@ -314,7 +308,12 @@ height: 0.5cm;
 <DIV class="ListOfTables"><A HREF="#TABLE25">Table 25: Outputs of SecuredDriving</A></DIV>
 
 <DIV class="Heading1">1. <A NAME="_TOC0">General Project Description</A></DIV>
-<DIV class="BodyText">&lt;description&gt;</DIV>
+<DIV class="BodyText">
+    The model is made in Scade. It makes use of state machines to model a button, a door, a bridge 
+    and a controller that uses the previous machines to describe the complete behavior.
+    <BR>
+        Each state machine have a brief description below.
+</DIV>
 <DIV class="Heading1">2. <A NAME="_TOC1">Software Architecture</A></DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;">
 <DIV class="Heading2">2.1. <A NAME="_TOC2">Project Architecture</A></DIV>
@@ -359,7 +358,8 @@ height: 0.5cm;
 <TH class="TableHeadingCell" style="width: 49mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell">status</TD>
 <TD class="TableCell">{opening : bool, opened : bool, closing : bool, closed : bool}</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">It is a structure used for the bridge and the gate. Because they may be opened or closed,
+    but they may also be taking some action to reach one of these two states. </TD>
 </TR></TBODY></TABLE></DIV>
 
 <A NAME='LinkS-!ed/4b92/6862/1F28/5e6ac1431aa9'></A><DIV class="Heading3">3.1.2. <A NAME="_TOC7">Bridge Operator</A></DIV>
@@ -374,10 +374,11 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <TH class="TableHeadingCell" style="width: 80mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell">deployRequest</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Indicates that the controller has sent the signal to deploy the bridge.</TD>
 </TR><TR><TD class="TableCell">retractRequest</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Indicates that the controller has sent the signal to retract the bridge.
+    This action is less relevant than deployRequest if both are true</TD>
 </TR></TBODY></TABLE></DIV>
 <DIV class="TableCaption">Table&nbsp;<A NAME="TABLE3">3</A>: Outputs of Bridge</DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;"><TABLE ><TBODY>
@@ -386,12 +387,12 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <TH class="TableHeadingCell" style="width: 80mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell">bridgeStatus</TD>
 <TD class="TableCell">status</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Is the output that informs to the controller the current status.</TD>
 </TR></TBODY></TABLE></DIV>
 <DIV class="Heading4">3.1.2.2.   <A NAME="_TOC9">Operator Hierarchy</A></DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;">
 <U>diagram</U> : <A class="Hyperlink" HREF="#LinkS-!ed/4b93/6862/1F28/5e6ac143592b">Bridge_1</A><BR>
-<I> &nbsp; &nbsp; &nbsp;state-machine</I> : <A class="Hyperlink" HREF="#LinkS-!ed/4b93/6862/1F28/5e6ac143592b">SM2</A><BR>
+<I> &nbsp; &nbsp; &nbsp;state-machine</I> : <A class="Hyperlink" HREF="#LinkS-!ed/4b93/6862/1F28/5e6ac143592b">Bridge</A><BR>
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;state : Closing<BR>
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;state : FullyClose<BR>
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;state : FullyOpen<BR>
@@ -407,23 +408,26 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <DIV class="BodyText" style="padding-bottom: 12pt;"><TABLE ><TBODY>
 <TR><TH class="TableHeadingCell" style="width: 50mm;">State Machine</TH>
 <TH class="TableHeadingCell" style="width: 110mm;">Comments and Information</TH>
-</TR><TR><TD class="TableCell">SM2</TD>
+</TR><TR><TD class="TableCell">Bridge</TD>
 <TD class="TableCell" style=""></TD>
 </TBODY></TABLE></DIV>
 <DIV class="TableCaption">Table&nbsp;<A NAME="TABLE5">5</A>: States of Bridge_1</DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;"><TABLE ><TBODY>
 <TR><TH class="TableHeadingCell" style="width: 70mm;">State</TH>
 <TH class="TableHeadingCell" style="width: 90mm;">Comments and Information</TH>
-</TR><TR><TD class="TableCell">SM2:Closing</TD>
-<TD class="TableCell" style=""></TD>
-</TR><TR><TD class="TableCell">SM2:FullyClose</TD>
-<TD class="TableCell" style=""></TD>
-</TR><TR><TD class="TableCell">SM2:FullyOpen</TD>
-<TD class="TableCell" style=""></TD>
-</TR><TR><TD class="TableCell">SM2:Opening</TD>
-<TD class="TableCell" style=""></TD>
-</TR><TR><TD class="TableCell">SM2:ToMove</TD>
-<TD class="TableCell" style=""></TD>
+</TR><TR><TD class="TableCell">Bridge:Closing</TD>
+<TD class="TableCell" style=""> This state indicates that the bridge is closing and after 5 units of time it will be closed.
+    If deployRequest become true, it will change to the opening state, because this request is more relevant.</TD>
+</TR><TR><TD class="TableCell">Bridge:FullyClose</TD>
+<TD class="TableCell" style="">This state indicates that the bridge is closed.
+    Here, closed must be the unique value that is true.</TD>
+</TR><TR><TD class="TableCell">Bridge:FullyOpen</TD>
+<TD class="TableCell" style="">This state indicates that the bridge is opened.
+    Here, opened must be the unique value that is true.</TD>
+</TR><TR><TD class="TableCell">Bridge:Opening</TD>
+<TD class="TableCell" style="">This state indicates that the bridge is opening and after 5 units of time it will be opened.</TD>
+</TR><TR><TD class="TableCell">Bridge:ToMove</TD>
+<TD class="TableCell" style="">This state wait some request to do any transition.</TD>
 </TR></TBODY></TABLE></DIV>
 <DIV class="TableCaption">Table&nbsp;<A NAME="TABLE6">6</A>: Transitions of Bridge_1</DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;"><TABLE ><TBODY>
@@ -432,17 +436,17 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <TH class="TableHeadingCell" style="width: 40mm;">Conditions/Actions</TH>
 <TH class="TableHeadingCell" style="width: 55mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM2:Closing<BR>
+Bridge:Closing<BR>
 <B>Target:</B><BR>
-SM2:Opening</TD>
+Bridge:Opening</TD>
 <TD class="TableCell">1</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 deployRequest</TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM2:Closing<BR>
+Bridge:Closing<BR>
 <B>Target:</B><BR>
-SM2:FullyClose</TD>
+Bridge:FullyClose</TD>
 <TD class="TableCell">2</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 bridgeStatus.closed<BR>
@@ -450,9 +454,9 @@ bridgeStatus.closed<BR>
 </TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM2:Opening<BR>
+Bridge:Opening<BR>
 <B>Target:</B><BR>
-SM2:FullyOpen</TD>
+Bridge:FullyOpen</TD>
 <TD class="TableCell">1</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 bridgeStatus.opened<BR>
@@ -460,17 +464,17 @@ bridgeStatus.opened<BR>
 </TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM2:ToMove<BR>
+Bridge:ToMove<BR>
 <B>Target:</B><BR>
-SM2:Opening</TD>
+Bridge:Opening</TD>
 <TD class="TableCell">1</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 deployRequest</TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM2:ToMove<BR>
+Bridge:ToMove<BR>
 <B>Target:</B><BR>
-SM2:Closing</TD>
+Bridge:Closing</TD>
 <TD class="TableCell">2</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 retractRequest and &nbsp;not deployRequest<BR>
@@ -491,10 +495,10 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <TH class="TableHeadingCell" style="width: 80mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell">clicked</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Indicates that someone press the button and the button will be pressed.</TD>
 </TR><TR><TD class="TableCell">deactivate</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Indicates that no one is pressing the button and the action that was needed is no longer active.</TD>
 </TR></TBODY></TABLE></DIV>
 <DIV class="TableCaption">Table&nbsp;<A NAME="TABLE8">8</A>: Outputs of Button</DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;"><TABLE ><TBODY>
@@ -503,7 +507,7 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <TH class="TableHeadingCell" style="width: 80mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell">activated</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Is the output that indicates that the action connected to the button is required.</TD>
 </TR></TBODY></TABLE></DIV>
 <DIV class="Heading4">3.1.3.2.   <A NAME="_TOC14">Operator Hierarchy</A></DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;">
@@ -529,9 +533,9 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <TR><TH class="TableHeadingCell" style="width: 70mm;">State</TH>
 <TH class="TableHeadingCell" style="width: 90mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell">Button:notPressed</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">The button is waiting to be pressed.</TD>
 </TR><TR><TD class="TableCell">Button:pressed</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Once the button is pressed and the action is requested, wait until the signal is no longer requested.</TD>
 </TR></TBODY></TABLE></DIV>
 <DIV class="TableCaption">Table&nbsp;<A NAME="TABLE11">11</A>: Transitions of Button_1</DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;"><TABLE ><TBODY>
@@ -569,16 +573,16 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <TH class="TableHeadingCell" style="width: 80mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell">requireDoor</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Indicates that someone is going to press the button that will request the door to be opened</TD>
 </TR><TR><TD class="TableCell">requireBridge</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Indicates that someone is going to press the button that will request the bridge to be deployed</TD>
 </TR><TR><TD class="TableCell">immDeparture</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Indicates that the driver requests the closing of doors and the retraction of the bridge to leave the station.</TD>
 </TR><TR><TD class="TableCell">inStation</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Indicates that the tram is in the station. In the initial state it is assumed that the tram is at the station.</TD>
 </TR></TBODY></TABLE></DIV>
 <DIV class="TableCaption">Table&nbsp;<A NAME="TABLE13">13</A>: Outputs of Controller</DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;"><TABLE ><TBODY>
@@ -587,30 +591,30 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <TH class="TableHeadingCell" style="width: 80mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell">doorStatus</TD>
 <TD class="TableCell">status</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">It is the current state of the door.</TD>
 </TR><TR><TD class="TableCell">bridgeStatus</TD>
 <TD class="TableCell">status</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">It is the current state of the bridge</TD>
 </TR><TR><TD class="TableCell">openDoor</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">It is the signal sent by the controller when the door opening is request.</TD>
 </TR><TR><TD class="TableCell">closeDoor</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">It is the signal sent by the controller when the door closing is request.</TD>
 </TR><TR><TD class="TableCell">deployBridge</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">It is the signal sent by the controller when the bridge deploying is request.</TD>
 </TR><TR><TD class="TableCell">retractBridge</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">It is the signal sent by the controller when the bridge retraction is request.</TD>
 </TR><TR><TD class="TableCell">secured</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Indicates when the tram can actually leave the station.</TD>
 </TR></TBODY></TABLE></DIV>
 <DIV class="Heading4">3.1.4.2.   <A NAME="_TOC19">Operator Hierarchy</A></DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;">
 <U>diagram</U> : <A class="Hyperlink" HREF="#LinkS-!ed/4d2b/6862/1F28/5e6ad03c537f">Controller_1</A><BR>
-<I> &nbsp; &nbsp; &nbsp;state-machine</I> : <A class="Hyperlink" HREF="#LinkS-!ed/4d2b/6862/1F28/5e6ad03c537f">SM1</A><BR>
+<I> &nbsp; &nbsp; &nbsp;state-machine</I> : <A class="Hyperlink" HREF="#LinkS-!ed/4d2b/6862/1F28/5e6ad03c537f">Controller</A><BR>
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;state : Bridge<BR>
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;state : BridgeButton<BR>
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;state : Door<BR>
@@ -628,27 +632,31 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <DIV class="BodyText" style="padding-bottom: 12pt;"><TABLE ><TBODY>
 <TR><TH class="TableHeadingCell" style="width: 50mm;">State Machine</TH>
 <TH class="TableHeadingCell" style="width: 110mm;">Comments and Information</TH>
-</TR><TR><TD class="TableCell">SM1</TD>
+</TR><TR><TD class="TableCell">Controller</TD>
 <TD class="TableCell" style=""></TD>
 </TBODY></TABLE></DIV>
 <DIV class="TableCaption">Table&nbsp;<A NAME="TABLE15">15</A>: States of Controller_1</DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;"><TABLE ><TBODY>
 <TR><TH class="TableHeadingCell" style="width: 70mm;">State</TH>
 <TH class="TableHeadingCell" style="width: 90mm;">Comments and Information</TH>
-</TR><TR><TD class="TableCell">SM1:Bridge</TD>
-<TD class="TableCell" style=""></TD>
-</TR><TR><TD class="TableCell">SM1:BridgeButton</TD>
-<TD class="TableCell" style=""></TD>
-</TR><TR><TD class="TableCell">SM1:Door</TD>
-<TD class="TableCell" style=""></TD>
-</TR><TR><TD class="TableCell">SM1:DoorButton</TD>
-<TD class="TableCell" style=""></TD>
-</TR><TR><TD class="TableCell">SM1:Open</TD>
-<TD class="TableCell" style=""></TD>
-</TR><TR><TD class="TableCell">SM1:ToLeaveStation</TD>
-<TD class="TableCell" style=""></TD>
-</TR><TR><TD class="TableCell">SM1:ToPressButton</TD>
-<TD class="TableCell" style=""></TD>
+</TR><TR><TD class="TableCell">Controller:Bridge</TD>
+<TD class="TableCell" style="">Use the Bridge state machine to perform retraction and deployment actions</TD>
+</TR><TR><TD class="TableCell">Controller:BridgeButton</TD>
+<TD class="TableCell" style="">Use a button state machine to simulate its press that will deploy the bridge. Pressing 
+    the button will request the door to be closed regardless of its state, and once the bridge is deployed in the Bridge
+    state, the door will be automatically requested. In this way, the request for the bridge will imply the request for the door later.</TD>
+</TR><TR><TD class="TableCell">Controller:Door</TD>
+<TD class="TableCell" style="">Use the Door state machine to perform closing and opening actions</TD>
+</TR><TR><TD class="TableCell">Controller:DoorButton</TD>
+<TD class="TableCell" style="">Use a button state machine to simulate its press that will open the door. This state implies
+    that eventually the state of the door will be opened, however it does not imply that the bridge</TD>
+</TR><TR><TD class="TableCell">Controller:Open</TD>
+<TD class="TableCell" style="">Represents the possibility of passengers entering to the tram. In this state waits for immDeparture
+    to leave the station or the bridgeRequest in case it has not been deployed yet. </TD>
+</TR><TR><TD class="TableCell">Controller:ToLeaveStation</TD>
+<TD class="TableCell" style="">Once it is secured to leave we only wait for the tram to be at another station again to start again.</TD>
+</TR><TR><TD class="TableCell">Controller:ToPressButton</TD>
+<TD class="TableCell" style="">It is the initial state. This state waits for the door or bridge request.</TD>
 </TR></TBODY></TABLE></DIV>
 <DIV class="TableCaption">Table&nbsp;<A NAME="TABLE16">16</A>: Transitions of Controller_1</DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;"><TABLE ><TBODY>
@@ -657,9 +665,9 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <TH class="TableHeadingCell" style="width: 40mm;">Conditions/Actions</TH>
 <TH class="TableHeadingCell" style="width: 55mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:Bridge<BR>
+Controller:Bridge<BR>
 <B>Target:</B><BR>
-SM1:ToLeaveStation</TD>
+Controller:ToLeaveStation</TD>
 <TD class="TableCell">1</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 doorStatus.closed and &nbsp;not doorStatus.closing and (bridgeStatus.closed and &nbsp;not bridgeStatus.closing)<BR>
@@ -667,9 +675,9 @@ doorStatus.closed and &nbsp;not doorStatus.closing and (bridgeStatus.closed and 
 </TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:Bridge<BR>
+Controller:Bridge<BR>
 <B>Target:</B><BR>
-SM1:Door</TD>
+Controller:Door</TD>
 <TD class="TableCell">2</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 openDoor and &nbsp;not bridgeStatus.opening and &nbsp;not bridgeStatus.closing<BR>
@@ -677,9 +685,9 @@ openDoor and &nbsp;not bridgeStatus.opening and &nbsp;not bridgeStatus.closing<B
 </TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:BridgeButton<BR>
+Controller:BridgeButton<BR>
 <B>Target:</B><BR>
-SM1:Door</TD>
+Controller:Door</TD>
 <TD class="TableCell">1</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 closeDoor<BR>
@@ -687,9 +695,9 @@ closeDoor<BR>
 </TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:Door<BR>
+Controller:Door<BR>
 <B>Target:</B><BR>
-SM1:Bridge</TD>
+Controller:Bridge</TD>
 <TD class="TableCell">1</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 doorStatus.closed and &nbsp;not doorStatus.closing and (bridgeStatus.opened and &nbsp;not bridgeStatus.opening)<BR>
@@ -697,9 +705,9 @@ doorStatus.closed and &nbsp;not doorStatus.closing and (bridgeStatus.opened and 
 </TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:Door<BR>
+Controller:Door<BR>
 <B>Target:</B><BR>
-SM1:Bridge</TD>
+Controller:Bridge</TD>
 <TD class="TableCell">2</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 deployBridge and doorStatus.closed and &nbsp;not doorStatus.closing<BR>
@@ -707,9 +715,9 @@ deployBridge and doorStatus.closed and &nbsp;not doorStatus.closing<BR>
 </TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:Door<BR>
+Controller:Door<BR>
 <B>Target:</B><BR>
-SM1:Open</TD>
+Controller:Open</TD>
 <TD class="TableCell">3</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 doorStatus.opened and &nbsp;not doorStatus.opening<BR>
@@ -717,9 +725,9 @@ doorStatus.opened and &nbsp;not doorStatus.opening<BR>
 </TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:Door<BR>
+Controller:Door<BR>
 <B>Target:</B><BR>
-SM1:ToLeaveStation</TD>
+Controller:ToLeaveStation</TD>
 <TD class="TableCell">4</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 doorStatus.closed and &nbsp;not doorStatus.closing and (bridgeStatus.closed and &nbsp;not bridgeStatus.closing)<BR>
@@ -727,9 +735,9 @@ doorStatus.closed and &nbsp;not doorStatus.closing and (bridgeStatus.closed and 
 </TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:DoorButton<BR>
+Controller:DoorButton<BR>
 <B>Target:</B><BR>
-SM1:Door</TD>
+Controller:Door</TD>
 <TD class="TableCell">1</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 openDoor<BR>
@@ -737,9 +745,9 @@ openDoor<BR>
 </TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:Open<BR>
+Controller:Open<BR>
 <B>Target:</B><BR>
-SM1:BridgeButton</TD>
+Controller:BridgeButton</TD>
 <TD class="TableCell">1</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 requireBridge and &nbsp;not bridgeStatus.opened<BR>
@@ -747,9 +755,9 @@ requireBridge and &nbsp;not bridgeStatus.opened<BR>
 </TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:Open<BR>
+Controller:Open<BR>
 <B>Target:</B><BR>
-SM1:Door</TD>
+Controller:Door</TD>
 <TD class="TableCell">2</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 immDeparture<BR>
@@ -757,9 +765,9 @@ immDeparture<BR>
 </TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:ToLeaveStation<BR>
+Controller:ToLeaveStation<BR>
 <B>Target:</B><BR>
-SM1:ToPressButton</TD>
+Controller:ToPressButton</TD>
 <TD class="TableCell">1</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 inStation<BR>
@@ -767,9 +775,9 @@ inStation<BR>
 </TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:ToPressButton<BR>
+Controller:ToPressButton<BR>
 <B>Target:</B><BR>
-SM1:BridgeButton</TD>
+Controller:BridgeButton</TD>
 <TD class="TableCell">1</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 requireBridge<BR>
@@ -777,9 +785,9 @@ requireBridge<BR>
 </TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:ToPressButton<BR>
+Controller:ToPressButton<BR>
 <B>Target:</B><BR>
-SM1:DoorButton</TD>
+Controller:DoorButton</TD>
 <TD class="TableCell">2</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 requireDoor<BR>
@@ -800,10 +808,11 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <TH class="TableHeadingCell" style="width: 80mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell">openRequest</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Indicates that the controller has sent the signal to open the door.</TD>
 </TR><TR><TD class="TableCell">closeRequest</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Indicates that the controller has sent the signal to close the door.
+    This action is less relevant than openRequest if both are true</TD>
 </TR></TBODY></TABLE></DIV>
 <DIV class="TableCaption">Table&nbsp;<A NAME="TABLE18">18</A>: Outputs of Door</DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;"><TABLE ><TBODY>
@@ -812,12 +821,12 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <TH class="TableHeadingCell" style="width: 80mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell">doorStatus</TD>
 <TD class="TableCell">status</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Is the output that informs to the controller the current status.</TD>
 </TR></TBODY></TABLE></DIV>
 <DIV class="Heading4">3.1.5.2.   <A NAME="_TOC24">Operator Hierarchy</A></DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;">
 <U>diagram</U> : <A class="Hyperlink" HREF="#LinkS-!ed/4a97/1704/1F40/5e6a8c5b6436">Door_1</A><BR>
-<I> &nbsp; &nbsp; &nbsp;state-machine</I> : <A class="Hyperlink" HREF="#LinkS-!ed/4a97/1704/1F40/5e6a8c5b6436">SM1</A><BR>
+<I> &nbsp; &nbsp; &nbsp;state-machine</I> : <A class="Hyperlink" HREF="#LinkS-!ed/4a97/1704/1F40/5e6a8c5b6436">Door</A><BR>
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;state : Closing<BR>
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;state : FullyClose<BR>
  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;state : FullyOpen<BR>
@@ -833,23 +842,24 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <DIV class="BodyText" style="padding-bottom: 12pt;"><TABLE ><TBODY>
 <TR><TH class="TableHeadingCell" style="width: 50mm;">State Machine</TH>
 <TH class="TableHeadingCell" style="width: 110mm;">Comments and Information</TH>
-</TR><TR><TD class="TableCell">SM1</TD>
+</TR><TR><TD class="TableCell">Door</TD>
 <TD class="TableCell" style=""></TD>
 </TBODY></TABLE></DIV>
 <DIV class="TableCaption">Table&nbsp;<A NAME="TABLE20">20</A>: States of Door_1</DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;"><TABLE ><TBODY>
 <TR><TH class="TableHeadingCell" style="width: 70mm;">State</TH>
 <TH class="TableHeadingCell" style="width: 90mm;">Comments and Information</TH>
-</TR><TR><TD class="TableCell">SM1:Closing</TD>
-<TD class="TableCell" style=""></TD>
-</TR><TR><TD class="TableCell">SM1:FullyClose</TD>
-<TD class="TableCell" style=""></TD>
-</TR><TR><TD class="TableCell">SM1:FullyOpen</TD>
-<TD class="TableCell" style=""></TD>
-</TR><TR><TD class="TableCell">SM1:Opening</TD>
-<TD class="TableCell" style=""></TD>
-</TR><TR><TD class="TableCell">SM1:ToMove</TD>
-<TD class="TableCell" style=""></TD>
+</TR><TR><TD class="TableCell">Door:Closing</TD>
+<TD class="TableCell" style="">	This state indicates that the door is closing and after 5 units of time it will be closed.
+    If openRequest become true, it will change to the opening state, because this request is more relevant.</TD>
+</TR><TR><TD class="TableCell">Door:FullyClose</TD>
+<TD class="TableCell" style="">This state indicates that the door is closed. Here, closed must be the unique value that is true.</TD>
+</TR><TR><TD class="TableCell">Door:FullyOpen</TD>
+<TD class="TableCell" style="">This state indicates that the door is opened. Here, opened must be the unique value that is true.</TD>
+</TR><TR><TD class="TableCell">Door:Opening</TD>
+<TD class="TableCell" style="">This state indicates that the door is opening and after 5 units of time it will be opened.</TD>
+</TR><TR><TD class="TableCell">Door:ToMove</TD>
+<TD class="TableCell" style="">This state wait some request to do any transition.</TD>
 </TR></TBODY></TABLE></DIV>
 <DIV class="TableCaption">Table&nbsp;<A NAME="TABLE21">21</A>: Transitions of Door_1</DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;"><TABLE ><TBODY>
@@ -858,17 +868,17 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <TH class="TableHeadingCell" style="width: 40mm;">Conditions/Actions</TH>
 <TH class="TableHeadingCell" style="width: 55mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:Closing<BR>
+Door:Closing<BR>
 <B>Target:</B><BR>
-SM1:Opening</TD>
+Door:Opening</TD>
 <TD class="TableCell">1</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 openRequest</TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:Closing<BR>
+Door:Closing<BR>
 <B>Target:</B><BR>
-SM1:FullyClose</TD>
+Door:FullyClose</TD>
 <TD class="TableCell">2</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 doorStatus.closed<BR>
@@ -876,9 +886,9 @@ doorStatus.closed<BR>
 </TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:Opening<BR>
+Door:Opening<BR>
 <B>Target:</B><BR>
-SM1:FullyOpen</TD>
+Door:FullyOpen</TD>
 <TD class="TableCell">1</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 doorStatus.opened<BR>
@@ -886,17 +896,17 @@ doorStatus.opened<BR>
 </TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:ToMove<BR>
+Door:ToMove<BR>
 <B>Target:</B><BR>
-SM1:Opening</TD>
+Door:Opening</TD>
 <TD class="TableCell">1</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 openRequest</TD>
 <TD class="TableCell" style=""></TD>
 </TR><TR><TD class="TableCell" style=""><B>Source:</B><BR>
-SM1:ToMove<BR>
+Door:ToMove<BR>
 <B>Target:</B><BR>
-SM1:Closing</TD>
+Door:Closing</TD>
 <TD class="TableCell">2</TD>
 <TD class="TableCell" style=""><B>Condition:</B><BR>
 closeRequest and &nbsp;not openRequest<BR>
@@ -919,16 +929,16 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <TH class="TableHeadingCell" style="width: 80mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell">requireDoor</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Controller input</TD>
 </TR><TR><TD class="TableCell">requireBridge</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Controller input</TD>
 </TR><TR><TD class="TableCell">immDeparture</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Controller input</TD>
 </TR><TR><TD class="TableCell">inStation</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Controller input</TD>
 </TR></TBODY></TABLE></DIV>
 <DIV class="TableCaption">Table&nbsp;<A NAME="TABLE23">23</A>: Outputs of SafeBridge</DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;"><TABLE ><TBODY>
@@ -937,7 +947,14 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <TH class="TableHeadingCell" style="width: 80mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell">Output</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">
+    Represents:
+    <BR>
+    (bridgeStatus.closing &or; bridgeStatus.opening) &rarr; (&not;(doorStatus.opened))
+    <BR>
+    The door can not be opening if the bridge have an action. 
+    That means that any action, such as closing or opening, implies that the door is not opened.
+</TD>
 </TR></TBODY></TABLE></DIV>
 <DIV class="Heading4">3.2.1.2.   <A NAME="_TOC30">Operator Hierarchy</A></DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;">
@@ -960,16 +977,16 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <TH class="TableHeadingCell" style="width: 80mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell">requireDoor</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Controller input</TD>
 </TR><TR><TD class="TableCell">requireBridge</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Controller input</TD>
 </TR><TR><TD class="TableCell">immDeparture</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Controller input</TD>
 </TR><TR><TD class="TableCell">inStation</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">Controller input</TD>
 </TR></TBODY></TABLE></DIV>
 <DIV class="TableCaption">Table&nbsp;<A NAME="TABLE25">25</A>: Outputs of SecuredDriving</DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;"><TABLE ><TBODY>
@@ -978,7 +995,14 @@ Declared as <SPAN class="BodyText" style="font-family: Courier; font-size: 12pt;
 <TH class="TableHeadingCell" style="width: 80mm;">Comments and Information</TH>
 </TR><TR><TD class="TableCell">Output</TD>
 <TD class="TableCell">bool</TD>
-<TD class="TableCell" style=""></TD>
+<TD class="TableCell" style="">
+    Represents:
+    <BR>
+    secured &rarr; (&not;(doorStatus.opened &or; bridgeStatus.opened))
+    <BR>
+    The tram can not leave the station with the door opened or the bridge deployed.
+    That means that secured implies that neither the door nor the bridge can be opened
+</TD>
 </TR></TBODY></TABLE></DIV>
 <DIV class="Heading4">3.2.2.2.   <A NAME="_TOC35">Operator Hierarchy</A></DIV>
 <DIV class="BodyText" style="padding-bottom: 12pt;">

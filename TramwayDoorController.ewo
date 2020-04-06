@@ -50,22 +50,26 @@
 [STUDIO\TOOLS\CONFIGURATIONS\Code Generator]
 
 "C:\\Users\\USER\\Documents\\Scade Proyectos\\final\\TramwayDoorController\\TramwayDoorController.etp"="Simulation" 
+"C:\\Users\\USER\\Documents\\Scade Proyectos\\copyFinal\\TramwayDoorController\\TramwayDoorController.etp"="KCG" 
 
 [STUDIO\TOOLS\CONFIGURATIONS\Metrics and Rules Checker]
 
 "C:\\Users\\USER\\Documents\\Scade Proyectos\\final\\TramwayDoorController\\TramwayDoorController.etp"="MetricRule" 
+"C:\\Users\\USER\\Documents\\Scade Proyectos\\copyFinal\\TramwayDoorController\\TramwayDoorController.etp"="MetricRule" 
 
 [STUDIO\TOOLS\CONFIGURATIONS\Reporter]
 
 "C:\\Users\\USER\\Documents\\Scade Proyectos\\final\\TramwayDoorController\\TramwayDoorController.etp"="HTML" 
+"C:\\Users\\USER\\Documents\\Scade Proyectos\\copyFinal\\TramwayDoorController\\TramwayDoorController.etp"="HTML" 
 
 [STUDIO\TOOLS\CONFIGURATIONS\Timing and Stack Analysis Tools]
 
 "C:\\Users\\USER\\Documents\\Scade Proyectos\\final\\TramwayDoorController\\TramwayDoorController.etp"="KCG" 
+"C:\\Users\\USER\\Documents\\Scade Proyectos\\copyFinal\\TramwayDoorController\\TramwayDoorController.etp"="KCG" 
 
 [STUDIO\Workspace]
 
-"ActiveProject"="C:\\Users\\USER\\Documents\\Scade Proyectos\\final\\TramwayDoorController\\TramwayDoorController.etp" 
+"ActiveProject"="C:\\Users\\USER\\Documents\\Scade Proyectos\\copyFinal\\TramwayDoorController\\TramwayDoorController.etp" 
 
 [SCADE\Editor\Shortcut]
 
