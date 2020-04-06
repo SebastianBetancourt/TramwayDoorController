@@ -43,7 +43,7 @@
 				</Variable>
 			</outputs>
 			<data>
-				<StateMachine name="SM1">
+				<StateMachine name="Door">
 					<states>
 						<State initial="true" name="ToMove">
 							<unless>
