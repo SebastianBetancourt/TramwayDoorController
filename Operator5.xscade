@@ -139,7 +139,7 @@
 				</Variable>
 			</outputs>
 			<data>
-				<StateMachine name="SM1">
+				<StateMachine name="Machine">
 					<states>
 						<State initial="true" name="ToOpen">
 							<locals>

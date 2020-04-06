@@ -1,5 +1,5 @@
 $**************  SCADETOC Version 2019 R3 (build 20190802) **************
-** Generation date: 2020-03-29T21:29:55
+** Generation date: 2020-03-30T15:30:14
 ** Command: scade -code "C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\TramwayDoorController.etp" -root Controller -conf Simulation -sim -all
 *************************************************************$
 *** Generated Files Information (GENFIL): KCG- Generated files
@@ -69,6 +69,6 @@ $**************  SCADETOC Version 2019 R3 (build 20190802) **************
   at file C:\Users\USER\Documents\Scade Proyectos\final\TramwayDoorController\Simulation\Controller.exe, line 0, character 0
  ~Controller.exe
 $**************  SCADETOC Version 2019 R3 (build 20190802) **************
-** Generation date: 2020-03-29T21:30:00
+** Generation date: 2020-03-30T15:30:41
 ** sc2c.log
 *************************************************************$

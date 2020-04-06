@@ -1,6 +1,6 @@
 /* $********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** Command: kcg66.exe -config C:/Users/USER/Documents/Scade Proyectos/final/TramwayDoorController/Simulation/config.txt
-** Generation date: 2020-03-29T21:29:58
+** Generation date: 2020-03-30T15:30:21
 *************************************************************$ */
 #ifndef _Controller_H_
 #define _Controller_H_
@@ -92,6 +92,6 @@ extern void Controller_init(outC_Controller *outC);
 #endif /* _Controller_H_ */
 /* $********** SCADE Suite KCG 32-bit 6.6 (build i19) ***********
 ** Controller.h
-** Generation date: 2020-03-29T21:29:58
+** Generation date: 2020-03-30T15:30:21
 *************************************************************$ */
 
